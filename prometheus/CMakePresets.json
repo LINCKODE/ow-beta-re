@@ -1,0 +1,111 @@
+{
+  "version": 9,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 31,
+    "patch": 0
+  },
+  "include": [],
+  "configurePresets": [
+    {
+      "hidden": true,
+      "name": "base",
+      "binaryDir": "${sourceDir}/build/${presetName}"
+    },
+    {
+      "hidden": true,
+      "name": "MSVC",
+      "generator": "Visual Studio 17 2022",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/external/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "PRO_PLATFORM": "MSVC"
+      },
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "vendor": {
+        "jetbrains.com/clion": {
+          "toolchain": "Visual Studio"
+        },
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "hostOS": [ "Windows" ]
+        }
+      },
+      "environment": {
+        "VCPKG_ROOT": "${sourceDir}/external/vcpkg",
+        "VCPKG_DEFAULT_TRIPLET": "x64-windows-static",
+        "PATH": "$env{VCPKG_ROOT}:$penv{PATH}"
+      }
+    },
+    {
+      "name": "Release-MSVC",
+      "displayName": "Release MSVC Build",
+      "description": "Build for Windows x64 in Release mode",
+      "inherits": "MSVC",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "Debug-MSVC",
+      "displayName": "Debug MSVC Build",
+      "description": "Build for Windows x64 in Debug mode",
+      "inherits": "MSVC",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "hidden": true,
+      "name": "MinGW",
+      "generator": "Ninja",
+      "inherits": "base",
+      "cacheVariables": {
+        "VCPKG_HOST_TRIPLET": "x64-mingw-static",
+        "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+        "PRO_PLATFORM": "MinGW",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_SYSTEM_NAME": "Windows",
+        "CMAKE_POLICY_VERSION_MINIMUM": "3.5",
+        "VCPKG_MANIFEST_DIR": "${sourceDir}/vcpkg-mingw",
+        "VCPKG_INSTALL_OPTIONS": "--allow-unsupported"
+      },
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "hostOS": [ "Windows" ]
+        }
+      },
+      "environment": {
+        "VCPKG_DEFAULT_TRIPLET": "x64-mingw-static",
+        "VCPKG_KEEP_ENV_VARS": "PATH"
+      }
+    },
+    {
+      "name": "Release-MinGW",
+      "binaryDir": "${sourceDir}/output/Release",
+      "displayName": "Release MinGW Build",
+      "description": "Build for LLVM MinGW x64 in Release mode",
+      "inherits": "MinGW",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "Debug-MinGW",
+      "binaryDir": "${sourceDir}/output/Debug",
+      "displayName": "Debug MinGW Build",
+      "description": "Build for LLVM MinGW x64 in Debug mode",
+      "inherits": "MinGW",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ]
+}

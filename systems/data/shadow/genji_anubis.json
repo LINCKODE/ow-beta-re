@@ -1,0 +1,2735 @@
+{
+  "source": "shadowcmp 0x4000001f, actions fire,secondary_fire,reload,ability_1,ability_2,jump x3, 2026-09-27T10:35:18+03:00 (T061, library libs=ac79b51a1ab9 = T060 build of 10:17), merged with the T057 08:1x run's mismatching states not reproduced here (0x157:14, 0x157:15, 0x157:16: 0/73 now, intermittent)",
+  "states": {
+    "0x157:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 9,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x157:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 5,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x157:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWatch",
+      "type": "e67578c0"
+    },
+    "0x157:14": {
+      "checks": 63,
+      "frozen": false,
+      "mismatches": 9,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x157:15": {
+      "checks": 63,
+      "frozen": false,
+      "mismatches": 9,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x157:16": {
+      "checks": 63,
+      "frozen": false,
+      "mismatches": 9,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x157:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x157:18": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x157:19": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x157:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 62,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:20": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x157:21": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x157:22": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "7aff7efe",
+      "type": "7aff7efe"
+    },
+    "0x157:23": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x157:24": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x157:25": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x157:26": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x157:27": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 58,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:28": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x157:29": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x157:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWallMove",
+      "type": "f45a1956"
+    },
+    "0x157:30": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x157:31": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x157:32": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:33": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 37,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:34": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:35": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x157:36": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x157:37": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x157:38": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x157:39": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x157:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:40": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x157:41": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x157:42": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x157:43": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:44": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:45": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x157:46": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x157:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 4,
+      "name": "STUStatescriptStateLedgeClimb",
+      "type": "f6e1e486"
+    },
+    "0x157:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 4,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 58,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x157:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x157:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "2e4a0ab",
+      "type": "2e4a0ab"
+    },
+    "0x15:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x15:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x15:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x15:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x15:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 73,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x15:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 2,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x15:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x15:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:18": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x15:19": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x15:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x15:20": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:21": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptState",
+      "type": "a7213568"
+    },
+    "0x15:22": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:23": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:24": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:25": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXViewModel",
+      "type": "c2a01675"
+    },
+    "0x15:26": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:27": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x15:28": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x15:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x15:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x15:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x15:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x15:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x15:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWatch",
+      "type": "e67578c0"
+    },
+    "0x15:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x1c7:13": {
+      "checks": 73,
+      "frozen": true,
+      "mismatches": 15,
+      "name": "STUStatescriptStateTrackMovement",
+      "type": "8de7e50f"
+    },
+    "0x1c7:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x1c7:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:18": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptState",
+      "type": "a7213568"
+    },
+    "0x1c7:19": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:20": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "2168e38f",
+      "type": "2168e38f"
+    },
+    "0x1c7:21": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "2168e38f",
+      "type": "2168e38f"
+    },
+    "0x1c7:22": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:23": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:24": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:25": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:27": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "2168e38f",
+      "type": "2168e38f"
+    },
+    "0x1c7:28": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "459c53d",
+      "type": "459c53d"
+    },
+    "0x1c7:29": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:32": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:33": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:34": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x1c7:36": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:39": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSwitch",
+      "type": "26367267"
+    },
+    "0x1c7:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXReticleOverride",
+      "type": "6bfa64af"
+    },
+    "0x1c7:40": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "459c53d",
+      "type": "459c53d"
+    },
+    "0x1c7:41": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:42": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:43": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x1c7:48": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:49": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 15,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x1c7:50": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:51": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:52": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1c7:53": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:54": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x1c7:55": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x1c7:56": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1c7:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 15,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x1c7:62": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x1c7:63": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x1c7:64": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "4ab09851",
+      "type": "4ab09851"
+    },
+    "0x1c7:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 58,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1ca:39": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x1cf:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXScreen",
+      "type": "c739baac"
+    },
+    "0x1cf:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXScreen",
+      "type": "c739baac"
+    },
+    "0x1cf:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXScreen",
+      "type": "c739baac"
+    },
+    "0x1cf:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXScreen",
+      "type": "c739baac"
+    },
+    "0x1cf:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXScreen",
+      "type": "c739baac"
+    },
+    "0x1cf:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1cf:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1cf:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "ba8e336e",
+      "type": "ba8e336e"
+    },
+    "0x1cf:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "4ab09851",
+      "type": "4ab09851"
+    },
+    "0x1db:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXViewModel",
+      "type": "c2a01675"
+    },
+    "0x1db:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAbility",
+      "type": "f53c5da8"
+    },
+    "0x1db:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateModifyHealth",
+      "type": "619d9e95"
+    },
+    "0x1db:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1db:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1db:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTargetEffect",
+      "type": "d7ca9c01"
+    },
+    "0x1db:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1db:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1db:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1db:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1db:18": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1db:19": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1db:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 3,
+      "name": "STUStatescriptStateMoveTo",
+      "type": "c1035274"
+    },
+    "0x1db:20": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x1db:21": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x1db:22": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1db:23": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "1d6952a",
+      "type": "1d6952a"
+    },
+    "0x1db:24": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 2,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1db:25": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 2,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x1db:26": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "225ae956",
+      "type": "225ae956"
+    },
+    "0x1db:27": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x1db:28": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateModifyHealth",
+      "type": "619d9e95"
+    },
+    "0x1db:29": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x1db:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x1db:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "2e4a0ab",
+      "type": "2e4a0ab"
+    },
+    "0x1db:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBlinkEffect",
+      "type": "429991a7"
+    },
+    "0x1db:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x1db:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x1db:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWatch",
+      "type": "e67578c0"
+    },
+    "0x1db:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateApplyAura",
+      "type": "d78490d1"
+    },
+    "0x215:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateEffect",
+      "type": "ffbfa88d"
+    },
+    "0x215:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "459c53d",
+      "type": "459c53d"
+    },
+    "0x215:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x215:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x215:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateApplyAura",
+      "type": "d78490d1"
+    },
+    "0x215:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x215:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x215:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x215:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x2c5:10": {
+      "checks": 73,
+      "frozen": true,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackMovement",
+      "type": "8de7e50f"
+    },
+    "0x2c5:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x2c5:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x2c5:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "4ab09851",
+      "type": "4ab09851"
+    },
+    "0x2c5:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x2c5:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x2cf:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x2cf:1": {
+      "checks": 73,
+      "frozen": true,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSprayEffect",
+      "type": "1787a82d"
+    },
+    "0x2cf:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x2cf:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 73,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x304:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWeaponVolley",
+      "type": "860ee5fc"
+    },
+    "0x304:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:18": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWatch",
+      "type": "e67578c0"
+    },
+    "0x304:19": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:20": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:21": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:22": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "cd396790",
+      "type": "cd396790"
+    },
+    "0x304:23": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:24": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:25": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "cd396790",
+      "type": "cd396790"
+    },
+    "0x304:26": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x304:27": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x304:28": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x304:29": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x304:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x304:30": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateModifyHealth",
+      "type": "619d9e95"
+    },
+    "0x304:31": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateModifyHealth",
+      "type": "619d9e95"
+    },
+    "0x304:32": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTargetEffect",
+      "type": "d7ca9c01"
+    },
+    "0x304:33": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTargetEffect",
+      "type": "d7ca9c01"
+    },
+    "0x304:34": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "cd396790",
+      "type": "cd396790"
+    },
+    "0x304:35": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "cd396790",
+      "type": "cd396790"
+    },
+    "0x304:36": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x304:37": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x304:38": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:39": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWeaponVolley",
+      "type": "860ee5fc"
+    },
+    "0x304:40": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:41": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:42": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:43": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 9,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x304:44": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x304:45": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x304:46": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x304:47": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:48": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:49": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "225ae956",
+      "type": "225ae956"
+    },
+    "0x304:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x304:50": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x304:51": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:52": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x304:53": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x304:54": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:55": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:56": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 64,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:57": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x304:58": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x304:59": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAbility",
+      "type": "f53c5da8"
+    },
+    "0x304:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x304:60": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAbility",
+      "type": "f53c5da8"
+    },
+    "0x304:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x304:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x304:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXViewModel",
+      "type": "c2a01675"
+    },
+    "0x317:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "2e4a0ab",
+      "type": "2e4a0ab"
+    },
+    "0x317:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x317:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x317:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x317:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x317:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x317:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x317:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x317:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x317:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x317:18": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x317:19": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x317:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x317:20": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x317:21": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCameraTransform",
+      "type": "a5f89e3f"
+    },
+    "0x317:22": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCameraTransform",
+      "type": "a5f89e3f"
+    },
+    "0x317:23": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x317:24": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "225ae956",
+      "type": "225ae956"
+    },
+    "0x317:25": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "225ae956",
+      "type": "225ae956"
+    },
+    "0x317:26": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDataFlowMapping",
+      "type": "85c28a9a"
+    },
+    "0x317:27": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x317:28": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x317:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXViewModel",
+      "type": "c2a01675"
+    },
+    "0x317:30": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x317:33": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateEffect",
+      "type": "ffbfa88d"
+    },
+    "0x317:34": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x317:35": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x317:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXViewModel",
+      "type": "c2a01675"
+    },
+    "0x317:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAbility",
+      "type": "f53c5da8"
+    },
+    "0x317:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x317:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x317:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x317:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x33:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateHealthPool",
+      "type": "c17b255d"
+    },
+    "0x33:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x33:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x33:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateHealthPool",
+      "type": "c17b255d"
+    },
+    "0x33:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateHealthPool",
+      "type": "c17b255d"
+    },
+    "0x33:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x33:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateModifyHealth",
+      "type": "619d9e95"
+    },
+    "0x352:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x352:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x352:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateChaseVar",
+      "type": "970ec198"
+    },
+    "0x352:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x352:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptState",
+      "type": "a7213568"
+    },
+    "0x352:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x352:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "459c53d",
+      "type": "459c53d"
+    },
+    "0x352:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x352:18": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "4ab09851",
+      "type": "4ab09851"
+    },
+    "0x352:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x352:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x352:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCosmeticEntity",
+      "type": "6e81f6d4"
+    },
+    "0x352:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "2e4a0ab",
+      "type": "2e4a0ab"
+    },
+    "0x352:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "1d6952a",
+      "type": "1d6952a"
+    },
+    "0x352:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x3a3:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateUXViewModel",
+      "type": "c2a01675"
+    },
+    "0x3a3:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAbility",
+      "type": "f53c5da8"
+    },
+    "0x3a3:18": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x3a3:19": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateDeflectProjectiles",
+      "type": "67471c66"
+    },
+    "0x3a3:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePet",
+      "type": "4cced352"
+    },
+    "0x3a3:21": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x3a3:22": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x3a3:23": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x3a3:24": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x3a3:25": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x3a3:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x3a3:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x3a3:45": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x3a3:46": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x3a3:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x3a3:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateLogicalButton",
+      "type": "ff77458c"
+    },
+    "0x3a3:66": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateEffect",
+      "type": "ffbfa88d"
+    },
+    "0x3a3:67": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x3a3:69": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "225ae956",
+      "type": "225ae956"
+    },
+    "0x3a3:70": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateCombatModFilter",
+      "type": "68cb1df9"
+    },
+    "0x3a3:71": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "3f67b31b",
+      "type": "3f67b31b"
+    },
+    "0x3a3:72": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x3a3:73": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x3a3:74": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x3a3:75": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "4ab09851",
+      "type": "4ab09851"
+    },
+    "0x43:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTargetEffect",
+      "type": "d7ca9c01"
+    },
+    "0x43:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x43:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x43:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "225ae956",
+      "type": "225ae956"
+    },
+    "0x43:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x43:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x43:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x43:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x43:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateStack",
+      "type": "f7d6498c"
+    },
+    "0x43:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x43:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAnim",
+      "type": "7fb4bf64"
+    },
+    "0x43:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTargetEffect",
+      "type": "d7ca9c01"
+    },
+    "0x43:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateModifyHealth",
+      "type": "619d9e95"
+    },
+    "0x43:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x43:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateAbility",
+      "type": "f53c5da8"
+    },
+    "0x43:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x43:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0x4b:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "4ab09851",
+      "type": "4ab09851"
+    },
+    "0x4b:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x4b:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateSubScript",
+      "type": "3db862c4"
+    },
+    "0x5ac:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:13": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:14": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:15": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:17": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:2": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:4": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:5": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:6": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:7": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:8": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ac:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStatePopulateTips",
+      "type": "a97b875f"
+    },
+    "0x5ad:0": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateFindGround",
+      "type": "72509d3b"
+    },
+    "0x5ad:10": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x5ad:11": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x5ad:12": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateBooleanSwitch",
+      "type": "e811ecbb"
+    },
+    "0x5ad:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateTrackTargets",
+      "type": "498b421a"
+    },
+    "0x5ad:23": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "3f67b31b",
+      "type": "3f67b31b"
+    },
+    "0x5ad:29": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x5ad:3": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptState",
+      "type": "a7213568"
+    },
+    "0x5ad:30": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x5ad:31": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateClientonlyController",
+      "type": "9f74c07c"
+    },
+    "0x5ad:32": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "4ab09851",
+      "type": "4ab09851"
+    },
+    "0x5ad:9": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateWait",
+      "type": "65f158da"
+    },
+    "0xb2a:1": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "STUStatescriptStateEffect",
+      "type": "ffbfa88d"
+    },
+    "0xb3b:16": {
+      "checks": 73,
+      "frozen": false,
+      "mismatches": 0,
+      "name": "4ab09851",
+      "type": "4ab09851"
+    }
+  }
+}

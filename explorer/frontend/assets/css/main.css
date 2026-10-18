@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import "@fontsource-variable/instrument-sans";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* Design tokens. The palette is deliberately quiet (blue-grey ink); colour in the UI comes from the
+   data: every resource type has its own hue (utils/format.ts typeHue), carried by every GUID. */
+@theme {
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  --color-ink: #0e131e;        /* window */
+  --color-well: #111827;       /* recessed areas: lists, code */
+  --color-panel: #151d2b;      /* panes */
+  --color-raised: #1c2638;     /* hover, headers */
+  --color-line: #253049;       /* hairlines */
+  --color-line-strong: #34425f;
+  --color-fg: #d8e0ec;
+  --color-dim: #8a98b0;
+  --color-faint: #5b6780;
+  --color-sel: #24406b;        /* selection */
+  --color-focus: #8fb4ff;
+
+  --color-v-string: #eaa9c6;
+  --color-v-num: #a9c3ff;
+  --color-v-enum: #c9b6ff;
+  --color-v-obj: #7fd6c2;
+  --color-v-err: #ff8a78;
+  --color-v-ok: #8fd694;
+}
+
+html, body, #__nuxt { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  user-select: none;
+}
+.selectable, input, textarea { user-select: text; }
+.mono { font-family: var(--font-mono); font-size: 12px; font-feature-settings: "zero" 1; }
+:focus-visible { outline: 1.5px solid var(--color-focus); outline-offset: -1.5px; }
+button { cursor: default; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 6px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background-color: var(--color-line-strong); }
+::-webkit-scrollbar-corner { background: transparent; }
+
+.tab { padding: 6px 10px; color: var(--color-dim); border-bottom: 2px solid transparent; }
+.tab:hover { color: var(--color-fg); }
+.tab[aria-selected="true"] { color: var(--color-fg); border-bottom-color: var(--color-focus); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

@@ -1,0 +1,13 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+  override:
+    # Sets go_package for every proto file, so the reconstructed .proto files stay untouched.
+    - file_option: go_package_prefix
+      value: owserver/gen
+plugins:
+  # protoc-gen-go is pinned as a tool in go.mod.
+  - local: ["go", "tool", "protoc-gen-go"]
+    out: gen
+    opt: paths=source_relative

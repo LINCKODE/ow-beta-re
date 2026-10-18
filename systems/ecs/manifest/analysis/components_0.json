@@ -1,0 +1,742 @@
+[
+ {
+  "id": "0x01",
+  "name": "SceneTransform (scene node / render transform)",
+  "confidence": "high",
+  "summary": "Per-entity scene node: position/rotation/scale and render flags; the base that almost every other component depends on. Inline-capable (544 B) so map geometry entities carry it in-place.",
+  "added_by": "dependency of most components (0x03,0x06,0x0c,0x16,0x1d,0x41,0x45,...) and map inline spawns",
+  "mirrored": null,
+  "used_by_systems": [
+   "MapWorldSystem 0x15c32e8",
+   "FirstPersonRenderFlagSystem 0x15c52f8 (flags 0x400/0x800)",
+   "MovementImpactEffectSystem 0x15c4fd8"
+  ],
+  "fields": {
+   "0x50": "scaling Vec4 (Prometheus Component_1_SceneRendering)",
+   "0x60": "position Vec4",
+   "0x1a8": "attached scene-proxy interface ptr (set by 0x06/0x0c/0x45 OnCreate)",
+   "0x1b8": "render/scene flag qword"
+  },
+  "server_relevance": "Server needs transforms but not this render node; position replicates via movement state (0x12).",
+  "evidence": "Prometheus Component_1_SceneRendering; OnCreate of 0x06/0x0c/0x45 fetch comp 0x01 via mask bit 1 and write +0x1a8/+0x1b8; creator slot1 FUN_7ff6509e6380 -> ctor FUN_7ff6509e00c0."
+ },
+ {
+  "id": "0x03",
+  "name": "DataFlow (per-entity data-flow / parameter binding graph)",
+  "confidence": "high",
+  "summary": "Per-entity data-flow node container that other components publish values into (e.g. 0x10 FilterBits registers a data-flow node here). Inline-capable (1616 B).",
+  "added_by": "dependency of 0x04,0x0b,0x0d,0x1d,0x23,0x27,... and of 0x1f",
+  "mirrored": null,
+  "used_by_systems": [],
+  "fields": {},
+  "server_relevance": "Client-side presentation plumbing; not replicated.",
+  "evidence": "Prometheus Component_3_DataFlow.h; 0x10 OnCreate (FUN_7ff650cb09a0) and 0x20 OnCreate (FUN_7ff650cac090) look up comp 0x03 via mask bit 3 and register nodes (FUN_7ff6509e8410/84c0, FUN_7ff6509e83a0)."
+ },
+ {
+  "id": "0x06",
+  "name": "SceneProxy_RadiusWeighted (scene-attached emitter/influence proxy, likely ambient sound emitter)",
+  "confidence": "low",
+  "summary": "Attaches a proxy interface (secondary vtable 0x158eb68 at +0x18) to the entity's scene node (0x01 +0x1a8) and sets scene flag 0x10000000000000. Its per-frame proxy method scores itself against a per-world list of observers within a radius (distance attenuation via virtual curve, half-float weights), which looks like an ambient sound emitter or similar influence volume.",
+  "added_by": "unknown (no STU mapping; 0 live instances in game; lobby scene only)",
+  "mirrored": false,
+  "used_by_systems": [
+   "LobbyBackgroundSceneSystem 0x15c4440 (lobby #0, OnEntityAdded: GUID -> entity id map)"
+  ],
+  "fields": {
+   "0x18": "scene proxy subobject (vtable 0x158eb68)"
+  },
+  "server_relevance": "Client presentation only.",
+  "evidence": "Creator FUN_7ff650a27160 sets vtable 0x158ec60 + secondary 0x158eb68; OnCreate FUN_7ff650a26440 writes scene+0x1a8=this+0x18, flag 0x10000000000000; proxy slot7 FUN_7ff650a26830 iterates world+0xb0 list and compares squared distance to node radius +0x110. Only subscriber is lobby system 0."
+ },
+ {
+  "id": "0x0c",
+  "name": "AudioListener",
+  "confidence": "medium",
+  "summary": "Marks the entity whose transform is used as the audio listener; attaches a scene proxy (secondary vtable 0x158f870) to scene node 0x01. The game EA has one dedicated entity {0x01,0x0c}; the lobby singleton entity also has one.",
+  "added_by": "engine-spawned listener entity (no STU)",
+  "mirrored": false,
+  "used_by_systems": [
+   "GameSoundSystem 0x15c5120 (listener entity +0x28 has comp 0x0C: FUN_7ff650a3e4d0(comp0x0C, view target))"
+  ],
+  "fields": {
+   "0x18": "scene proxy subobject (vtable 0x158f870)",
+   "0x28": "u32 init 0xffffffff (tracked entity/view handle?)"
+  },
+  "server_relevance": "Client-only audio.",
+  "evidence": "Live: game entity 0x8000066e components {0x01,0x0c}; creator FUN_7ff650a3e860; OnCreate FUN_7ff650a3e3e0 sets scene+0x1a8, flag 0x20000000 and FUN_7ff6509e5750(scene,8,..). docs/ECS_Systems.md GameSoundSystem tick."
+ },
+ {
+  "id": "0x10",
+  "name": "FilterBits (team / visibility filter mask)",
+  "confidence": "high",
+  "summary": "Replicated filter/team bitmask (team bits 0x40000..0x200000, local 0x100). On create it registers a data-flow node in 0x03 so the scene/physics pick up team masks.",
+  "added_by": "dependency of 0x0e, 0x20, 0x3a, 0x3d, 0x6d; controller loader",
+  "mirrored": true,
+  "used_by_systems": [
+   "MapLoadSystem 0x15c3118 (syncs 0x10 into scene)",
+   "CollisionProxySyncSystem 0x15c4d30",
+   "MovementImpactEffectSystem 0x15c4fd8 (raycast team mask)"
+  ],
+  "fields": {
+   "0x18": "mirror data STU 0xfb184d9c (field 0x81ee6c36)",
+   "0x90": "pre_filter_bits (mirrored)",
+   "0x98": "filter_bits (final)"
+  },
+  "server_relevance": "Server must replicate team/filter bits for every player/networked entity.",
+  "evidence": "Prometheus Component_10_FilterBits; vtable 0x15c6148 slot1 = shared GetMirrorData 0x140cc04b0; read_stu_at(comp+0x18) = type 0xfb184d9c; 24 live instances on replicated 0x4000xxxx entities."
+ },
+ {
+  "id": "0x16",
+  "name": "CharacterCollisionProxy (physics capsule following movement state)",
+  "confidence": "medium",
+  "summary": "STU-backed (0x1ab05d0f: m_radius, m_height, m_isTurret, two enum fields, flags). OnCreate builds a physics body for the entity and picks collision filter 0x1099 for turrets vs 0x1081; CollisionProxySyncSystem pushes the movement-state position into that body each update and refreshes the team filter.",
+  "added_by": "STU 0x1ab05d0f (no OWLib name)",
+  "mirrored": false,
+  "used_by_systems": [
+   "CollisionProxySyncSystem 0x15c4d30 (secondary interface FUN_7ff650c7f4a0 iterates 0x16)"
+  ],
+  "fields": {
+   "0x40": "u8 is_turret flag set",
+   "0x41": "u8 m_isTurret copy"
+  },
+  "server_relevance": "Server likely needs equivalent collision proxies for hit/collision of movers (turrets).",
+  "evidence": "RegisteredSTUTypes STU_1AB05D0F fields 71EF3CA4=m_radius, BFDEB7F1=m_height, 007CC6B1=m_isTurret; OnCreate FUN_7ff650cae430 reads loader component 0x16, chooses filter 0x1081/0x1099; deps 0x01,0x12; docs CollisionProxySyncSystem."
+ },
+ {
+  "id": "0x1d",
+  "name": "LocalAnimComponent (non-mirrored animation)",
+  "confidence": "medium",
+  "summary": "STU-backed animation component (0xbfa88b12, parent STUEntityComponent, no fields) bound to the model's skeleton; the non-replicated counterpart of STUMirroredAnimComponent 0x1c, analogous to 0x1e STULocalIdleAnimComponent vs 0x11.",
+  "added_by": "STU 0xbfa88b12",
+  "mirrored": false,
+  "used_by_systems": [
+   "AnimationSystem 0x15c4e40 (iterates EA+0xb0+0x2b8)"
+  ],
+  "fields": {
+   "0x18": "STU type hash of the definition component",
+   "0x20": "animation resource handle (from model 0x04 STU data)"
+  },
+  "server_relevance": "Client presentation only.",
+  "evidence": "Subscribers game 25 / session 19 = AnimationSystem; OnCreate FUN_7ff650cda680 reads loader component 0x04 data then its own STU (stores type hash +0x50 at +0x18); deps 0x01,0x04,0x03."
+ },
+ {
+  "id": "0x20",
+  "name": "ModelReference / PlayerPawnLink (controller -> hero, aim/camera/movement attach ids)",
+  "confidence": "high",
+  "summary": "Mirrored entity-id links from a player controller to the entities it drives: aim entity, camera attach entity, movement attach entity. PlayerPawnLinkSystem watches field changes to maintain reverse links (0x1f).",
+  "added_by": "dependency of 0x13, 0x3a, 0x6d; controller entity",
+  "mirrored": true,
+  "used_by_systems": [
+   "PlayerPawnLinkSystem 0x15c2c18 (subscribed)",
+   "GameSoundSystem 0x15c5120 (iterates 0x20)"
+  ],
+  "fields": {
+   "0x18": "mirror data STU 0xd895eaf4",
+   "0x90": "aim_entid (0xd815b771)",
+   "0x94": "cam_attach_entid (0x15dfce03)",
+   "0x98": "movement_attach_entid (0x390a9265)"
+  },
+  "server_relevance": "Critical: server must replicate the controller->hero ids so the client possesses its hero.",
+  "evidence": "Prometheus Component_20_ModelReference offsets 0x90/0x94/0x98 match mirror STU fields at STU+0x78/0x7c/0x80; slot1 GetMirrorData 0x140cc04b0; OnCreate registers data-flow node in 0x03."
+ },
+ {
+  "id": "0x29",
+  "name": "PathdataObstacleBounds (nav-mesh invalidation sphere)",
+  "confidence": "medium",
+  "summary": "Bounding sphere of a dynamic navigation obstacle. When such an entity is added its id goes into the pathdata dirty list; when deleted, its sphere is used to invalidate the affected pathdata tiles.",
+  "added_by": "dependency of 0x2a, 0x2b (STUIdlePathdataInvalidateComponent), 0x2d (STUBreakableComponent)",
+  "mirrored": false,
+  "used_by_systems": [
+   "PathdataRebuildSystem 0x15c2528 (subscribed; OnEntityAdded / OnEntityDeleting)"
+  ],
+  "fields": {
+   "0x18": "ptr (tile/pathdata link)",
+   "0x20": "sphere center xyz (+w=1.0)",
+   "0x30": "radius (f32)"
+  },
+  "server_relevance": "Only needed if the server runs bots / navigation.",
+  "evidence": "Live 0x80000096 comp 0x29: +0x20=(-33.99,6.06,58.47,1.0), +0x30=0.971; 307 instances all on breakable map props {1,3,4,29,2d}; docs PathdataRebuildSystem."
+ },
+ {
+  "id": "0x2f",
+  "name": "LocalPlayer (input commands, view angles, prediction state)",
+  "confidence": "high",
+  "summary": "Local-player controller state: per-CF input command ring, view angles, controlled entity (+0x1520), damage-history ring for hit feedback, prediction/reconciliation buffers. Added by the player-controller loader.",
+  "added_by": "loader FUN_7ff650ce74c0 (player controller)",
+  "mirrored": false,
+  "used_by_systems": [
+   "CombatFeedbackSystem 0x15c4ec8 (subscribed)",
+   "LocalPlayerInputSystem 0x15c4cc0",
+   "LocalPlayerMovementReconcileSystem 0x15c4db8",
+   "FirstPersonRenderFlagSystem 0x15c52f8",
+   "PlayerPawnLinkSystem 0x15c2c18",
+   "Prometheus system (game #0)"
+  ],
+  "fields": {
+   "0x50": "mover_type / state machine",
+   "0x2d0": "authoritative movement snapshot/ack (server)",
+   "0x1520": "controlled (pawn) entity id",
+   "0x15e0": "damage history ring {entityId,time}",
+   "0x17f4": "damage history count"
+  },
+  "server_relevance": "Critical: server must ack command frames and send movement corrections consumed here.",
+  "evidence": "Prometheus Component_2F_LocalPlayer; 1 live instance on controller 0x40000001; docs ECS_Systems (EA+0xb0+0x468 iterations)."
+ },
+ {
+  "id": "0x31",
+  "name": "EmptyTag_0x31 (unidentified data-less component)",
+  "confidence": "low",
+  "summary": "0x18-byte component with no fields; its vtable forwards post-create/CanDelete to extra virtuals (+0x30/+0x38), suggesting a base-class stub. No code found that tests its mask bit or iterates it.",
+  "added_by": "unknown",
+  "mirrored": false,
+  "used_by_systems": [],
+  "fields": {},
+  "server_relevance": "Unknown; probably irrelevant.",
+  "evidence": "Creator FUN_7ff650ca3590 sets vtable 0x15c58e0; slots 4/5 = FUN_7ff650596300 / FUN_7ff651041900 (forwarders); no mask/iteration hits in full.asm."
+ },
+ {
+  "id": "0x34",
+  "name": "PlayerSlotLists (mirrored 6-slot + 4-slot per-player lists, UI-displayed)",
+  "confidence": "low",
+  "summary": "Mirrored per-player data (STU 0x08ef0177): a 6-entry list (u64 GUIDs 0x4f794e36, u32 0xc3df52f8, two u8 arrays) and a 4-entry list (u64 0xdc690a36, u32 0x51f0d45d, u8 0x4de1e689) plus scalars. A UI filler renders both lists; required by PlayerInfo 0x3f and STUAIBot 0x6d, so every player/bot has it. Possibly loadout/ability or stat-card slots.",
+  "added_by": "dependency of 0x3f (PlayerInfo) and 0x6d (STUAIBot); controller",
+  "mirrored": true,
+  "used_by_systems": [
+   "UI filler FUN_7ff650d06431 -> FUN_7ff650d05dc0"
+  ],
+  "fields": {
+   "0x18": "mirror STU 0x08ef0177",
+   "0x90": "u64[6] (0x4f794e36)",
+   "0xc0": "u64[4] (0xdc690a36)",
+   "0xe8": "u32[6] (0xc3df52f8)",
+   "0x100": "u32[4] (0x51f0d45d)",
+   "0x110": "u8 (0x5d6b512d)",
+   "0x111": "u8[6] (0xa05e66a9)",
+   "0x117": "u8[6] (0xc4437c7f)",
+   "0x11d": "u8[4] (0x4de1e689)"
+  },
+  "server_relevance": "Probably server-authored per-player data; needed if the UI that reads it matters.",
+  "evidence": "read_stu_at(comp+0x18) field layout; vtable 0x15c5870 (same class as 0x0e, differing mirror STU); FUN_7ff650d06431 passes comp+0xe8/+0x90/+0x111/+0x117 (6) and +0x100/+0xc0/+0x11d (4) to FUN_7ff650d05dc0."
+ },
+ {
+  "id": "0x39",
+  "name": "AIAgent (mirrored AI base)",
+  "confidence": "low",
+  "summary": "Mirrored component that the AI components STUAIMovementComponent 0x66 and STUAIBehaviorComponent 0x67 depend on; OnCreate reads the loader's data for id 0x39. Likely the shared AI agent/brain state.",
+  "added_by": "dependency of 0x66, 0x67",
+  "mirrored": true,
+  "used_by_systems": [
+   "FUN_7ff65086b4a0 (large AI routine iterating EA+0xb0+0x558)"
+  ],
+  "fields": {},
+  "server_relevance": "Only relevant if the server runs AI bots.",
+  "evidence": "vtable 0x1614d30 slot1 = shared GetMirrorData 0x140cc04b0; OnCreate FUN_7ff650ffac30 -> loader vf+0x10(0x39) -> FUN_7ff650ffabd0; no live instances."
+ },
+ {
+  "id": "0x3b",
+  "name": "OwnedAttachment (links to owner's 0x3a component)",
+  "confidence": "low",
+  "summary": "STU-backed (0x020a9e09, one field 0x05f3197d) marker on an entity that belongs to an owner; code resolves the owner (FUN_7ff650ffc460) and reads the owner's component 0x3a. WeaponAttachmentCommandFrameSystem checks it before updating weapon attachment transforms.",
+  "added_by": "STU 0x020a9e09",
+  "mirrored": false,
+  "used_by_systems": [
+   "WeaponAttachmentCommandFrameSystem 0x15c1e68 (checks 0x3b)",
+   "FUN_7ff6510601a0"
+  ],
+  "fields": {
+   "0x18": "STU type hash of the definition component"
+  },
+  "server_relevance": "Unclear; probably client presentation of attached/owned objects.",
+  "evidence": "OnCreate FUN_7ff650cae040 (shared STU-hash store); FUN_7ff6510601a0 tests mask bit 0x3b then owner comp 0x3a; deps 0x1f."
+ },
+ {
+  "id": "0x3e",
+  "name": "OwnedEntityList (mirrored list of owned child entities, e.g. deployables)",
+  "confidence": "medium",
+  "summary": "STU-backed (0x63905843, parent STUMirroredEntityComponent) mirrored list of entity ids the owner has spawned. Code counts entries matching a given definition that are alive (have health), e.g. for deployable limits, and first-person rendering flags these children when viewing yourself.",
+  "added_by": "STU 0x63905843 (controller definition)",
+  "mirrored": true,
+  "used_by_systems": [
+   "FirstPersonRenderFlagSystem 0x15c52f8",
+   "FUN_7ff65109b240 (count owned entities of a definition)"
+  ],
+  "fields": {
+   "0x18": "STU type hash (0x63905843)",
+   "0x20": "mirror STU 0x3a3fb5c7",
+   "0x98": "list of u32 entity ids (mirror field 0x1897d01e), count via FUN_7ff650c965a0"
+  },
+  "server_relevance": "Server should replicate the owned-entity list if deployables/pets exist.",
+  "evidence": "Live controller comp +0x18=0x63905843, +0x98 list ptr/count; FUN_7ff65109b240 iterates the list and checks each entity's definition and health (bit 0x28); deps 0x79."
+ },
+ {
+  "id": "0x41",
+  "name": "SceneWorldMember (STU tag collected into a 0xaa50 scene/collision world)",
+  "confidence": "low",
+  "summary": "Data-only STU component (0x995b544f, no fields; same class as STUFallingDamageComponent/STUImpactEffectOverrideComponent) on scene entities. A 0xaa50-byte world object constructor collects the scene nodes of all 0x41 entities.",
+  "added_by": "STU 0x995b544f",
+  "mirrored": false,
+  "used_by_systems": [
+   "FUN_7ff651020480 (0xaa50 world ctor iterating EA+0xb0+0x618)"
+  ],
+  "fields": {
+   "0x18": "STU type hash of the definition component"
+  },
+  "server_relevance": "Unclear; probably client-side scene/physics setup.",
+  "evidence": "vtable 0x15c5458 shared with 0x48/0x4a; OnCreate FUN_7ff650cae040; FUN_7ff651020480 iterates 0x41 and gathers comp 0x01 pointers into FUN_7ff65101e290."
+ },
+ {
+  "id": "0x45",
+  "name": "SceneBoxVolumeProxy",
+  "confidence": "low",
+  "summary": "Scene-attached proxy (secondary vtable 0x158ed10) with box half-extents; spawned at runtime by FUN_7ff650a2a4c0 which sets its extents (FUN_7ff650a2b150) and transform. Purpose (decal/volume/audio zone) unconfirmed.",
+  "added_by": "runtime spawn (FUN_7ff650a2a4c0)",
+  "mirrored": false,
+  "used_by_systems": [],
+  "fields": {
+   "0x18": "scene proxy subobject",
+   "0x20": "half-extents Vec4",
+   "0x28": "(set by spawner)"
+  },
+  "server_relevance": "Client presentation only.",
+  "evidence": "Creator FUN_7ff650a2b360; OnCreate FUN_7ff650a03ea0 sets scene+0x1a8, flags 0x20000000000000/0x100000000000; spawner FUN_7ff650a2a4c0 checks mask word1 bit 5 (0x45)."
+ },
+ {
+  "id": "0x4e",
+  "name": "GlobalParameterAssets (singleton of 24 global 0x0CA settings resources)",
+  "confidence": "medium",
+  "summary": "Lobby-EA singleton holding loaded handles to 24 global settings STU resources (GUID type 0x0CA, table at RVA 0x17b9a30), e.g. chat channel config at +0x88. Accessed from all EAs via FUN_7ff650c2b590(lobbyEA).",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "frame loop FUN_7ff650bdf460",
+   "CameraSystem",
+   "VoiceLineSystem",
+   "LocalHitEffectsSystem",
+   "ProjectileSystem",
+   "CombatFeedbackSystem (+0x20 asset)"
+  ],
+  "fields": {
+   "0x18": "asset handle 0x0CA...003",
+   "0x20": "0x0CA...004",
+   "0x78": "0x0CA...069",
+   "0x88": "0x0CA...005 (chat config)",
+   "0xe0..0xf8": "four small helper objects"
+  },
+  "server_relevance": "Client-side config; the server needs the same data files, not this component.",
+  "evidence": "OnCreate FUN_7ff650ca1940 loops 0x18 entries of DAT_7ff651799a30 (read live: GUIDs 0x0CA0000000000003 ...); accessor FUN_7ff650c2b590 reads EA+0xb0+0x750; knowledge 08-open-questions (chat config at +0x88)."
+ },
+ {
+  "id": "0x50",
+  "name": "InputAndOptions (Component_50_Input: input state + user options)",
+  "confidence": "high",
+  "summary": "Lobby-EA singleton with per-tick input/action state and user option bytes (audio, voice chat, spectate options), read by systems of every EA through FUN_7ff650c2ae30.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "ClientCosmeticsTickSystem",
+   "LocalPlayerInputSystem",
+   "GameSoundSystem",
+   "SpectateTargetSystem",
+   "GameHUDSystem",
+   "ReplayControlSystem",
+   "lobby System 7",
+   "EntityStartup"
+  ],
+  "fields": {
+   "0x144": "pause_input_for (f32)",
+   "0x148": "input struct tick0/1",
+   "0x2ce": "option bytes per profile (0xc3 stride)",
+   "0x378": "voice mute option"
+  },
+  "server_relevance": "Client only.",
+  "evidence": "Prometheus Component_50_Input; accessor FUN_7ff650c2ae30 (EA+0xb0+0x780) with 56 callers; OnCreate allocates four 0x6d8 input buffers."
+ },
+ {
+  "id": "0x52",
+  "name": "GlobalVariableStore (typed key->value map read by Statescript/UI evaluators)",
+  "confidence": "medium",
+  "summary": "Lobby singleton holding a hash map (at +0x18) of typed values keyed by u32 (bool/int/float/vec/entity...), queried by config-var style evaluators with a few hard-coded special keys (0xf4, 0x153, 0x15a, 0x584).",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "evaluators FUN_7ff650cc6a50 / FUN_7ff650cd1db0 / FUN_7ff650ce31f0 / FUN_7ff650ce36a0 (via FUN_7ff650cca950)"
+  ],
+  "fields": {
+   "0x18": "typed value map (FUN_7ff650813070 lookup)"
+  },
+  "server_relevance": "Client-side only; values may be driven by server messages (not traced).",
+  "evidence": "Accessor FUN_7ff650c2d170 (EA+0xb0+0x7b0); FUN_7ff650cca950 switch on type ids 1/2/3/4/6/0xb."
+ },
+ {
+  "id": "0x54",
+  "name": "LobbyMap (lobby background scene holder)",
+  "confidence": "high",
+  "summary": "Lobby-EA singleton holding the embedded title-screen 3D scene: a nested EntityAdmin (+0x28) and world (+0x18) ticked every frame; also used by lobby data-pack loading (20503).",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "LobbyBackgroundSceneSystem 0x15c4440",
+   "StatescriptUpdateSystem 0x15c17c8",
+   "20503 handler FUN_7ff650c5f090"
+  ],
+  "fields": {
+   "0x18": "world",
+   "0x28": "nested EntityAdmin"
+  },
+  "server_relevance": "Client only.",
+  "evidence": "Prometheus Component_54_LobbyMap; docs LobbyBackgroundSceneSystem; accessor FUN_7ff650c25400 (EA+0xb0+0x7e0)."
+ },
+ {
+  "id": "0x56",
+  "name": "MatchmakingState (queue tickets)",
+  "confidence": "medium",
+  "summary": "Lobby singleton with the matchmaking queue state that ClientInLobbyMatchmaking handlers (25600/25601) update and the MatchmakingVM filler displays.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "MatchmakingVM filler FUN_7ff650d01dc0",
+   "FUN_7ff650c678c0 (called from 25600/25601 handlers)"
+  ],
+  "fields": {
+   "0x18": "object freed on destroy (FUN_7ff650a43560)",
+   "0x30": "ticket list (FUN_7ff650c66ea0 cleanup)"
+  },
+  "server_relevance": "Relevant to lobby server: filled from ClientInLobbyMatchmaking messages.",
+  "evidence": "Accessor FUN_7ff650c25b70 (EA+0xb0+0x810); callers include FUN_7ff650d01dc0 (MatchmakingVM, knowledge 08) and matchmaking handler chain FUN_7ff650c49a00/c67d70."
+ },
+ {
+  "id": "0x58",
+  "name": "CombatMessageState (ClientInCombat 25009 data)",
+  "confidence": "low",
+  "summary": "Lobby singleton written by the ClientInCombat (25000-25011) dispatcher case 25009 (FUN_7ff650cc58b0) and read by UI code (+0xd0 u32).",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "ClientInCombat dispatcher FUN_7ff650c51680",
+   "UI FUN_7ff650d02b60 / FUN_7ff650d725a0"
+  ],
+  "fields": {
+   "0xd0": "u32 read by UI getter"
+  },
+  "server_relevance": "Lobby/instance server would populate it via ClientInCombat 25009.",
+  "evidence": "Accessor FUN_7ff650c26190 (EA+0xb0+0x840); dispatcher cases 25001-25010 found in callers."
+ },
+ {
+  "id": "0x5a",
+  "name": "LobbyUIScene (lazily created render world)",
+  "confidence": "medium",
+  "summary": "Lobby singleton that owns a secondary render scene/world created on demand (scene id 0x3dc2, bound to a resource) and ticked each frame; destroyed when the entity is deleted.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "lobby System 21 0x15c4b78 (subscribed 0x5a)",
+   "MapWorldSystem-related FUN_7ff650c20350/c20c70"
+  ],
+  "fields": {
+   "0x18": "scene/world pointer"
+  },
+  "server_relevance": "Client only.",
+  "evidence": "docs ECS_Systems lobby #20; accessor FUN_7ff650c26940 (EA+0xb0+0x870); generic base vtable 0x1614d80."
+ },
+ {
+  "id": "0x5c",
+  "name": "EntityTimedHistory (Statescript-written per-entity time-stamped records)",
+  "confidence": "low",
+  "summary": "Game/session singleton with a latest time/CF pair (+0x18 double, +0x20 int) and an inline array (cap 16) of 0x230-byte per-entity records keyed by entity id, each holding time-ordered samples. Written/read by two Statescript/UI node methods; cleared at instance teardown.",
+  "added_by": "game-EA singleton entity 0x80000001 (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "node methods FUN_7ff650cf5990 / FUN_7ff650cf5bb0",
+   "StatescriptSystem teardown FUN_7ff650c100f0"
+  ],
+  "fields": {
+   "0x18": "latest time (double)",
+   "0x20": "latest CF",
+   "0x30": "records ptr (0x230 stride)",
+   "0x38": "record count"
+  },
+  "server_relevance": "Unclear.",
+  "evidence": "Accessor FUN_7ff650c37700 (EA+0xb0+0x8a0); FUN_7ff650cf5bb0 computes time = +0x18 - (CF-+0x20)/rate."
+ },
+ {
+  "id": "0x5e",
+  "name": "OptionGatedStatescriptRegistry",
+  "confidence": "medium",
+  "summary": "Game-EA singleton list of Statescript node handles {script id, node index, entity id, EA} whose objects are enabled or disabled according to user option bytes; registered/unregistered by a Statescript state's enter/exit.",
+  "added_by": "game-EA singleton entity 0x80000001 (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "ClientCosmeticsTickSystem 0x15c23a8 (FUN_7ff650bfce30)",
+   "node methods FUN_7ff650ce58c0 / FUN_7ff650ce59f0"
+  ],
+  "fields": {
+   "0x18": "handle array (16 B each)",
+   "0x20": "count"
+  },
+  "server_relevance": "Client only.",
+  "evidence": "docs ClientCosmeticsTickSystem; accessor FUN_7ff650c36bb0 (EA+0xb0+0x8d0); FUN_7ff650cc3f60 resolves handle -> entity comp 0x23 instance list +0x1e0; live count 2. Same class/creator as 0x62 and 0x83 (vtable 0x15c62d8)."
+ },
+ {
+  "id": "0x60",
+  "name": "PartyManager",
+  "confidence": "high",
+  "summary": "Lobby singleton with the party state: party id (+0x18/+0x20) and member list (+0xb0/+0xb8), updated by ClientInLobbyParty 20700 and used by voice/chat channel selection and the Play button.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "lobby System 5 0x15c2248 (FUN_7ff650c0a5e0)",
+   "voice chat system",
+   "ClientInLobbyParty handler FUN_7ff650c49c20 -> FUN_7ff650cba220"
+  ],
+  "fields": {
+   "0x18": "party id lo",
+   "0x20": "party id hi",
+   "0xb0": "member list",
+   "0xb8": "member count"
+  },
+  "server_relevance": "Lobby server must send ClientInLobbyParty 20700 to fill it.",
+  "evidence": "server/internal/lobbylogic/party.go comments: handler stores party id on 'party manager (FUN_7ff650c27500, +0x18/+0x20)', members +0xB0; accessor FUN_7ff650c27500 = EA+0xb0+0x900 (0x60)."
+ },
+ {
+  "id": "0x62",
+  "name": "StatescriptEntitySlotRegistry",
+  "confidence": "low",
+  "summary": "Game-EA singleton list of 0x20-byte records (index -> entity id at +4) registered/unregistered by Statescript node instances; another node resolves an index to an entity id through it.",
+  "added_by": "game-EA singleton entity 0x80000001 (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "node methods FUN_7ff650cffd10 / FUN_7ff650cffdd0 / FUN_7ff650d01450 / FUN_7ff650d0b930"
+  ],
+  "fields": {
+   "0x18": "record array (0x20 B)",
+   "0x20": "count"
+  },
+  "server_relevance": "Unclear.",
+  "evidence": "Accessor FUN_7ff650c380e0 (EA+0xb0+0x930); shares vtable 0x15c62d8 with 0x5e/0x83; empty live."
+ },
+ {
+  "id": "0x65",
+  "name": "PlayerNameCache (LRU account id -> display name)",
+  "confidence": "medium",
+  "summary": "Lobby singleton LRU cache (max 1024) mapping 128-bit account ids to display names, filled when player entities with component 0x13 appear; persists across matches.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "PlayerNameCacheSystem 0x15c3f38 (FUN_7ff650c56fc0)",
+   "26+ UI/social callers of FUN_7ff650c281a0"
+  ],
+  "fields": {},
+  "server_relevance": "Server just needs to populate 0x13 (id + name).",
+  "evidence": "docs ECS_Systems PlayerNameCacheSystem; accessor FUN_7ff650c281a0 (EA+0xb0+0x978)."
+ },
+ {
+  "id": "0x69",
+  "name": "PredictedEntityMarker",
+  "confidence": "high",
+  "summary": "Added by default to client-predicted entities (ids 0x6xxxxxxx): stores the spawn frame (+0x18) and a confirmed flag (+0x1c); unconfirmed ones older than 6 frames are deleted.",
+  "added_by": "default component of PredictedEntitySpawnSystem spawns",
+  "mirrored": false,
+  "used_by_systems": [
+   "PredictedEntitySpawnSystem 0x15c2428 (FUN_7ff650c02640 / FUN_7ff650c02880)"
+  ],
+  "fields": {
+   "0x18": "spawn frame",
+   "0x1c": "confirmed flag"
+  },
+  "server_relevance": "Server must spawn the authoritative entities with the matching predicted ids to confirm them.",
+  "evidence": "docs ECS_Systems PredictedEntitySpawnSystem; iteration EA+0xb0+0x9d8 in FUN_7ff650c02880; creator FUN_7ff650ffad00."
+ },
+ {
+  "id": "0x6c",
+  "name": "HelperListHolder_0x6c (unidentified singleton)",
+  "confidence": "low",
+  "summary": "Game/session singleton whose OnCreate allocates a helper object (+0x18) bound to the EA with two arrays of 0x20-byte records; no accessor or user found.",
+  "added_by": "game-EA singleton entity 0x80000001 (engine)",
+  "mirrored": false,
+  "used_by_systems": [],
+  "fields": {
+   "0x18": "helper object (EA ptr, invalid id, two record arrays)"
+  },
+  "server_relevance": "Unknown.",
+  "evidence": "Creator FUN_7ff650cb5000 (vtable 0x15c6508); OnCreate FUN_7ff650cb4e70 -> FUN_7ff651047a00; no mask/iteration hits."
+ },
+ {
+  "id": "0x70",
+  "name": "ProjectileNetBuffer (pending projectile spawns + projectile id/history bookkeeping)",
+  "confidence": "medium",
+  "summary": "Game/session singleton that buffers projectile spawn records whose entity does not exist yet (600-frame timeout), keeps a list of live projectile owner ids and CF-keyed history that is pruned each tick.",
+  "added_by": "game-EA singleton entity 0x80000001 (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "ProjectileNetworkReceiveSystem 0x15c1d98",
+   "ProjectileTrackingBookkeepingSystem 0x15c1cb8"
+  ],
+  "fields": {
+   "0xc0": "pending projectile spawn records (0xc0 B, 600-frame timeout)",
+   "0x6e0": "unique owner entity id list",
+   "0x740": "400-byte history records by frame"
+  },
+  "server_relevance": "Relevant: server-sent projectile spawns/state land here.",
+  "evidence": "docs ECS_Systems (0xa80/0x18 = 0x70); accessor FUN_7ff650d15c20; 8 iteration sites."
+ },
+ {
+  "id": "0x72",
+  "name": "EntityAABBTree (spatial broadphase for placement/overlap queries)",
+  "confidence": "medium",
+  "summary": "Game/session singleton holding a dynamic AABB tree (+0x18 object, vtable 0x1613810, root +0x3c) that code queries with an entity's bounds to test whether a volume is free (layer 'A'/'B').",
+  "added_by": "game-EA singleton entity 0x80000001 (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "FUN_7ff65109b7e0 (volume overlap check)"
+  ],
+  "fields": {
+   "0x18": "AABB tree object (vtable 0x1613810)"
+  },
+  "server_relevance": "Possibly relevant for server-side placement checks; client use appears to be validation.",
+  "evidence": "FUN_7ff65109b7e0 iterates EA+0xb0+0xab0 then FUN_7ff650ff5e60(tree, aabb, 'A'+flag) -> FUN_7ff650ff63a0 tree walk; live +0x18 vtable 0x141613810."
+ },
+ {
+  "id": "0x74",
+  "name": "LobbyGroupState (custom-game / group lobby state with 5 s notification timer)",
+  "confidence": "low",
+  "summary": "Large lobby singleton (0x2f8) holding group/custom-game state: an owner/leader id at +0x98/+0xa0 compared against the local account before Play, and a timestamp (+0x208) expired after 5 s.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "LobbyNotificationTimeoutSystem 0x15c2010",
+   "Play button FUN_7ff650c67220",
+   "~57 callers of FUN_7ff650c29670"
+  ],
+  "fields": {
+   "0x98": "owner/leader id lo (vs local account)",
+   "0xa0": "owner/leader id hi",
+   "0x208": "timestamp ms, cleared after 5000"
+  },
+  "server_relevance": "Lobby server likely fills it (custom game / party messages).",
+  "evidence": "docs LobbyNotificationTimeoutSystem; knowledge 08 (FUN_7ff650c29670 +0x208==0 and id==DAT_7ff65183a0a8/b0 before joining); GAMEPLAY_BOOTSTRAP calls +0xae0 'custom-game/lobby mgr'."
+ },
+ {
+  "id": "0x76",
+  "name": "HeldAssetReferences (streamed asset refs released on removal)",
+  "confidence": "medium",
+  "summary": "Holds asset/resource references (a list at +0x18) that are released when the component/entity is removed; the lobby singleton's instance is the 'currently held' set used by the hero/skin asset preloader.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "lobby System 16 0x15c1f90 (subscribed 0x76; asset preload diff, OnEntityRemoved releases refs)"
+  ],
+  "fields": {
+   "0x18": "held asset reference list"
+  },
+  "server_relevance": "Client only (asset streaming).",
+  "evidence": "docs ECS_Systems lobby #15; accessor FUN_7ff650c2a110 (EA+0xb0+0xb10)."
+ },
+ {
+  "id": "0x79",
+  "name": "OwnerLink (mirrored owner entity id)",
+  "confidence": "medium",
+  "summary": "Mirrored single field (0xe9c235b0) at +0x90, default the invalid entity id. A helper resolves each of two entities to their 0x79 (falling back to the owner via 0x20/0x1f) and compares +0x90, i.e. 'same owner' tests. STUPetComponent 0x3d and OwnedEntityList 0x3e depend on it.",
+  "added_by": "dependency of 0x3d, 0x3e; controller",
+  "mirrored": true,
+  "used_by_systems": [
+   "FUN_7ff65109b500 (same-owner comparison)"
+  ],
+  "fields": {
+   "0x18": "mirror STU 0xb2d0374a",
+   "0x90": "owner id (u32, mirror field 0xe9c235b0, default invalid id)"
+  },
+  "server_relevance": "Server should replicate ownership for pets/deployables and friendly checks.",
+  "evidence": "vtable 0x15c54f8 = base mirrored-component class (slot1 0x140cc04b0); mirror init FUN_7ff6506807e0 sets STU+0x78 = DAT_7ff65183a0c8 (invalid id); FUN_7ff65109b500 reads word1 bit 0x39."
+ },
+ {
+  "id": "0x7b",
+  "name": "EntitySphereRegistry (spatial list of bounding spheres)",
+  "confidence": "low",
+  "summary": "Singleton in every EA with parallel lists of bounding spheres (+0x18, 16 B each) and entities (+0x30), plus a second entity list (+0x48); queried for sphere overlaps (e.g. breakable debris / nearby dynamic objects).",
+  "added_by": "per-EA singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "CombatFeedbackSystem 0x15c4ec8 (FUN_7ff65103f8b0, OnEntityRemoved)",
+   "FUN_7ff65106cc20 (sphere overlap query)"
+  ],
+  "fields": {
+   "0x18": "sphere array {x,y,z,r}",
+   "0x20": "count (live 0x12e)",
+   "0x30": "entity ptr array",
+   "0x48": "second entity list",
+   "0x50": "count"
+  },
+  "server_relevance": "Client only.",
+  "evidence": "FUN_7ff65106cc20 compares squared distance to (+0xc radius + query radius) over EA+0xb0+0xb88 list; live count 302."
+ },
+ {
+  "id": "0x7e",
+  "name": "ObjectRegistry_0x7e (unidentified per-EA singleton)",
+  "confidence": "low",
+  "summary": "Singleton in all three EAs holding three small pointer lists (+0x18/+0x38/+0x48, caps 0x10/0x20) of objects with vtables 0x15cd028/0x15dac28 (UI/Statescript-node code range). Accessors have no direct callers.",
+  "added_by": "per-EA singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [],
+  "fields": {
+   "0x18": "object list (count +0x20, cap 16)"
+  },
+  "server_relevance": "Unknown.",
+  "evidence": "Accessors FUN_7ff650c2a660 (lobby) / FUN_7ff650c39290 (game) read EA+0xb0+0xbd0; live game list of 12 objects."
+ },
+ {
+  "id": "0x83",
+  "name": "SoundImportanceRegistry",
+  "confidence": "medium",
+  "summary": "Game-EA singleton list of Statescript state instances that add a sound-importance weight (+0x138) to their entity; GameSoundSystem adds these weights before ranking sound sources.",
+  "added_by": "game-EA singleton entity 0x80000001 (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "GameSoundSystem 0x15c5120 (FUN_7ff650c8ef50)",
+   "node enter/exit FUN_7ff650d4f7f0 / FUN_7ff650d4f890"
+  ],
+  "fields": {
+   "0x18": "state instance pointer array",
+   "0x20": "count"
+  },
+  "server_relevance": "Client-only audio.",
+  "evidence": "Accessor FUN_7ff650c36ec0 (EA+0xb0+0xc48); FUN_7ff650c8ef50 adds +0x138 to comp 0x21 +0x20; register fn appends param-0xb0; same class as 0x5e/0x62."
+ },
+ {
+  "id": "0x88",
+  "name": "NetworkStats (netgraph / connection statistics)",
+  "confidence": "medium",
+  "summary": "Large (0x2790) lobby singleton receiving copied network statistics (ping/RTT, 0xe0-byte stats block, CF input history info) from the transport and ping messages; shown by the netgraph.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "JamSystem 0x15c3920 net stats copy",
+   "ClientInInstance_Dispatch / ping 21608 (FUN_7ff650c45fd0)",
+   "MovementStateSystem path FUN_7ff650c07560",
+   "packet reader FUN_7ff650c500a0"
+  ],
+  "fields": {},
+  "server_relevance": "Client only (diagnostics), but fed by server ping/ack traffic.",
+  "evidence": "Accessor FUN_7ff650c2c410 (EA+0xb0+0xcc0); docs ECS_Systems JamSystem ('netgraph/stats object FUN_7ff650c2c410')."
+ },
+ {
+  "id": "0x8b",
+  "name": "LobbyPlayerStatus (ClientInLobbyPlayer data)",
+  "confidence": "low",
+  "summary": "Lobby singleton written by ClientInLobbyPlayer 20805 and an instance handler: a flag (+0x18), a string (+0x20) and a 128-bit account id (+0x68/+0x70) that UI compares against the local account.",
+  "added_by": "lobby singleton entity (engine)",
+  "mirrored": false,
+  "used_by_systems": [
+   "ClientInLobbyPlayer dispatcher FUN_7ff650c497f0",
+   "FUN_7ff650c5cb70",
+   "UI FUN_7ff650d890d0 / FUN_7ff650d89460"
+  ],
+  "fields": {
+   "0x18": "bool flag",
+   "0x20": "string",
+   "0x68": "account id lo",
+   "0x70": "account id hi"
+  },
+  "server_relevance": "Lobby server fills it via ClientInLobbyPlayer (20800-20806).",
+  "evidence": "Accessor FUN_7ff650c29ad0 (EA+0xb0+0xd08); dispatcher cases 20800-20805 in callers."
+ }
+]

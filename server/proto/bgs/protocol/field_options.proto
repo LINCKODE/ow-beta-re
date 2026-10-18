@@ -1,0 +1,14 @@
+// Reconstructed from Overwatch beta 0.8 (build 24919)
+// Source: bgs/low/pb/client/global_extensions/field_options.proto
+
+syntax = "proto2";
+
+package bgs.protocol;
+
+import "google/protobuf/descriptor.proto";
+
+enum LogOption {
+  HIDDEN = 1;
+  HEX = 2;
+}
+

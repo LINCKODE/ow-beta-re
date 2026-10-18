@@ -1,0 +1,2 @@
+# instance flags, read by scripts/watch.sh on every start (editing this restarts the instance)
+--evidence ../systems/data/shadow/genji_anubis.json

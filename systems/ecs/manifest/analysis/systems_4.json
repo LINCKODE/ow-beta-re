@@ -1,0 +1,404 @@
+[
+ {
+  "vtable_rva": "0x15c3a58",
+  "name": "ClientLobbyMessageSystem",
+  "confidence": "high",
+  "summary": "Pumps the lobby-server connection. It drains a thread-safe queue of link events and handles link-up/link-down for connection type 0xd (LobbyServer), then dispatches the queued incoming lobby RPC/messages.",
+  "tick": "FUN_7ff650c47360(sys+0x10): pops events from a critical-section-guarded deque at +0x98. Event 0 with type 0xd is link up (FUN_7ff650c469a0: if the connection state is 3, report status with 'ClientLobbyMessageSystem...' string, rebuild session info, notify listeners in global DAT_7ff651797f90+0x140). Event 1 with type 0xd is link down (FUN_7ff650c46c10: 'HandleLinkDown: Pending connection...' / 'Lost connection to LobbyServer', notify listeners). Then FUN_7ff650f034e0 drains and dispatches the incoming message list.",
+  "callbacks": "PreDelete (0x140c668a0) forwards to 0x140c66fb0 on sys+0x10, which shuts down the connection handler.",
+  "components_read": [],
+  "components_written": [],
+  "components_iterated": [],
+  "interacts_with": [
+   "lobby server network connection (EA+0x170 connection object)",
+   "global client object DAT_7ff651797f90 (+0x140 listeners)",
+   "DAT_7ff651813e18 (game/UI state)"
+  ],
+  "fixed_step": false,
+  "key_functions": {
+   "0x7ff650c47360": "drain link-event queue + dispatch messages",
+   "0x7ff650c469a0": "handle lobby link up",
+   "0x7ff650c46c10": "handle lobby link down (Lost connection to LobbyServer)",
+   "0x7ff650f034e0": "dispatch queued incoming messages"
+  },
+  "server_relevance": "client-only lobby networking; a match server does not need it (the lobby server is a separate service)",
+  "evidence": "Strings 'ClientLobbyMessageSystem_C...', 'HandleLinkDown: Pending connection', 'Lost connection to LobbyServer'. It uses EnterCriticalSection queues and does no component iteration."
+ },
+ {
+  "vtable_rva": "0x15c1d28",
+  "name": "PlayerInfoEventHookSystem (comp 0x3F timestamp hook)",
+  "confidence": "low",
+  "summary": "Has only OnInitialize, which registers a handler on the EA event bus (EA+0x198, keyed by component id 0x3F). When event hash 0x065c8044 arrives, the handler stamps the current game-clock value (EA+0x218 clock +0x10) into component 0x3F at +0xC8.",
+  "tick": "none",
+  "callbacks": "OnInitialize: (*(EA+0x198))->vfunc+0x10(FUN_7ff650be4240, key 0x3f, ctx 0), which inserts into the bus map at +0x38 keyed by byte.",
+  "components_read": [],
+  "components_written": [
+   "0x3f"
+  ],
+  "components_iterated": [],
+  "interacts_with": [
+   "EA event bus EA+0x198 (vtable RVA 0x15c2820)",
+   "EA clock EA+0x218"
+  ],
+  "fixed_step": null,
+  "key_functions": {
+   "0x7ff650be4210": "OnInitialize: register handler",
+   "0x7ff650be4240": "handler: if event==0x65c8044, comp3F+0xC8 = clock+0x10",
+   "0x7ff650c01c40": "event-bus register(fn,key,ctx)"
+  },
+  "server_relevance": "unclear. Probably tracks a per-player timestamp (last event time); low importance for a server",
+  "evidence": "Registration key 0x3f matches component 0x3F (size 0xD0, and the written offset 0xC8 is its last qword). Handler reads param_1+8 (entity) ->+0x28 (EA) ->+0x218 clock. Hash 0x065c8044 is unresolved."
+ },
+ {
+  "vtable_rva": "0x15c2b40",
+  "name": "MovementStateSystem (movement interpolation/prediction)",
+  "confidence": "high",
+  "summary": "Per render frame it drives component 0x12 (STUMovementStateComponent): it applies queued server movement snapshots, runs local-player prediction/replay, and interpolates/extrapolates every mover. It then writes the resulting transform and velocity into scene component 0x01. It also maintains the smoothed game time used for interpolation.",
+  "tick": "FUN_7ff650c078b0 clamps the clock interpolation factor (clock+0x88). FUN_7ff650c060a0 smooths a time value at +0x68 toward a target. FUN_7ff650c069f0 processes queued movement snapshots at +0x1b0 via FUN_7ff650c06ce0 once the map is loaded, and resets command buffers on local-player comp 0x2F (+0x810/+0x1440) when invalid. FUN_7ff650c05530 runs local player (comp 0x2F -> its 0x12) vfunc+0x30 prediction at time=(CF*16000us)-offsets. FUN_7ff650c056e0 iterates all comp 0x12 and calls FUN_7ff650ce6600 (interpolate at time, write transform to comp 0x01 via FUN_7ff6509e45c0, compute velocity, handle parented movers). FUN_7ff650c04540 feeds command frames into comp 0x2F history. FUN_7ff650c05eb0 prunes entries older than 30 s.",
+  "callbacks": "OnEntityCreated: registers the entity's comp 0x12 in the sys+0x18 container and sets flag 0x10 on scene comp 0x01. OnEntityDeleting (0x140c24080): unregisters comp 0x12 (FUN_7ff650c044c0).",
+  "components_read": [
+   "0x12",
+   "0x2f",
+   "0x27",
+   "0x01"
+  ],
+  "components_written": [
+   "0x01",
+   "0x12",
+   "0x2f"
+  ],
+  "components_iterated": [
+   "0x12",
+   "0x2f"
+  ],
+  "interacts_with": [
+   "EA clock (EA+0x218, CF*16000us time)",
+   "network snapshot queue",
+   "local player command history"
+  ],
+  "fixed_step": true,
+  "key_functions": {
+   "0x7ff650c042a0": "OnTick",
+   "0x7ff650c056e0": "interpolate all movement states",
+   "0x7ff650ce6600": "per-mover interpolate + write transform/velocity",
+   "0x7ff650c05530": "local player prediction",
+   "0x7ff650c069f0": "apply queued snapshots",
+   "0x7ff650c06ce0": "apply one movement snapshot to entity",
+   "0x7ff650c04540": "push command frames to local player history"
+  },
+  "server_relevance": "movement simulation is server-relevant: the server must simulate 0x12 per CF. The interpolation/prediction half is client-only.",
+  "evidence": "Iterates EA+0xb0+0x1b0 (0x12) and +0x468 (0x2F). Time math uses CF*16000 us, and it calls the 0x12 vtable. It writes the transform through FUN_7ff6509e45c0 on comp 0x01. Subscribed to 0x12."
+ },
+ {
+  "vtable_rva": "0x15c4db8",
+  "name": "LocalPlayerMovementReconcileSystem (server-correction/rollback of predicted movement)",
+  "confidence": "medium",
+  "summary": "Its only system callback is OnInitialize, which sets the global flag 0x7ff6518d8e50 and returns true. The real work runs through a secondary interface at sys+0x10 (FUN_7ff650c80800, called externally, probably from the command-frame loop). For each local player (comp 0x2F) it snapshots input, syncs character mover comp 0x15, and runs a small state machine that applies a pending server movement correction, re-simulates, and smooths out the prediction error.",
+  "tick": "none (all work via the interface method FUN_7ff650c80800)",
+  "callbacks": "OnInitialize (runtime 0x140ca07e0): global byte 0x7ff6518d8e50 = 1. Interface: iterate comp 0x2F, copy +0x1500 to +0x1510, clear +0x7d1, sync comp 0x15 (FUN_7ff651037d30 with mover+0xa50), then FUN_7ff650c81540 runs the state machine on comp2F+0x50, looping up to 10001 times. State 0 (FUN_7ff650c81710) detects a pending server frame at +0x2d0 and takes the transform from the parent/vehicle. State 1 (FUN_7ff650c81a80) restores the mover from the server snapshot +0x2e0, sets CF (FUN_7ff651034790), and on a mismatch resets it (FUN_7ff651037d30) and flags the replay. State 2 (FUN_7ff650c81c40) blends the error over time using clock dt.",
+  "components_read": [
+   "0x2f",
+   "0x15",
+   "0x23"
+  ],
+  "components_written": [
+   "0x2f",
+   "0x15"
+  ],
+  "components_iterated": [
+   "0x2f"
+  ],
+  "interacts_with": [
+   "character mover (comp 0x15)",
+   "EA clock",
+   "game EA vfunc 0x70 (command/JAM frame source)"
+  ],
+  "fixed_step": true,
+  "key_functions": {
+   "0x7ff650c80800": "interface: per-local-player reconcile entry",
+   "0x7ff650c81540": "state machine driver",
+   "0x7ff650c81710": "state 0: check pending server correction",
+   "0x7ff650c81a80": "state 1: apply server snapshot / rollback",
+   "0x7ff650c81c40": "state 2: error smoothing"
+  },
+  "server_relevance": "client-only prediction reconciliation. The server must send the authoritative movement snapshot/ack frame this consumes (comp 0x2F +0x2d0 / +0x2e0)",
+  "evidence": "Iterates offset 0x468 (0x2F). Mask bit 21 gives comp 0x15, and FUN_7ff651037d30/FUN_7ff651034790 are the mover functions also used by MovementStateSystem. Three-state function-pointer table at 0x7ff6518d8e20. Constructed in FUN_7ff650be0fd0."
+ },
+ {
+  "vtable_rva": "0x15c4e40",
+  "name": "AnimationSystem",
+  "confidence": "high",
+  "summary": "Updates skeletal animation for entities with anim components 0x1C (STUMirroredAnimComponent) and 0x1D. It binds animation resources to the model's skeleton instance (comp 0x04), then fans the per-entity animation update out to worker jobs.",
+  "tick": "Iterates comp 0x1C (EA+0xb0+0x2a0) and 0x1D (+0x2b8). Calls FUN_7ff650c84b70/c84d50 (rebind anim resource/skeleton if changed) and gathers them into a list. FUN_7ff650c84f10 splits the list into up to 64 jobs (LAB_7ff650c850b0) submitted to the job system DAT_7ff6517fd788 with dt.",
+  "callbacks": "OnEntityAdded: FUN_7ff650c84600 (bind comp 0x1C anim to model comp 0x04 skeleton via FUN_7ff6509e8410) + FUN_7ff650c84740. OnEntityRemoved: FUN_7ff650c82a20 (unbind).",
+  "components_read": [
+   "0x04",
+   "0x1c",
+   "0x1d"
+  ],
+  "components_written": [
+   "0x1c",
+   "0x1d",
+   "0x04"
+  ],
+  "components_iterated": [
+   "0x1c",
+   "0x1d"
+  ],
+  "interacts_with": [
+   "job system DAT_7ff6517fd788",
+   "model/skeleton instance (comp 0x04 +0x1e8)"
+  ],
+  "fixed_step": false,
+  "key_functions": {
+   "0x7ff650c82a40": "OnTick",
+   "0x7ff650c84b70": "rebind anim resource to model",
+   "0x7ff650c84f10": "dispatch parallel anim jobs",
+   "0x7ff650c84600": "OnAdded bind"
+  },
+  "server_relevance": "mostly client presentation. A server may need anim only for hitbox posing (likely not in this beta)",
+  "evidence": "Subscriptions 0x1C/0x1D. It uses the comp 0x04 skeleton pointer at +0x1e8 and dispatches parallel jobs."
+ },
+ {
+  "vtable_rva": "0x15c4f68",
+  "name": "IdleAnimationSystem",
+  "confidence": "high",
+  "summary": "Drives looping idle animations: for comp 0x11 (STUMirroredIdleAnimComponent) and 0x1E (STULocalIdleAnimComponent) it computes the anim phase from game time and writes the anim id and phase into the model's skeleton instance.",
+  "tick": "time=(CF*16000us)-offsets. For each 0x11 (EA+0xb0+0x198) and 0x1E (+0x2d0) whose time changed: phase = ((t-start)*rate) mod length * scale. It writes anim ref (+0x920/+0x20) and phase into comp 0x04 skeleton (+0x1e8)+0x768/+0x770.",
+  "callbacks": "",
+  "components_read": [
+   "0x11",
+   "0x1e",
+   "0x04"
+  ],
+  "components_written": [
+   "0x11",
+   "0x1e",
+   "0x04"
+  ],
+  "components_iterated": [
+   "0x11",
+   "0x1e"
+  ],
+  "interacts_with": [
+   "EA clock EA+0x218"
+  ],
+  "fixed_step": false,
+  "key_functions": {
+   "0x7ff650c89590": "OnTick: idle anim phase update"
+  },
+  "server_relevance": "client-only presentation (component 0x11 is mirrored/replicated, but its evaluation is cosmetic)",
+  "evidence": "Iterates list offsets 0x198 (0x11) and 0x2d0 (0x1E), which match its subscriptions and the STU names. Phase modulo math, then writes the model skeleton."
+ },
+ {
+  "vtable_rva": "0x15c16d8",
+  "name": "GameSceneWorldTickSystem (render world/viewport update)",
+  "confidence": "medium",
+  "summary": "Ticks the game's render scene/world held by singleton component 0x55. It resizes the viewport to the renderer's current width/height, ticks the view object, and updates the scene world with dt (the same world-update routine the lobby scene system uses).",
+  "tick": "FUN_7ff650c37dd0 gets the first comp 0x55. If +0x38 is set: FUN_7ff650cc6880 (resize the viewport at +0x28 using renderer DAT_7ff6517fe3e0 vfuncs 0x260/0x268), then (+0x28)->vfunc+0x28(dt), then FUN_7ff6509d6770(+0x18, dt) world update (timescale, frame counter, handles, and renderer DAT_7ff6517fe3e0+0x4f8 submit).",
+  "callbacks": "",
+  "components_read": [
+   "0x55"
+  ],
+  "components_written": [
+   "0x55"
+  ],
+  "components_iterated": [
+   "0x55"
+  ],
+  "interacts_with": [
+   "renderer DAT_7ff6517fe3e0",
+   "scene world (FUN_7ff6509d6770)"
+  ],
+  "fixed_step": false,
+  "key_functions": {
+   "0x7ff650c15950": "OnTick",
+   "0x7ff650c37dd0": "get singleton comp 0x55",
+   "0x7ff650cc6880": "viewport resize to screen",
+   "0x7ff6509d6770": "scene world update(dt)"
+  },
+  "server_relevance": "client-only rendering",
+  "evidence": "Singleton comp 0x55 (count 1). Renderer width/height vfuncs. FUN_7ff6509d6770 is shared with lobby System 21, which creates its scene via FUN_7ff6509b72e0."
+ },
+ {
+  "vtable_rva": "0x15c5288",
+  "name": "ChildEntitySpawnSystem (definition-driven attached child entities)",
+  "confidence": "medium",
+  "summary": "GameEntityAdmin only. For each entity with component 0x75 it looks up the entity's definition resource (entity+0x38) and reconciles its list of child entity definitions: it deletes stale children and spawns new ones. Each child is parented to the owner's scene node, and first-person/local-owner visibility flags 0x400/0x800 are set on the child's scene component.",
+  "tick": "Checks that the EA is a GameEntityAdmin (RTTI PTR_LOOP_7ff6517991e8). Iterates comp 0x75 (EA+0xb0+0xaf8) and diffs cached child GUIDs against definition list +0x70. Deletes removed children with FUN_7ff6507eff50 and spawns new ones with FUN_7ff6509d3390, storing child entity ids. It sets model/owner data on the child comp 0x04, parents the child's comp 0x01 to the owner (or the owner's 0x22 parent) via FUN_7ff6509e1160, and sets or clears scene flags 0x800 (owner is local player/controlled, FUN_7ff650c44420) and 0x400 (local player in first person, FUN_7ff650c3f260).",
+  "callbacks": "",
+  "components_read": [
+   "0x75",
+   "0x01",
+   "0x04",
+   "0x22"
+  ],
+  "components_written": [
+   "0x75",
+   "0x01",
+   "0x04"
+  ],
+  "components_iterated": [
+   "0x75"
+  ],
+  "interacts_with": [
+   "entity spawn/delete (FUN_7ff6509d3390 / FUN_7ff6507eff50)",
+   "local player / camera state (EA vfunc 0xe8)"
+  ],
+  "fixed_step": false,
+  "key_functions": {
+   "0x7ff650c94c20": "OnTick reconcile child entities",
+   "0x7ff650c3f260": "is local player in first-person view",
+   "0x7ff650c44420": "is local/controlled entity"
+  },
+  "server_relevance": "mostly client presentation (child visual entities, 1P/3P visibility). A server probably does not need it",
+  "evidence": "Iteration offset 0xaf8 means component 0x75. Spawn/delete helpers, parenting via 9e1160, flags 0x400/0x800 tied to local-player/first-person checks."
+ },
+ {
+  "vtable_rva": "0x15c3d18",
+  "name": "NetworkSendSystem (client UDP packet writer)",
+  "confidence": "high",
+  "summary": "Every 16 ms or more (wall-clock ms) it builds one outgoing data packet. A list of registered packet-writer objects each serialize into a shared bitstream within a byte budget derived from the connection's send rate, per-writer byte counters are tracked, and the packet is sent with UdpTransport_SendDataPacket.",
+  "tick": "If now_ms - last < 16, return. Otherwise look up the connection (sys+0x10 ->+0x10 transport, map at +0x18 keyed by connection id) under a critical section. If state==3, budget = clamp(-(rate*k)-x)*8 bits up to 0x28b0. Build a bit writer and loop the writers (sys+0x10 +0x20 array) calling vfunc+0x28(conn, stream, remaining_bits, slot), accumulating bits used in sys+0x18[i], then UdpTransport_SendDataPacket.",
+  "callbacks": "OnInitialize: size the per-writer byte-counter array (+0x18) to the writer count (sys+0x10 +0x28) and zero it.",
+  "components_read": [],
+  "components_written": [],
+  "components_iterated": [],
+  "interacts_with": [
+   "UDP transport (UdpTransport_SendDataPacket)",
+   "packet writers (command/JAM/ack channels)",
+   "wall clock DAT_7ff6517fe318"
+  ],
+  "fixed_step": true,
+  "key_functions": {
+   "0x7ff650c52bc0": "OnTick build+send packet",
+   "0x7ff650c52b40": "OnInitialize writer stats"
+  },
+  "server_relevance": "client-side network send. The server needs the matching receive and parse, plus its own equivalent sender",
+  "evidence": "Named import/label UdpTransport_SendDataPacket, a 16 ms throttle, bit budget 0x28b0, and per-writer vfunc+0x28 serialize calls."
+ },
+ {
+  "vtable_rva": "0x15c2428",
+  "name": "PredictedEntitySpawnSystem (transient client-spawned entities)",
+  "confidence": "medium",
+  "summary": "Has no system callbacks of its own. Its secondary interface (vtable 0x15c2418 at sys+0x10) is registered in global DAT_7ff651797f90+0x210. It lets game code spawn locally predicted entities with deterministic ids 0x6xxxxxxx and later expires unconfirmed ones.",
+  "tick": "none (all default slots)",
+  "callbacks": "Interface method 0 (FUN_7ff650c02640): allocate id 0x60000000|n from ranges keyed by (definition, index), and spawn the entity if it does not exist (FUN_7ff6507ef7c0) with default components 0x69 and 0x0E. It stamps comp 0x69 +0x18 with a frame number and clears the +0x1c confirmed flag. Interface method 1 (FUN_7ff650c02880): read the current frame from singleton comp 0x6B (+0x18), iterate comp 0x69, and delete entities (FUN_7ff6507eff50) that are unconfirmed and older than 6 frames.",
+  "components_read": [
+   "0x6b",
+   "0x69"
+  ],
+  "components_written": [
+   "0x69",
+   "0x0e"
+  ],
+  "components_iterated": [
+   "0x69",
+   "0x6b"
+  ],
+  "interacts_with": [
+   "global client object DAT_7ff651797f90 (+0x210 interface slot)",
+   "entity spawn/delete"
+  ],
+  "fixed_step": true,
+  "key_functions": {
+   "0x7ff650c02640": "spawn predicted entity with allocated 0x6xxxxxxx id",
+   "0x7ff650c02880": "expire unconfirmed predicted entities (>6 frames)",
+   "0x7ff65100e170": "predicted id allocator"
+  },
+  "server_relevance": "client-side prediction of server-spawned entities (for example projectiles). The server must spawn the authoritative ones with matching ids",
+  "evidence": "Constructed in FUN_7ff650bde670 (size 0x20, secondary vtable, stored at global+0x210). Id tag 0x60000000, comp 0x69 frame+6 expiry, and default component slots 0x69/0x0E patched on the definition."
+ },
+ {
+  "vtable_rva": "0x15c2248",
+  "name": "LobbyStubSystem5 (no-op tick)",
+  "confidence": "low",
+  "summary": "Lobby EA only, stored at lobby EA+0x190. Its OnTick (runtime 0x140c2a5e0) contains only the obfuscated anti-tamper heartbeat (rdtsc%100<5 -> DAT_7ff6517fd478+0x34 = counter) and returns, so it is effectively a placeholder or marker system.",
+  "tick": "anti-tamper heartbeat only, no game work",
+  "callbacks": "",
+  "components_read": [],
+  "components_written": [],
+  "components_iterated": [],
+  "interacts_with": [
+   "anti-tamper integrity state DAT_7ff6517fd478"
+  ],
+  "fixed_step": null,
+  "key_functions": {
+   "0x7ff650c0a5e0": "OnTick (junk + heartbeat, then ret at 0x140c2a64a)"
+  },
+  "server_relevance": "none",
+  "evidence": "Disassembly of 0x140c2a5e0 ends at ret after the heartbeat. Constructed in lobby EA ctor FUN_7ff650be01f0 and stored at EA+0x190."
+ },
+ {
+  "vtable_rva": "0x15c4998",
+  "name": "StorePurchaseSystem (lobby shop)",
+  "confidence": "medium",
+  "summary": "Lobby EA (+0x1d0). It handles the in-client store/purchase flow and holds a pending purchase/product object (4 strings) at +0x10. On lobby connection status changes (status 1 or 5) it tears the store state down.",
+  "tick": "none",
+  "callbacks": "OnInitialize: appends (FUN_7ff650c76850, this) to the lobby connection's status-callback list (EA+0x170 +0x198). The callback on status 1 or 5 calls FUN_7ff650c76920: reset the store UI/state (c24f80/cc7d60, flag 0x8000 on a UI object) and free the pending object (FUN_7ff650c75db0).",
+  "components_read": [],
+  "components_written": [],
+  "components_iterated": [],
+  "interacts_with": [
+   "lobby connection (EA+0x170)",
+   "UI (DAT_7ff651813e18)",
+   "store/catalog protobuf parsing"
+  ],
+  "fixed_step": null,
+  "key_functions": {
+   "0x7ff650c768c0": "OnInitialize register status callback",
+   "0x7ff650c76920": "reset store state on disconnect",
+   "0x7ff650c76b00": "currency id -> name ('US Dollars', 'Brill Bucks', ...)",
+   "0x7ff650c773a0": "'Purchase Failed (Reason: %d)'",
+   "0x7ff650c775c0": "parse 'Available Products'/'Base Price'/'Currency'"
+  },
+  "server_relevance": "UI/lobby only; not needed for a match server",
+  "evidence": "Neighbouring methods of this class carry strings 'Purchase Failed (Reason: %d)', 'Available Products', 'Base Price', 'Currency', 'US Dollars', 'Brill Bucks'. Its dtor FUN_7ff650c767b0 frees the same object."
+ },
+ {
+  "vtable_rva": "0x15c2160",
+  "name": "LobbyStubSystem15 (empty marker)",
+  "confidence": "low",
+  "summary": "Lobby EA only. Size 0x10 with only vtable and EA backref, stored at lobby EA+0x1f8. All callback slots are defaults, and there is an EA virtual accessor returning EA+0x1f8 (FUN_7ff650c42580, referenced from a vtable at 0x7ff6515a3860). This is a pure marker/service-locator system with no behaviour of its own.",
+  "tick": "none",
+  "callbacks": "",
+  "components_read": [],
+  "components_written": [],
+  "components_iterated": [],
+  "interacts_with": [],
+  "fixed_step": null,
+  "key_functions": {
+   "0x7ff650c42580": "EA accessor returning EA+0x1f8"
+  },
+  "server_relevance": "none",
+  "evidence": "Constructed in FUN_7ff650be01f0 with a 0x10-byte alloc and no extra fields. All slots are shared defaults."
+ },
+ {
+  "vtable_rva": "0x15c4b78",
+  "name": "LobbySceneSystem (lobby/menu 3D scene tick)",
+  "confidence": "medium",
+  "summary": "Lobby EA. For the singleton component 0x5A it lazily creates a render scene/world (FUN_7ff6509b72e0, bound to the component's resource at +8) and ticks it every frame with dt. When the entity is deleted it destroys the scene.",
+  "tick": "FUN_7ff650c26940 gets comp 0x5A. If +0x18 is null, create the scene (id 0x3dc2) and bind resource +8 (FUN_7ff6509d2290). Clear a pause flag and call FUN_7ff6509d6770(scene, dt) world update.",
+  "callbacks": "OnEntityDeleting (0x140c9bff0): if the entity has comp 0x5A with scene +0x18, null it and destroy the scene (FUN_7ff6509d74f0).",
+  "components_read": [
+   "0x5a"
+  ],
+  "components_written": [
+   "0x5a"
+  ],
+  "components_iterated": [
+   "0x5a"
+  ],
+  "interacts_with": [
+   "scene world create/update/destroy (FUN_7ff6509b72e0 / 9d6770 / 9d74f0)",
+   "renderer"
+  ],
+  "fixed_step": false,
+  "key_functions": {
+   "0x7ff650c7c0a0": "OnTick create+tick lobby scene",
+   "0x7ff6509d6770": "scene world update(dt)"
+  },
+  "server_relevance": "client-only (menu rendering)",
+  "evidence": "Subscribed to 0x5A. Scene create/destroy pair, and the same world-update routine as game System 55."
+ }
+]

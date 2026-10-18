@@ -1,0 +1,2 @@
+# lobbylogic flags, read by scripts/watch.sh on every start (editing this restarts lobbylogic)
+# the game server is chosen in game (R&D / GAME friend requests) and saved to game-server.json; default: instance

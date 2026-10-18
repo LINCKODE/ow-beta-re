@@ -1,0 +1,26 @@
+{
+  "builtin-baseline": "e3ed41868d5034bc608eaaa58383cd6ecdbb5ffb",
+  "dependencies": [
+    "fast-cpp-csv-parser",
+    "freetype",
+    {
+      "name": "imgui",
+      "features": [
+        "docking-experimental",
+        "dx11-binding",
+        "freetype",
+        "wchar32",
+        "win32-binding",
+        "opengl3-binding"
+      ]
+    },
+    "opengl",
+    "nativefiledialog-extended",
+    "openssl",
+    "minhook",
+    "nlohmann-json",
+    "spdlog",
+    "fmt",
+    "cpp-httplib"
+  ]
+}

@@ -1,0 +1,81 @@
+// Reconstructed from Overwatch beta 0.8 (build 24919)
+// Source: bgs/low/pb/client/channel_types.proto
+
+syntax = "proto2";
+
+package bgs.protocol.channel.v1;
+
+import "bgs/protocol/attribute_types.proto";
+import "bgs/protocol/entity_types.proto";
+import "bgs/protocol/invitation_types.proto";
+import "bgs/protocol/rpc_types.proto";
+
+message ChannelId {
+  optional uint32 type = 1;
+  optional .bgs.protocol.ProcessId host = 2;
+  optional fixed32 id = 3;
+}
+
+message Message {
+  repeated .bgs.protocol.Attribute attribute = 1;
+  optional uint32 role = 2;
+}
+
+message ListChannelsOptions {
+  optional uint32 start_index = 1 [default = 0];
+  optional uint32 max_results = 2 [default = 16];
+  optional string name = 3;
+  optional fixed32 program = 4;
+  optional fixed32 locale = 5;
+  optional uint32 capacity_full = 6;
+  required .bgs.protocol.AttributeFilter attribute_filter = 7;
+  optional string channel_type = 8;
+}
+
+message ChannelDescription {
+  required .bgs.protocol.EntityId channel_id = 1;
+  optional uint32 current_members = 2;
+  optional .bgs.protocol.channel.v1.ChannelState state = 3;
+}
+
+message ChannelInfo {
+  required .bgs.protocol.channel.v1.ChannelDescription description = 1;
+  repeated .bgs.protocol.channel.v1.Member member = 2;
+}
+
+message ChannelState {
+  enum PrivacyLevel {
+    PRIVACY_LEVEL_OPEN = 1;
+    PRIVACY_LEVEL_OPEN_INVITATION_AND_FRIEND = 2;
+    PRIVACY_LEVEL_OPEN_INVITATION = 3;
+    PRIVACY_LEVEL_CLOSED = 4;
+  }
+  optional uint32 max_members = 1;
+  optional uint32 min_members = 2;
+  repeated .bgs.protocol.Attribute attribute = 3;
+  repeated .bgs.protocol.Invitation invitation = 4;
+  optional uint32 max_invitations = 5;
+  optional uint32 reason = 6;
+  optional .bgs.protocol.channel.v1.ChannelState.PrivacyLevel privacy_level = 7 [default = PRIVACY_LEVEL_OPEN];
+  optional string name = 8;
+  optional string delegate_name = 9;
+  optional string channel_type = 10 [default = "default"];
+  optional fixed32 program = 11 [default = 0];
+  optional bool allow_offline_members = 12 [default = false];
+  optional bool subscribe_to_presence = 13 [default = true];
+  optional bool destroy_on_founder_leave = 14 [default = false];
+}
+
+message MemberState {
+  repeated .bgs.protocol.Attribute attribute = 1;
+  repeated uint32 role = 2;
+  optional uint64 privileges = 3 [default = 0];
+  optional .bgs.protocol.AccountInfo info = 4;
+  optional bool DEPRECATED_hidden = 5 [default = false];
+}
+
+message Member {
+  required .bgs.protocol.Identity identity = 1;
+  required .bgs.protocol.channel.v1.MemberState state = 2;
+}
+

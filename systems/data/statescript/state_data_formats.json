@@ -1,0 +1,7751 @@
+{
+ "source": "systems/data/statescript/tools/gen_state_data_formats.py (T052); docs/StatescriptSync.md \u00a74",
+ "grammar": "field kinds: see the generator header. Data = the fields of `local` or `remote` (by the packet local flag); `full` never changes a format in this build (no mirror field is flagged 0x20, no reader tests it for bits).",
+ "has_update_types": [
+  "7bf31629",
+  "860ee5fc",
+  "ffbfa88d"
+ ],
+ "counts": {
+  "state_types": 259,
+  "with_data_local": 29,
+  "with_data_remote": 28
+ },
+ "live_replay": {
+  "2168e38f": 6,
+  "4ab09851": 21,
+  "STUStatescriptState": 3,
+  "STUStatescriptStateAbility": 18,
+  "STUStatescriptStateAnim": 1,
+  "STUStatescriptStateApplyAura": 3,
+  "STUStatescriptStateBlinkEffect": 4,
+  "STUStatescriptStateBooleanSwitch": 93,
+  "STUStatescriptStateCameraTransform": 3,
+  "STUStatescriptStateCosmeticEntity": 15,
+  "STUStatescriptStateDataFlowMapping": 18,
+  "STUStatescriptStateHealthPool": 3,
+  "STUStatescriptStateLedgeClimb": 3,
+  "STUStatescriptStateLogicalButton": 26,
+  "STUStatescriptStateModifyHealth": 6,
+  "STUStatescriptStatePopulateTips": 3,
+  "STUStatescriptStateStack": 21,
+  "STUStatescriptStateSubScript": 39,
+  "STUStatescriptStateTrackMovement": 3,
+  "STUStatescriptStateUXScreen": 15,
+  "STUStatescriptStateUXViewModel": 18,
+  "STUStatescriptStateWatch": 6
+ },
+ "live_replay_skipped_asymmetric": {},
+ "types": [
+  {
+   "hash": "f7d6498c",
+   "name": "STUStatescriptStateStack",
+   "uses_resident": 823,
+   "class": {
+    "impl_type": "f7d6498c",
+    "prio": 2,
+    "vtable": "0x15c8b60",
+    "size": 264
+   },
+   "reader": "0xf55bf0",
+   "writer": "0xf55b10",
+   "has_update": false,
+   "reader_fn": "Stack",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    },
+    {
+     "k": "ifnode",
+     "param": "stack_priority",
+     "then": [
+      {
+       "k": "u",
+       "n": 32,
+       "name": "priority"
+      },
+      {
+       "k": "bit",
+       "name": "priority flag"
+      }
+     ]
+    },
+    {
+     "k": "bit",
+     "name": "on top"
+    },
+    {
+     "k": "bit",
+     "name": "under"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 3,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "stack_priority: node m_priority (+0x108) set and not a STUConfigVarStackPriority"
+   ],
+   "verified_live": [
+    {
+     "example": "Stack idle: no predecessor, on top",
+     "bits": 3
+    }
+   ]
+  },
+  {
+   "hash": "e811ecbb",
+   "name": "STUStatescriptStateBooleanSwitch",
+   "uses_resident": 782,
+   "class": {
+    "impl_type": "e811ecbb",
+    "prio": 0,
+    "vtable": "0x1605058",
+    "size": 320
+   },
+   "reader": "0xf55560",
+   "writer": "0xf55540",
+   "has_update": false,
+   "reader_fn": "bool state",
+   "mirrors": [
+    {
+     "offset": "0xa8",
+     "type": "ff61af77",
+     "fields": [
+      {
+       "hash": "dfa0e9d4",
+       "offset": 120,
+       "elem": "3b9327d2",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      }
+     ]
+    }
+   ],
+   "local": [
+    {
+     "k": "bit",
+     "name": "value"
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "value"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": [
+    "+0x120, fires the value-changed callback"
+   ],
+   "verified_live": [
+    {
+     "example": "BooleanSwitch",
+     "bits": 1
+    }
+   ]
+  },
+  {
+   "hash": "65f158da",
+   "name": "STUStatescriptStateWait",
+   "uses_resident": 708,
+   "class": {
+    "impl_type": "65f158da",
+    "prio": 0,
+    "vtable": "0x16052b0",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "970ec198",
+   "name": "STUStatescriptStateChaseVar",
+   "uses_resident": 263,
+   "class": {
+    "impl_type": "970ec198",
+    "prio": 2,
+    "vtable": "0x15c8e30",
+    "size": 384
+   },
+   "reader": "0xf53c40",
+   "writer": "0xf53b10",
+   "has_update": false,
+   "reader_fn": "ChaseVar",
+   "mirrors": [
+    {
+     "offset": "0xb0",
+     "type": "28c44860",
+     "fields": [
+      {
+       "hash": "edabea76",
+       "offset": 128,
+       "elem": "2357e676",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "d0334a6f",
+       "offset": 144,
+       "elem": "015e6adb",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "aea33c68",
+       "offset": 152,
+       "elem": "954a3bab",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "fb30e9d5",
+       "offset": 156,
+       "elem": "3b9327d2",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "f6258155",
+       "offset": 157,
+       "elem": "3b9327d2",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "dbca9276",
+       "offset": 158,
+       "elem": "3b9327d2",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      }
+     ]
+    }
+   ],
+   "local": [
+    {
+     "k": "bit",
+     "name": "isVec"
+    },
+    {
+     "k": "bit",
+     "name": "hasDuration"
+    },
+    {
+     "k": "bit",
+     "name": "reached"
+    },
+    {
+     "k": "if",
+     "bit": "isVec",
+     "then": [
+      {
+       "k": "u",
+       "n": 32,
+       "name": "x f32"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "y f32"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "z f32"
+      }
+     ],
+     "else": [
+      {
+       "k": "u",
+       "n": 32,
+       "name": "x f32"
+      }
+     ]
+    },
+    {
+     "k": "if",
+     "bit": "hasDuration",
+     "then": [
+      {
+       "k": "bit",
+       "name": "wide"
+      },
+      {
+       "k": "if",
+       "bit": "wide",
+       "then": [
+        {
+         "k": "u",
+         "n": 32,
+         "name": "remaining ms"
+        }
+       ],
+       "else": [
+        {
+         "k": "u",
+         "n": 16,
+         "name": "remaining ms"
+        }
+       ]
+      }
+     ],
+     "else": []
+    },
+    {
+     "k": "bit",
+     "name": "closed form"
+    },
+    {
+     "k": "if",
+     "bit": "closed form",
+     "then": [
+      {
+       "k": "count",
+       "name": "(CF+1)*16 - last tick"
+      }
+     ],
+     "else": []
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "isVec"
+    },
+    {
+     "k": "bit",
+     "name": "hasDuration"
+    },
+    {
+     "k": "bit",
+     "name": "reached"
+    },
+    {
+     "k": "if",
+     "bit": "isVec",
+     "then": [
+      {
+       "k": "u",
+       "n": 32,
+       "name": "x f32"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "y f32"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "z f32"
+      }
+     ],
+     "else": [
+      {
+       "k": "u",
+       "n": 32,
+       "name": "x f32"
+      }
+     ]
+    },
+    {
+     "k": "if",
+     "bit": "hasDuration",
+     "then": [
+      {
+       "k": "bit",
+       "name": "wide"
+      },
+      {
+       "k": "if",
+       "bit": "wide",
+       "then": [
+        {
+         "k": "u",
+         "n": 32,
+         "name": "remaining ms"
+        }
+       ],
+       "else": [
+        {
+         "k": "u",
+         "n": 16,
+         "name": "remaining ms"
+        }
+       ]
+      }
+     ],
+     "else": []
+    },
+    {
+     "k": "bit",
+     "name": "closed form"
+    },
+    {
+     "k": "if",
+     "bit": "closed form",
+     "then": [
+      {
+       "k": "count",
+       "name": "(CF+1)*16 - last tick"
+      }
+     ],
+     "else": []
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 36,
+   "remote_min_bits": 36,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [],
+   "verified_live": [
+    {
+     "example": "ChaseVar scalar, no duration, closed form, t < 256",
+     "bits": 45
+    }
+   ]
+  },
+  {
+   "hash": "7fb4bf64",
+   "name": "STUStatescriptStateAnim",
+   "uses_resident": 259,
+   "class": {
+    "impl_type": "7fb4bf64",
+    "prio": 2,
+    "vtable": "0x15e59a0",
+    "size": 416
+   },
+   "reader": "0x10a4c80",
+   "writer": "0x10a4bd0",
+   "has_update": false,
+   "reader_fn": "Anim",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "u",
+     "n": 3,
+     "name": "serial"
+    },
+    {
+     "k": "bit",
+     "name": "has anim"
+    },
+    {
+     "k": "if",
+     "bit": "has anim",
+     "then": [
+      {
+       "k": "bit",
+       "name": "has time"
+      },
+      {
+       "k": "if",
+       "bit": "has time",
+       "then": [
+        {
+         "k": "count",
+         "name": "time ms"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": []
+    }
+   ],
+   "remote": [
+    {
+     "k": "u",
+     "n": 3,
+     "name": "serial"
+    },
+    {
+     "k": "bit",
+     "name": "has anim"
+    },
+    {
+     "k": "if",
+     "bit": "has anim",
+     "then": [
+      {
+       "k": "bit",
+       "name": "has time"
+      },
+      {
+       "k": "if",
+       "bit": "has time",
+       "then": [
+        {
+         "k": "count",
+         "name": "time ms"
+        }
+       ],
+       "else": []
+      }
+     ],
+     "else": []
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 4,
+   "remote_min_bits": 4,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "serial = low 3 bits of the state serial (+0x44)"
+   ],
+   "verified_live": [
+    {
+     "example": "Anim with time (32-bit form)",
+     "bits": 39
+    }
+   ]
+  },
+  {
+   "hash": "85c28a9a",
+   "name": "STUStatescriptStateDataFlowMapping",
+   "uses_resident": 240,
+   "class": {
+    "impl_type": "85c28a9a",
+    "prio": 2,
+    "vtable": "0x15dd9c8",
+    "size": 216
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "ffbfa88d",
+   "name": "STUStatescriptStateEffect",
+   "uses_resident": 207,
+   "class": {
+    "impl_type": "ffbfa88d",
+    "prio": 2,
+    "vtable": "0x15dc8b8",
+    "size": 368
+   },
+   "reader": "0xd7de40",
+   "writer": null,
+   "has_update": true,
+   "reader_fn": "Effect",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "u",
+     "n": 2,
+     "name": "serial"
+    }
+   ],
+   "remote": [
+    {
+     "k": "u",
+     "n": 2,
+     "name": "serial"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 2,
+   "remote_min_bits": 2,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": false,
+   "notes": [
+    "low 2 bits of the state serial; the client class has no writer (+0x1F0 is the no-op)",
+    "client writer/reader asymmetry: the client never writes this data; a client-side serialization of it (Prometheus ss_serialize_local) is not what the reader expects"
+   ]
+  },
+  {
+   "hash": "ff77458c",
+   "name": "STUStatescriptStateLogicalButton",
+   "uses_resident": 175,
+   "class": {
+    "impl_type": "ff77458c",
+    "prio": 2,
+    "vtable": "0x15c7f70",
+    "size": 368
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c2a01675",
+   "name": "STUStatescriptStateUXViewModel",
+   "uses_resident": 158,
+   "class": {
+    "impl_type": "c2a01675",
+    "prio": 2,
+    "vtable": "0x15cccc0",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6e81f6d4",
+   "name": "STUStatescriptStateCosmeticEntity",
+   "uses_resident": 140,
+   "class": {
+    "impl_type": "6e81f6d4",
+    "prio": 2,
+    "vtable": "0x15ddfe0",
+    "size": 208
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "a7213568",
+   "name": "STUStatescriptState",
+   "uses_resident": 124,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "498b421a",
+   "name": "STUStatescriptStateTrackTargets",
+   "uses_resident": 109,
+   "class": {
+    "impl_type": "498b421a",
+    "prio": 2,
+    "vtable": "0x15d4d50",
+    "size": 704
+   },
+   "reader": "0x108ec30",
+   "writer": "0x108eaf0",
+   "has_update": false,
+   "reader_fn": "TrackTargets",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "bit",
+     "name": "has"
+    },
+    {
+     "k": "if",
+     "bit": "has",
+     "then": [
+      {
+       "k": "small",
+       "name": "n"
+      },
+      {
+       "k": "repeat",
+       "count": "n",
+       "body": [
+        {
+         "k": "u",
+         "n": 32,
+         "name": "entity id"
+        },
+        {
+         "k": "count",
+         "name": "age ms"
+        }
+       ]
+      }
+     ],
+     "else": []
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "has"
+    },
+    {
+     "k": "if",
+     "bit": "has",
+     "then": [
+      {
+       "k": "small",
+       "name": "n"
+      },
+      {
+       "k": "repeat",
+       "count": "n",
+       "body": [
+        {
+         "k": "u",
+         "n": 32,
+         "name": "entity id"
+        },
+        {
+         "k": "count",
+         "name": "age ms"
+        }
+       ]
+      }
+     ],
+     "else": []
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "0 = no targets (1 bit idle); target time = now - age"
+   ],
+   "verified_live": [
+    {
+     "example": "TrackTargets idle",
+     "bits": 1
+    }
+   ]
+  },
+  {
+   "hash": "02e4a0ab",
+   "name": "STUStatescriptStateMovementMod",
+   "uses_resident": 86,
+   "class": {
+    "impl_type": "02e4a0ab",
+    "prio": 1,
+    "vtable": "0x1618968",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "619d9e95",
+   "name": "STUStatescriptStateModifyHealth",
+   "uses_resident": 81,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "3db862c4",
+   "name": "STUStatescriptStateSubScript",
+   "uses_resident": 77,
+   "class": {
+    "impl_type": "3db862c4",
+    "prio": 1,
+    "vtable": "0x1621978",
+    "size": 192
+   },
+   "reader": "0xf70f40",
+   "writer": "0xf70ea0",
+   "has_update": false,
+   "reader_fn": "SubScript",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "small",
+     "name": "child instance id"
+    },
+    {
+     "k": "bit",
+     "name": "+0xAA"
+    }
+   ],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 6,
+   "remote_min_bits": 0,
+   "local_fixed": false,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": [
+    "remote: nothing"
+   ]
+  },
+  {
+   "hash": "860ee5fc",
+   "name": "STUStatescriptStateWeaponVolley",
+   "uses_resident": 65,
+   "class": {
+    "impl_type": "860ee5fc",
+    "prio": 2,
+    "vtable": "0x15d2450",
+    "size": 832
+   },
+   "reader": "0x1078570",
+   "writer": "0x10784e0",
+   "has_update": true,
+   "reader_fn": "WeaponVolley",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "scount",
+     "name": "CF*16 - begin"
+    },
+    {
+     "k": "bit",
+     "name": "counter != 1"
+    },
+    {
+     "k": "if",
+     "bit": "counter != 1",
+     "then": [
+      {
+       "k": "small",
+       "name": "volley counter"
+      }
+     ],
+     "else": []
+    },
+    {
+     "k": "u",
+     "n": 6,
+     "name": "serial"
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "counter != 1"
+    },
+    {
+     "k": "if",
+     "bit": "counter != 1",
+     "then": [
+      {
+       "k": "small",
+       "name": "volley counter"
+      }
+     ],
+     "else": []
+    },
+    {
+     "k": "u",
+     "n": 6,
+     "name": "serial"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 17,
+   "remote_min_bits": 7,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [],
+   "verified_live": [
+    {
+     "example": "WeaponVolley: begin offset < 256, counter 1, serial",
+     "bits": 17
+    }
+   ]
+  },
+  {
+   "hash": "f53c5da8",
+   "name": "STUStatescriptStateAbility",
+   "uses_resident": 63,
+   "class": {
+    "impl_type": "f53c5da8",
+    "prio": 2,
+    "vtable": "0x15d7c98",
+    "size": 528
+   },
+   "reader": "0x10871b0",
+   "writer": "0x1087000",
+   "has_update": false,
+   "reader_fn": "Ability",
+   "mirrors": [
+    {
+     "offset": "0xd0",
+     "type": "efd4b39b",
+     "fields": [
+      {
+       "hash": "d0334a6f",
+       "offset": 120,
+       "elem": "015e6adb",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "efa6ad5e",
+       "offset": 128,
+       "elem": "8fa75a30",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "763327d2",
+       "offset": 132,
+       "elem": "8fa75a30",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "b2be05c4",
+       "offset": 136,
+       "elem": "a0119d30",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "e7efd5f3",
+       "offset": 138,
+       "elem": "a0119d30",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "47f2fede",
+       "offset": 140,
+       "elem": "3b9327d2",
+       "ctype": 0,
+       "flags": 0,
+       "read": "always"
+      }
+     ]
+    }
+   ],
+   "local": [
+    {
+     "k": "u",
+     "n": 8,
+     "name": "mirror field 47f2fede"
+    },
+    {
+     "k": "ifnode",
+     "param": "ability_priority",
+     "then": [
+      {
+       "k": "u",
+       "n": 32,
+       "name": "priority"
+      },
+      {
+       "k": "bit",
+       "name": "priority flag"
+      }
+     ]
+    },
+    {
+     "k": "bit",
+     "name": "cooldown"
+    },
+    {
+     "k": "if",
+     "bit": "cooldown",
+     "then": [
+      {
+       "k": "u",
+       "n": 32,
+       "name": "cooldown f32"
+      },
+      {
+       "k": "bit",
+       "name": "has rate"
+      },
+      {
+       "k": "if",
+       "bit": "has rate",
+       "then": [
+        {
+         "k": "u",
+         "n": 32,
+         "name": "rate f32"
+        }
+       ],
+       "else": []
+      },
+      {
+       "k": "count",
+       "name": "(CF+1)*16 - start"
+      }
+     ],
+     "else": []
+    },
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "u",
+     "n": 8,
+     "name": "mirror field 47f2fede"
+    },
+    {
+     "k": "bit",
+     "name": "cooldown"
+    },
+    {
+     "k": "if",
+     "bit": "cooldown",
+     "then": [
+      {
+       "k": "u",
+       "n": 32,
+       "name": "cooldown f32"
+      },
+      {
+       "k": "bit",
+       "name": "has rate"
+      },
+      {
+       "k": "if",
+       "bit": "has rate",
+       "then": [
+        {
+         "k": "u",
+         "n": 32,
+         "name": "rate f32"
+        }
+       ],
+       "else": []
+      },
+      {
+       "k": "count",
+       "name": "(CF+1)*16 - start"
+      }
+     ],
+     "else": []
+    },
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 10,
+   "remote_min_bits": 10,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "ability_priority: node 0x92c13ac6 (+0x1E0) set and not a STUConfigVarStackPriority; rate defaults to 1.0, cooldown to 0"
+   ],
+   "verified_live": [
+    {
+     "example": "Ability idle: flags 0, no cooldown, no predecessor",
+     "bits": 10
+    },
+    {
+     "example": "Ability dash cooldown: flags 0, cooldown 0.97, rate 1.0, t = 30",
+     "bits": 52
+    }
+   ]
+  },
+  {
+   "hash": "9f74c07c",
+   "name": "STUStatescriptStateClientonlyController",
+   "uses_resident": 58,
+   "class": {
+    "impl_type": "9f74c07c",
+    "prio": 2,
+    "vtable": "0x15c9310",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "4ab09851",
+   "name": null,
+   "uses_resident": 57,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "0459c53d",
+   "name": "STUStatescriptStateUIInWorld",
+   "uses_resident": 53,
+   "class": {
+    "impl_type": "0459c53d",
+    "prio": 2,
+    "vtable": "0x15cd028",
+    "size": 1088
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c739baac",
+   "name": "STUStatescriptStateUXScreen",
+   "uses_resident": 50,
+   "class": {
+    "impl_type": "c739baac",
+    "prio": 2,
+    "vtable": "0x15ce2a8",
+    "size": 992
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": [],
+   "verified_live": [
+    {
+     "example": "UXScreen",
+     "bits": 0
+    }
+   ]
+  },
+  {
+   "hash": "a97b875f",
+   "name": "STUStatescriptStatePopulateTips",
+   "uses_resident": 44,
+   "class": {
+    "impl_type": "a97b875f",
+    "prio": 2,
+    "vtable": "0x15c7a80",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e67578c0",
+   "name": "STUStatescriptStateWatch",
+   "uses_resident": 38,
+   "class": {
+    "impl_type": "e67578c0",
+    "prio": 0,
+    "vtable": "0x1605508",
+    "size": 288
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "26367267",
+   "name": "STUStatescriptStateSwitch",
+   "uses_resident": 35,
+   "class": {
+    "impl_type": "26367267",
+    "prio": 0,
+    "vtable": "0x16059b8",
+    "size": 200
+   },
+   "reader": "0xf57e80",
+   "writer": "0xf57dc0",
+   "has_update": false,
+   "reader_fn": "Switch",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "cases",
+     "name": "case bits"
+    },
+    {
+     "k": "bit",
+     "name": "+0xB0"
+    }
+   ],
+   "remote": [
+    {
+     "k": "cases",
+     "name": "case bits"
+    },
+    {
+     "k": "bit",
+     "name": "+0xB0"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "writer G:f37dc0 writes the same: case bits (<= 64) then one more bit"
+   ]
+  },
+  {
+   "hash": "01d6952a",
+   "name": "STUStatescriptStateLimitAim",
+   "uses_resident": 34,
+   "class": {
+    "impl_type": "01d6952a",
+    "prio": 1,
+    "vtable": "0x1618180",
+    "size": 256
+   },
+   "reader": "0xf4af00",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "stack member (pred only)",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "reads the predecessor and re-links the state in the stack registry"
+   ]
+  },
+  {
+   "hash": "d78490d1",
+   "name": "STUStatescriptStateApplyAura",
+   "uses_resident": 34,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6bfa64af",
+   "name": "STUStatescriptStateUXReticleOverride",
+   "uses_resident": 30,
+   "class": {
+    "impl_type": "6bfa64af",
+    "prio": 2,
+    "vtable": "0x15cca48",
+    "size": 200
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c0a88bb0",
+   "name": "STUStatescriptStateBeamEffect",
+   "uses_resident": 29,
+   "class": {
+    "impl_type": "c0a88bb0",
+    "prio": 2,
+    "vtable": "0x15dcf10",
+    "size": 400
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "cd396790",
+   "name": null,
+   "uses_resident": 29,
+   "class": {
+    "impl_type": "cd396790",
+    "prio": 2,
+    "vtable": "0x15d4840",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "a7ca1073",
+   "name": "STUStatescriptStateTrackStatTime",
+   "uses_resident": 22,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7331cb24",
+   "name": "STUStatescriptStateInvisible",
+   "uses_resident": 20,
+   "class": {
+    "impl_type": "7331cb24",
+    "prio": 2,
+    "vtable": "0x15d45e8",
+    "size": 224
+   },
+   "reader": "0xd67d30",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "Invisible",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "then applies (no more bits)"
+   ],
+   "verified_live": [
+    {
+     "example": "Invisible, no predecessor",
+     "bits": 1
+    }
+   ]
+  },
+  {
+   "hash": "a5f89e3f",
+   "name": "STUStatescriptStateCameraTransform",
+   "uses_resident": 20,
+   "class": {
+    "impl_type": "a5f89e3f",
+    "prio": 2,
+    "vtable": "0x15f16a0",
+    "size": 224
+   },
+   "reader": "0xdc4990",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "CameraTransform",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [],
+   "verified_live": [
+    {
+     "example": "CameraTransform, no predecessor",
+     "bits": 1
+    }
+   ]
+  },
+  {
+   "hash": "c17b255d",
+   "name": "STUStatescriptStateHealthPool",
+   "uses_resident": 20,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7b3ed271",
+   "name": "STUStatescriptStateCameraLookAt",
+   "uses_resident": 19,
+   "class": {
+    "impl_type": "7b3ed271",
+    "prio": 2,
+    "vtable": "0x15f0f20",
+    "size": 384
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "44e7f474",
+   "name": "STUStatescriptStateGamePadVibration",
+   "uses_resident": 18,
+   "class": {
+    "impl_type": "44e7f474",
+    "prio": 2,
+    "vtable": "0x15d97c0",
+    "size": 368
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "323aabcf",
+   "name": "STUStatescriptStateTrackRay",
+   "uses_resident": 17,
+   "class": {
+    "impl_type": "323aabcf",
+    "prio": 2,
+    "vtable": "0x15d5718",
+    "size": 608
+   },
+   "reader": "0xd6b140",
+   "writer": null,
+   "has_update": false,
+   "reader_fn": "TrackRay",
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": false,
+   "notes": [
+    "reads nothing; prunes its entries older than the CF",
+    "client writer/reader asymmetry: the client never writes this data; a client-side serialization of it (Prometheus ss_serialize_local) is not what the reader expects"
+   ]
+  },
+  {
+   "hash": "d7ca9c01",
+   "name": "STUStatescriptStateTargetEffect",
+   "uses_resident": 16,
+   "class": {
+    "impl_type": "d7ca9c01",
+    "prio": 2,
+    "vtable": "0x15d54b0",
+    "size": 384
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "225ae956",
+   "name": null,
+   "uses_resident": 15,
+   "class": {
+    "impl_type": "225ae956",
+    "prio": 2,
+    "vtable": "0x15d3b18",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "28d0a23b",
+   "name": "STUStatescriptStateCamera3P",
+   "uses_resident": 13,
+   "class": {
+    "impl_type": "28d0a23b",
+    "prio": 2,
+    "vtable": "0x15dafc8",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "b1001dcf",
+   "name": "STUStatescriptStatePhaseOut",
+   "uses_resident": 13,
+   "class": {
+    "impl_type": "b1001dcf",
+    "prio": 2,
+    "vtable": "0x15ced70",
+    "size": 224
+   },
+   "reader": "0xf4af00",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "stack member (pred only)",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "reads the predecessor and re-links the state in the stack registry"
+   ]
+  },
+  {
+   "hash": "2a0fb7e6",
+   "name": "STUStatescriptStateInvincible",
+   "uses_resident": 12,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "381d6654",
+   "name": null,
+   "uses_resident": 12,
+   "class": {
+    "impl_type": "381d6654",
+    "prio": 2,
+    "vtable": "0x15d9a50",
+    "size": 384
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "8de7e50f",
+   "name": "STUStatescriptStateTrackMovement",
+   "uses_resident": 12,
+   "class": {
+    "impl_type": "8de7e50f",
+    "prio": 1,
+    "vtable": "0x1618710",
+    "size": 320
+   },
+   "reader": "0xf55560",
+   "writer": "0xf55540",
+   "has_update": false,
+   "reader_fn": "bool state",
+   "mirrors": [
+    {
+     "offset": "0xa8",
+     "type": "9a97a6c3",
+     "fields": [
+      {
+       "hash": "d84db60d",
+       "offset": 120,
+       "elem": "3b9327d2",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      }
+     ]
+    }
+   ],
+   "local": [
+    {
+     "k": "bit",
+     "name": "value"
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "value"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": [
+    "+0x120, fires the value-changed callback"
+   ],
+   "verified_live": [
+    {
+     "example": "TrackMovement",
+     "bits": 1
+    }
+   ]
+  },
+  {
+   "hash": "971645fe",
+   "name": "STUStatescriptStateAttach",
+   "uses_resident": 11,
+   "class": {
+    "impl_type": "971645fe",
+    "prio": 1,
+    "vtable": "0x161a148",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "d689c470",
+   "name": "STUStatescriptStateLogicalButtonClientOnly",
+   "uses_resident": 11,
+   "class": {
+    "impl_type": "d689c470",
+    "prio": 2,
+    "vtable": "0x15c7cf8",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c1035274",
+   "name": "STUStatescriptStateMoveTo",
+   "uses_resident": 10,
+   "class": {
+    "impl_type": "c1035274",
+    "prio": 1,
+    "vtable": "0x1618e28",
+    "size": 272
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e19fda31",
+   "name": null,
+   "uses_resident": 10,
+   "class": {
+    "impl_type": "e19fda31",
+    "prio": 2,
+    "vtable": "0x15c9568",
+    "size": 208
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "445437ed",
+   "name": null,
+   "uses_resident": 9,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "b0054407",
+   "name": null,
+   "uses_resident": 8,
+   "class": {
+    "impl_type": "b0054407",
+    "prio": 2,
+    "vtable": "0x15dd4f8",
+    "size": 200
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "b0d4b2c2",
+   "name": null,
+   "uses_resident": 8,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "160c4f1d",
+   "name": "STUStatescriptStateValidatePlacement",
+   "uses_resident": 7,
+   "class": {
+    "impl_type": "160c4f1d",
+    "prio": 2,
+    "vtable": "0x15d5e68",
+    "size": 304
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "2168e38f",
+   "name": null,
+   "uses_resident": 7,
+   "class": {
+    "impl_type": "2168e38f",
+    "prio": 2,
+    "vtable": "0x15d1b20",
+    "size": 1120
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "4cced352",
+   "name": "STUStatescriptStatePet",
+   "uses_resident": 7,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "68cb1df9",
+   "name": "STUStatescriptStateCombatModFilter",
+   "uses_resident": 7,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "01419d1c",
+   "name": "STUStatescriptStateUXFade",
+   "uses_resident": 6,
+   "class": {
+    "impl_type": "01419d1c",
+    "prio": 2,
+    "vtable": "0x15d0e50",
+    "size": 1024
+   },
+   "reader": "0xd22370",
+   "writer": null,
+   "has_update": false,
+   "reader_fn": "UXFade",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "bit",
+     "name": "+0x3D8"
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "+0x3D8"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": false,
+   "notes": [
+    "the client class has no writer",
+    "client writer/reader asymmetry: the client never writes this data; a client-side serialization of it (Prometheus ss_serialize_local) is not what the reader expects"
+   ]
+  },
+  {
+   "hash": "12db64da",
+   "name": null,
+   "uses_resident": 6,
+   "class": {
+    "impl_type": "12db64da",
+    "prio": 1,
+    "vtable": "0x1616aa8",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "72509d3b",
+   "name": "STUStatescriptStateFindGround",
+   "uses_resident": 6,
+   "class": {
+    "impl_type": "72509d3b",
+    "prio": 2,
+    "vtable": "0x15d60d8",
+    "size": 224
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e831bef1",
+   "name": "STUStatescriptStateAssist",
+   "uses_resident": 6,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1ab3b4d7",
+   "name": "STUStatescriptStateApplyTargetTags",
+   "uses_resident": 5,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "3f27886c",
+   "name": "STUStatescriptStateWorldFade",
+   "uses_resident": 5,
+   "class": {
+    "impl_type": "3f27886c",
+    "prio": 2,
+    "vtable": "0x15f2278",
+    "size": 192
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "614c3a0a",
+   "name": null,
+   "uses_resident": 5,
+   "class": {
+    "impl_type": "614c3a0a",
+    "prio": 2,
+    "vtable": "0x15d59b8",
+    "size": 200
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "71c68397",
+   "name": "STUStatescriptStateUXToast",
+   "uses_resident": 5,
+   "class": {
+    "impl_type": "71c68397",
+    "prio": 2,
+    "vtable": "0x15d3530",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f6e1e486",
+   "name": "STUStatescriptStateLedgeClimb",
+   "uses_resident": 5,
+   "class": {
+    "impl_type": "f6e1e486",
+    "prio": 1,
+    "vtable": "0x1619090",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": [],
+   "verified_live": [
+    {
+     "example": "LedgeClimb",
+     "bits": 0
+    }
+   ]
+  },
+  {
+   "hash": "5b2bb8b6",
+   "name": "STUStatescriptStateUXPurchaseScreen",
+   "uses_resident": 4,
+   "class": {
+    "impl_type": "5b2bb8b6",
+    "prio": 2,
+    "vtable": "0x15ebc10",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "67471c66",
+   "name": "STUStatescriptStateDeflectProjectiles",
+   "uses_resident": 4,
+   "class": {
+    "impl_type": "67471c66",
+    "prio": 2,
+    "vtable": "0x15d2bf8",
+    "size": 496
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6c4f68a0",
+   "name": null,
+   "uses_resident": 4,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "9c27cbce",
+   "name": "STUStatescriptStateSuppressCapture",
+   "uses_resident": 4,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c37e44d7",
+   "name": null,
+   "uses_resident": 4,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f45a1956",
+   "name": "STUStatescriptStateWallMove",
+   "uses_resident": 4,
+   "class": {
+    "impl_type": "f45a1956",
+    "prio": 2,
+    "vtable": "0x15e6588",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "06fcca5d",
+   "name": "STUStatescriptStateSuppressMovementPrediction",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "06fcca5d",
+    "prio": 2,
+    "vtable": "0x15e60d8",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "07167219",
+   "name": "STUStatescriptStateSetLightingLayer",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "07167219",
+    "prio": 2,
+    "vtable": "0x15c72f8",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1a81cfb7",
+   "name": "STUStatescriptStateAnimatedCamera",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "1a81cfb7",
+    "prio": 2,
+    "vtable": "0x15f18f8",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "20569e48",
+   "name": "STUStatescriptStateForceAimDir",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "22fe9543",
+   "name": "STUStatescriptStateRayCast",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "22fe9543",
+    "prio": 2,
+    "vtable": "0x15d3ec0",
+    "size": 240
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "27984fc9",
+   "name": "STUStatescriptStateTimeInArray",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "27984fc9",
+    "prio": 0,
+    "vtable": "0x16060c0",
+    "size": 192
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "3a846155",
+   "name": "STUStatescriptStatePossessView",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "3f67b31b",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "3f67b31b",
+    "prio": 2,
+    "vtable": "0x15c77f0",
+    "size": 432
+   },
+   "reader": "0xd03f40",
+   "writer": null,
+   "has_update": false,
+   "reader_fn": "3f67b31b",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "bit",
+     "name": "b"
+    },
+    {
+     "k": "u",
+     "n": 8,
+     "name": "value"
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "b"
+    },
+    {
+     "k": "u",
+     "n": 8,
+     "name": "value"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 9,
+   "remote_min_bits": 9,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": false,
+   "notes": [
+    "client writer/reader asymmetry: the client never writes this data; a client-side serialization of it (Prometheus ss_serialize_local) is not what the reader expects"
+   ]
+  },
+  {
+   "hash": "49da8988",
+   "name": "STUStatescriptStateAimRotate",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "52c50300",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "52c50300",
+    "prio": 2,
+    "vtable": "0x15dd750",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "74cb0002",
+   "name": "STUStatescriptStatePossessControl",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "78146b78",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "78146b78",
+    "prio": 2,
+    "vtable": "0x15dc638",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7aff7efe",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "7aff7efe",
+    "prio": 2,
+    "vtable": "0x15f00e0",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "97315c42",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "a6fbbd49",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c7409708",
+   "name": "STUStatescriptStateAlliesTargetFilter",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "dda31b5c",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e7c6aaf6",
+   "name": "STUStatescriptStateCreateEntity",
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "e7c6aaf6",
+    "prio": 2,
+    "vtable": "0x15d9df0",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e9ac5b41",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "e9ac5b41",
+    "prio": 2,
+    "vtable": "0x15de4e8",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f2163ed4",
+   "name": null,
+   "uses_resident": 3,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1d6e98aa",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "1d6e98aa",
+    "prio": 2,
+    "vtable": "0x15ec260",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "26cb90c0",
+   "name": "STUStatescriptStateExtender",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "26cb90c0",
+    "prio": 2,
+    "vtable": "0x15d5228",
+    "size": 288
+   },
+   "reader": "0x1095dc0",
+   "writer": "0x1095d90",
+   "has_update": false,
+   "reader_fn": "Extender",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "scount",
+     "name": "CF*16 - begin"
+    }
+   ],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 10,
+   "remote_min_bits": 0,
+   "local_fixed": false,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": [
+    "begin time (+0x48) = CF*16 - value"
+   ]
+  },
+  {
+   "hash": "40313ff3",
+   "name": "STUStatescriptStateUXToastQueue",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "40313ff3",
+    "prio": 2,
+    "vtable": "0x15d31a0",
+    "size": 1440
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "429991a7",
+   "name": "STUStatescriptStateBlinkEffect",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "429991a7",
+    "prio": 2,
+    "vtable": "0x15d4fc8",
+    "size": 240
+   },
+   "reader": "0xd68bc0",
+   "writer": "0x108bf10",
+   "has_update": false,
+   "reader_fn": "BlinkEffect",
+   "mirrors": [],
+   "local": [],
+   "remote": [
+    {
+     "k": "u",
+     "n": 32,
+     "name": "id"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 32,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": [
+    "remote: id pushed into a sorted list"
+   ],
+   "verified_live": [
+    {
+     "example": "BlinkEffect local",
+     "bits": 0
+    }
+   ]
+  },
+  {
+   "hash": "4adcd381",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "4adcd381",
+    "prio": 2,
+    "vtable": "0x15f2728",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "5e4f2a57",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6005e1a4",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "648f62a7",
+   "name": "STUStatescriptStatePlacedCamera",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "648f62a7",
+    "prio": 2,
+    "vtable": "0x15f11f0",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6c6eceed",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "81f33242",
+   "name": "STUStatescriptStateHideCosmeticEntity",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "81f33242",
+    "prio": 2,
+    "vtable": "0x15de740",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "86049103",
+   "name": "STUStatescriptStateUXDialogBox",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "86049103",
+    "prio": 2,
+    "vtable": "0x15cb590",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "9608418a",
+   "name": "STUStatescriptStatePlayReel",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "9608418a",
+    "prio": 2,
+    "vtable": "0x15f2018",
+    "size": 192
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "984cab99",
+   "name": "STUStatescriptStateUXScoreboardScreen",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "984cab99",
+    "prio": 2,
+    "vtable": "0x15cd640",
+    "size": 1040
+   },
+   "reader": null,
+   "writer": "0x6119c0",
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": false,
+   "notes": [
+    "client writer/reader asymmetry: the client never writes this data; a client-side serialization of it (Prometheus ss_serialize_local) is not what the reader expects"
+   ]
+  },
+  {
+   "hash": "985bcc76",
+   "name": "STUStatescriptStateDeflectProjectilesEffects",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "985bcc76",
+    "prio": 2,
+    "vtable": "0x15d2970",
+    "size": 656
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "a4f3be65",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "a4f3be65",
+    "prio": 2,
+    "vtable": "0x15c97c0",
+    "size": 208
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "af1de228",
+   "name": "STUStatescriptStateReelReady",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "af1de228",
+    "prio": 2,
+    "vtable": "0x15f1db0",
+    "size": 192
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "bae88c4e",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "bae88c4e",
+    "prio": 2,
+    "vtable": "0x15d38b0",
+    "size": 1136
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "bf733a32",
+   "name": "STUStatescriptStateTimeScaleAnimation",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "bf733a32",
+    "prio": 1,
+    "vtable": "0x1617f18",
+    "size": 232
+   },
+   "reader": "0xf4af00",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "stack member (pred only)",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "reads the predecessor and re-links the state in the stack registry"
+   ]
+  },
+  {
+   "hash": "c2eeee16",
+   "name": "STUStatescriptStateSteer",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "c2eeee16",
+    "prio": 1,
+    "vtable": "0x1619a20",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c4f4b4bb",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c6366130",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "c6366130",
+    "prio": 1,
+    "vtable": "0x161a3c0",
+    "size": 368
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [
+    {
+     "offset": "0xb0",
+     "type": "4d83830d",
+     "fields": [
+      {
+       "hash": "eb5b9b5e",
+       "offset": 128,
+       "elem": "2357e676",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "ebbde2a9",
+       "offset": 144,
+       "elem": "91c74719",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "cedb72f5",
+       "offset": 148,
+       "elem": "91c74719",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "4abd5840",
+       "offset": 152,
+       "elem": "91c74719",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      },
+      {
+       "hash": "d5b2665b",
+       "offset": 156,
+       "elem": "3b9327d2",
+       "ctype": 0,
+       "flags": 8,
+       "read": "never"
+      }
+     ]
+    }
+   ],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "cf08df77",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "cf08df77",
+    "prio": 2,
+    "vtable": "0x15f24d0",
+    "size": 200
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "de5f46ef",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "de5f46ef",
+    "prio": 2,
+    "vtable": "0x15ed270",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e4e43d57",
+   "name": "STUStatescriptStateUXRadialMenu",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "e4e43d57",
+    "prio": 2,
+    "vtable": "0x15cbc20",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "ed81c7fb",
+   "name": "STUStatescriptStateAimSpeed",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "ed81c7fb",
+    "prio": 2,
+    "vtable": "0x15d4118",
+    "size": 224
+   },
+   "reader": "0xf4af00",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "stack member (pred only)",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "reads the predecessor and re-links the state in the stack registry"
+   ]
+  },
+  {
+   "hash": "f0f7920b",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f533c587",
+   "name": "STUStatescriptStateGlobalSound",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "f533c587",
+    "prio": 2,
+    "vtable": "0x15dc298",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f84fc1e2",
+   "name": null,
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "f84fc1e2",
+    "prio": 2,
+    "vtable": "0x15c8900",
+    "size": 192
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "fa0fec4f",
+   "name": "STUStatescriptStateUnkillable",
+   "uses_resident": 2,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "0119c536",
+   "name": "STUStatescriptStateCapturePointEvents",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "0119c536",
+    "prio": 1,
+    "vtable": "0x161b520",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "029bf346",
+   "name": "STUStatescriptStateHistoryBuilder",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "029bf346",
+    "prio": 2,
+    "vtable": "0x15d7a00",
+    "size": 224
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "071c1efc",
+   "name": "STUStatescriptStateUXHeroHelp",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "071c1efc",
+    "prio": 2,
+    "vtable": "0x15cbba0",
+    "size": 1056
+   },
+   "reader": "0xf49520",
+   "writer": "0xd1ad50",
+   "has_update": false,
+   "reader_fn": "UXHeroHelp",
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": [
+    "reads nothing"
+   ]
+  },
+  {
+   "hash": "0de81a01",
+   "name": "STUStatescriptStateUXMenuGraphicSettings",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "0de81a01",
+    "prio": 2,
+    "vtable": "0x15eea10",
+    "size": 1392
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "0e78be20",
+   "name": "STUStatescriptStateUXLobby",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "0e78be20",
+    "prio": 2,
+    "vtable": "0x15ee0d0",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "10fc71ba",
+   "name": "STUStatescriptStateCameraChase",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "10fc71ba",
+    "prio": 2,
+    "vtable": "0x15f1b58",
+    "size": 224
+   },
+   "reader": "0xdc4640",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "CameraChase",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "12aa4f0f",
+   "name": "STUStatescriptStateValidateWidth",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "12aa4f0f",
+    "prio": 2,
+    "vtable": "0x15d5c10",
+    "size": 208
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "13daa15b",
+   "name": "STUStatescriptStateOverlayMap",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "13daa15b",
+    "prio": 2,
+    "vtable": "0x15f0338",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1403b991",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "1403b991",
+    "prio": 2,
+    "vtable": "0x15ecbf0",
+    "size": 1040
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "174842b0",
+   "name": "STUStatescriptStateUXWinningTeam",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "174842b0",
+    "prio": 2,
+    "vtable": "0x15e76d8",
+    "size": 1152
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1787a82d",
+   "name": "STUStatescriptStateSprayEffect",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "1787a82d",
+    "prio": 2,
+    "vtable": "0x15dbef8",
+    "size": 416
+   },
+   "reader": "0xd838c0",
+   "writer": "0x10a3a40",
+   "has_update": false,
+   "reader_fn": "SprayEffect (G:1083c20)",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "bit",
+     "name": "has"
+    },
+    {
+     "k": "if",
+     "bit": "has",
+     "then": [
+      {
+       "k": "u",
+       "n": 16,
+       "name": "dir1 a"
+      },
+      {
+       "k": "u",
+       "n": 16,
+       "name": "dir1 b"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "+0xC0"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "+0xC4"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "+0xC8"
+      },
+      {
+       "k": "u",
+       "n": 16,
+       "name": "dir2 a"
+      },
+      {
+       "k": "u",
+       "n": 16,
+       "name": "dir2 b"
+      },
+      {
+       "k": "bit",
+       "name": "has entity"
+      },
+      {
+       "k": "if",
+       "bit": "has entity",
+       "then": [
+        {
+         "k": "bit",
+         "name": "flag"
+        },
+        {
+         "k": "count",
+         "name": "entity"
+        },
+        {
+         "k": "bit",
+         "name": "has entity2"
+        },
+        {
+         "k": "if",
+         "bit": "has entity2",
+         "then": [
+          {
+           "k": "count",
+           "name": "entity2"
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": []
+      },
+      {
+       "k": "bit",
+       "name": "+0xE9"
+      }
+     ],
+     "else": []
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "has"
+    },
+    {
+     "k": "if",
+     "bit": "has",
+     "then": [
+      {
+       "k": "u",
+       "n": 16,
+       "name": "dir1 a"
+      },
+      {
+       "k": "u",
+       "n": 16,
+       "name": "dir1 b"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "+0xC0"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "+0xC4"
+      },
+      {
+       "k": "u",
+       "n": 32,
+       "name": "+0xC8"
+      },
+      {
+       "k": "u",
+       "n": 16,
+       "name": "dir2 a"
+      },
+      {
+       "k": "u",
+       "n": 16,
+       "name": "dir2 b"
+      },
+      {
+       "k": "bit",
+       "name": "has entity"
+      },
+      {
+       "k": "if",
+       "bit": "has entity",
+       "then": [
+        {
+         "k": "bit",
+         "name": "flag"
+        },
+        {
+         "k": "count",
+         "name": "entity"
+        },
+        {
+         "k": "bit",
+         "name": "has entity2"
+        },
+        {
+         "k": "if",
+         "bit": "has entity2",
+         "then": [
+          {
+           "k": "count",
+           "name": "entity2"
+          }
+         ],
+         "else": []
+        }
+       ],
+       "else": []
+      },
+      {
+       "k": "bit",
+       "name": "+0xE9"
+      }
+     ],
+     "else": []
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1c214767",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "8ba08edd",
+    "prio": 1,
+    "vtable": "0x15ceb18",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1e458e5c",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "1e458e5c",
+    "prio": 2,
+    "vtable": "0x15d1480",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "22226888",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "22226888",
+    "prio": 2,
+    "vtable": "0x15ef988",
+    "size": 1104
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "23a384f3",
+   "name": "STUStatescriptStateUXMatchmaking",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "23a384f3",
+    "prio": 2,
+    "vtable": "0x15d0b48",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "241069ef",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "241069ef",
+    "prio": 2,
+    "vtable": "0x15f0cc8",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "245a6b2a",
+   "name": "STUStatescriptStateUXHeroCustomizeScreen",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "245a6b2a",
+    "prio": 2,
+    "vtable": "0x15cc260",
+    "size": 1040
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "26b2c9f4",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "26b2c9f4",
+    "prio": 2,
+    "vtable": "0x15f2270",
+    "size": 208
+   },
+   "reader": null,
+   "writer": "0xf48870",
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": false,
+   "notes": [
+    "client writer/reader asymmetry: the client never writes this data; a client-side serialization of it (Prometheus ss_serialize_local) is not what the reader expects"
+   ]
+  },
+  {
+   "hash": "2785fbdd",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "2785fbdd",
+    "prio": 2,
+    "vtable": "0x15cc7e0",
+    "size": 224
+   },
+   "reader": "0xd1e700",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "2785fbdd",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "35851126",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "35851126",
+    "prio": 2,
+    "vtable": "0x15eb5a0",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "37d27802",
+   "name": "STUStatescriptStateAimLead",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "3d58754f",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "3d58754f",
+    "prio": 2,
+    "vtable": "0x15ead18",
+    "size": 1040
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "41bd3f6f",
+   "name": "STUStatescriptStateCriteria",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "43bf9797",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "43bf9797",
+    "prio": 2,
+    "vtable": "0x15d1800",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "46b63a82",
+   "name": "STUStatescriptStateUXChatControl",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "46b63a82",
+    "prio": 2,
+    "vtable": "0x15d08e0",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "475b23c4",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "475b23c4",
+    "prio": 2,
+    "vtable": "0x15ed5a8",
+    "size": 1056
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "4f95ce09",
+   "name": "STUStatescriptStateUXVoiceChatScreen",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "4f95ce09",
+    "prio": 2,
+    "vtable": "0x15caf58",
+    "size": 992
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "56aef215",
+   "name": "STUStatescriptStateUXProfileScreen",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "56aef215",
+    "prio": 2,
+    "vtable": "0x15e90c8",
+    "size": 1056
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "58d7d94f",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "58d7d94f",
+    "prio": 2,
+    "vtable": "0x15ec5a0",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "5a007f21",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "5c3a5c93",
+   "name": "STUStatescriptStateUXMenuMouseSettings",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "5c3a5c93",
+    "prio": 2,
+    "vtable": "0x15ef038",
+    "size": 992
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "5c6337eb",
+   "name": "STUStatescriptStateUXMatchStats",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "5c6337eb",
+    "prio": 2,
+    "vtable": "0x15cd320",
+    "size": 1088
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "5d6c48de",
+   "name": "STUStatescriptStateDrawDebugLine",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "5e494675",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "5e494675",
+    "prio": 2,
+    "vtable": "0x15e8a98",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6716e4b9",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "6716e4b9",
+    "prio": 2,
+    "vtable": "0x15e9750",
+    "size": 1040
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6dcadbf1",
+   "name": "STUStatescriptStateUXAllHeroesScreen",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "6dcadbf1",
+    "prio": 2,
+    "vtable": "0x15ebf48",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "70e4c5c8",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "70e4c5c8",
+    "prio": 2,
+    "vtable": "0x15ec8b8",
+    "size": 1056
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7211cf70",
+   "name": "STUStatescriptStateHistoryRewinder",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "7211cf70",
+    "prio": 2,
+    "vtable": "0x15d7798",
+    "size": 1504
+   },
+   "reader": "0xd673d0",
+   "writer": null,
+   "has_update": false,
+   "reader_fn": "HistoryRewinder",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "u",
+     "n": 16,
+     "name": "value"
+    }
+   ],
+   "remote": [
+    {
+     "k": "u",
+     "n": 16,
+     "name": "value"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 16,
+   "remote_min_bits": 16,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": false,
+   "notes": [
+    "+0x5C0 = value / const",
+    "client writer/reader asymmetry: the client never writes this data; a client-side serialization of it (Prometheus ss_serialize_local) is not what the reader expects"
+   ]
+  },
+  {
+   "hash": "73661e44",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "73661e44",
+    "prio": 2,
+    "vtable": "0x15eb030",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "73ceedb4",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "73ceedb4",
+    "prio": 2,
+    "vtable": "0x15e7228",
+    "size": 208
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "76391dd3",
+   "name": "STUStatescriptStateTrackSlamming",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "76391dd3",
+    "prio": 1,
+    "vtable": "0x1619c88",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "76b28b97",
+   "name": "STUStatescriptStateContactSet",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "76b28b97",
+    "prio": 2,
+    "vtable": "0x15dcb30",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "795e2668",
+   "name": "STUStatescriptStateEffectEmitBulk",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "795e2668",
+    "prio": 2,
+    "vtable": "0x15e87a0",
+    "size": 1040
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7ab92812",
+   "name": "STUStatescriptStateUXMenuGamepadSettings",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "7ab92812",
+    "prio": 2,
+    "vtable": "0x15ef338",
+    "size": 992
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7bf31629",
+   "name": "STUStatescriptStateScaleTime",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "7bf31629",
+    "prio": 1,
+    "vtable": "0x1617b98",
+    "size": 200
+   },
+   "reader": "0x109be80",
+   "writer": "0x109be20",
+   "has_update": true,
+   "reader_fn": "ScaleTime",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "bit",
+     "name": "which"
+    },
+    {
+     "k": "u",
+     "n": 32,
+     "name": "value (+0xB0 if 1, +0xB4 if 0)"
+    }
+   ],
+   "remote": [
+    {
+     "k": "bit",
+     "name": "which"
+    },
+    {
+     "k": "u",
+     "n": 32,
+     "name": "value (+0xB0 if 1, +0xB4 if 0)"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 33,
+   "remote_min_bits": 33,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7f336b68",
+   "name": "STUStatescriptStateUXPartyScreen",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "7f336b68",
+    "prio": 2,
+    "vtable": "0x15ea9f0",
+    "size": 1056
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7ffafe7b",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "7ffafe7b",
+    "prio": 2,
+    "vtable": "0x15f1448",
+    "size": 192
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "82505a1b",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "82505a1b",
+    "prio": 1,
+    "vtable": "0x1616f68",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "893fa726",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "893fa726",
+    "prio": 2,
+    "vtable": "0x15f0908",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "8d50485a",
+   "name": "STUStatescriptStateShockwave",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "8d50485a",
+    "prio": 2,
+    "vtable": "0x15d4ab8",
+    "size": 480
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "8f23fa30",
+   "name": "STUStatescriptStateUXHeroSelectScreen",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "8f23fa30",
+    "prio": 2,
+    "vtable": "0x15da910",
+    "size": 1088
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "92f7915f",
+   "name": "STUStatescriptStatePreserveButtonState",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "92f7915f",
+    "prio": 2,
+    "vtable": "0x15c8420",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "9f67c194",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "9f67c194",
+    "prio": 2,
+    "vtable": "0x15e8db0",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "a66e33f7",
+   "name": "STUStatescriptStateUXNextMap",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "a66e33f7",
+    "prio": 2,
+    "vtable": "0x15e6f28",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "a9d1db82",
+   "name": "STUStatescriptStateUXHeroSheetScreen",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "a9d1db82",
+    "prio": 2,
+    "vtable": "0x15eb8c8",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "ba8e336e",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "ba8e336e",
+    "prio": 2,
+    "vtable": "0x15d0250",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "bcaffa62",
+   "name": "STUStatescriptStateDrawDebugSphere",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "bcaffa62",
+    "prio": 2,
+    "vtable": "0x15c9098",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "be66064d",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "be66064d",
+    "prio": 2,
+    "vtable": "0x15eed40",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "beff6ab0",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "beff6ab0",
+    "prio": 2,
+    "vtable": "0x15ecf40",
+    "size": 1040
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c009e9d5",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "c009e9d5",
+    "prio": 2,
+    "vtable": "0x15c70a0",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c4ba3118",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "c4ba3118",
+    "prio": 2,
+    "vtable": "0x15ea3b0",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c5dcbfa1",
+   "name": "STUStatescriptStateFilterArray",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "c5dcbfa1",
+    "prio": 0,
+    "vtable": "0x1605e68",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c8c71bbc",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "c8c71bbc",
+    "prio": 1,
+    "vtable": "0x16197b8",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "cdb394a5",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "cdb394a5",
+    "prio": 2,
+    "vtable": "0x15e7a30",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "d43bf558",
+   "name": "STUStatescriptStateSetWind",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "d43bf558",
+    "prio": 2,
+    "vtable": "0x15c7570",
+    "size": 352
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "d7f0e8e2",
+   "name": "STUStatescriptStateUXMenuSoundSettings",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "d7f0e8e2",
+    "prio": 2,
+    "vtable": "0x15efca0",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "ded0a3a1",
+   "name": "STUStatescriptStateUXPOTGCam",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "ded0a3a1",
+    "prio": 2,
+    "vtable": "0x15d04c0",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e0309618",
+   "name": "STUStatescriptStateUXProgression",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "e0309618",
+    "prio": 2,
+    "vtable": "0x15cbf18",
+    "size": 1024
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e39c9d83",
+   "name": "STUStatescriptStateOverrideModelLook",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "e39c9d83",
+    "prio": 2,
+    "vtable": "0x15ddd80",
+    "size": 368
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e452cc91",
+   "name": "STUStatescriptStateLobbyWorld",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "e452cc91",
+    "prio": 2,
+    "vtable": "0x15eb328",
+    "size": 192
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "eac1d3ca",
+   "name": "STUStatescriptStateUXKillCam",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "eac1d3ca",
+    "prio": 2,
+    "vtable": "0x15d1158",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "ed25e9f2",
+   "name": "STUStatescriptStateUXMenuGammaScreen",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "ed25e9f2",
+    "prio": 2,
+    "vtable": "0x15ee6d8",
+    "size": 1040
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f536a60f",
+   "name": null,
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "f536a60f",
+    "prio": 1,
+    "vtable": "0x161a618",
+    "size": 192
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "fea1e74b",
+   "name": "STUStatescriptStateAccelerate",
+   "uses_resident": 1,
+   "class": {
+    "impl_type": "fea1e74b",
+    "prio": 1,
+    "vtable": "0x1619550",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "012a1554",
+   "name": "STUStatescriptStatePathConstraint",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "01d127ec",
+   "name": "STUStatescriptStateCounter",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "01d127ec",
+    "prio": 0,
+    "vtable": "0x1605c10",
+    "size": 192
+   },
+   "reader": "0xf57710",
+   "writer": "0xf57680",
+   "has_update": false,
+   "reader_fn": "Counter",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "count",
+     "name": "value"
+    },
+    {
+     "k": "bit",
+     "name": "+0xAC"
+    }
+   ],
+   "remote": [
+    {
+     "k": "count",
+     "name": "value"
+    },
+    {
+     "k": "bit",
+     "name": "+0xAC"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 10,
+   "remote_min_bits": 10,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "01dcd515",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "06593992",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "06bcf0df",
+   "name": "STUStatescriptStateSubScriptBase",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "091d24f8",
+   "name": "STUStatescriptStateTrackInput",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "091d24f8",
+    "prio": 2,
+    "vtable": "0x15cc578",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "09fb0449",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "0e25f8e4",
+   "name": "STUStatescriptStateAIFaceVector",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "0e25f8e4",
+    "prio": 1,
+    "vtable": "0x1622560",
+    "size": 200
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "0f9dbb6a",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "112615fd",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "127d9492",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "127d9492",
+    "prio": 1,
+    "vtable": "0x16220a0",
+    "size": 200
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "16e4c219",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "16e4c219",
+    "prio": 1,
+    "vtable": "0x16227c0",
+    "size": 200
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1cc48157",
+   "name": "STUStatescriptStateProjectedMovement",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "1cc48157",
+    "prio": 2,
+    "vtable": "0x15e6330",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1efc56d9",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "1efc56d9",
+    "prio": 2,
+    "vtable": "0x15e9a88",
+    "size": 992
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "1ffbc4df",
+   "name": "STUStatescriptStateAutoFacing",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "1ffbc4df",
+    "prio": 2,
+    "vtable": "0x15e5e80",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "2061837d",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "2a3b7c97",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "305caa8f",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "305caa8f",
+    "prio": 2,
+    "vtable": "0x15ea098",
+    "size": 992
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "33d9a241",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "347a7665",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "347a7665",
+    "prio": 2,
+    "vtable": "0x15cdc98",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "36fbd221",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "36fbd221",
+    "prio": 1,
+    "vtable": "0x1617940",
+    "size": 1520
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "3f2220fe",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "8ba08edd",
+    "prio": 1,
+    "vtable": "0x15ceb18",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "4095db1d",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "435a5348",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "4e86ba5b",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "57f3b2c4",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "59e5e3cc",
+   "name": "STUStatescriptStateTrackArea",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "59e5e3cc",
+    "prio": 1,
+    "vtable": "0x1616d00",
+    "size": 216
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "616f509f",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "616f509f",
+    "prio": 1,
+    "vtable": "0x1618bc0",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "62a0012f",
+   "name": "STUStatescriptStateAIBehavior",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6c2502e0",
+   "name": "STUStatescriptStateUpdatePayload",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "6e3b8ce5",
+   "name": "STUStatescriptStateVoiceStimulus",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "6e3b8ce5",
+    "prio": 2,
+    "vtable": "0x15c81c8",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "79010fa3",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "7fbb9d3d",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "81565b97",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "81565b97",
+    "prio": 2,
+    "vtable": "0x15ea6c8",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "823ad1be",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "85d43f96",
+   "name": "STUStatescriptStateWeaponAim",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "85d43f96",
+    "prio": 2,
+    "vtable": "0x15d21c8",
+    "size": 256
+   },
+   "reader": "0xf4af00",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "stack member (pred only)",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "reads the predecessor and re-links the state in the stack registry"
+   ]
+  },
+  {
+   "hash": "87a2edd1",
+   "name": "STUStatescriptStateSequencer",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "87a2edd1",
+    "prio": 0,
+    "vtable": "0x1605760",
+    "size": 216
+   },
+   "reader": "0xf56c70",
+   "writer": "0xf56b50",
+   "has_update": false,
+   "reader_fn": "Sequencer",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "custom",
+     "text": "small(n), bit, bit b; w = bit length of n-1; if n-1 > 0: (if b and n: n x u<w>), u<w>"
+    }
+   ],
+   "remote": [
+    {
+     "k": "custom",
+     "text": "small(n), bit, bit b; w = bit length of n-1; if n-1 > 0: (if b and n: n x u<w>), u<w>"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "892645a3",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "8ba08edd",
+   "name": "STUStatescriptStateUXBase",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "8ba08edd",
+    "prio": 1,
+    "vtable": "0x15ceb18",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "973df238",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "973df238",
+    "prio": 1,
+    "vtable": "0x16176d8",
+    "size": 1632
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "975e8048",
+   "name": "STUStatescriptStateAIPathing",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "985d49fe",
+   "name": "STUStatescriptStateTargetFilterBase",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "9acca46c",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "9acca46c",
+    "prio": 2,
+    "vtable": "0x15e9438",
+    "size": 992
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "9da1fce6",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "9da1fce6",
+    "prio": 2,
+    "vtable": "0x15e9da0",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "9f5c2321",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "9f5c2321",
+    "prio": 2,
+    "vtable": "0x15cb888",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "a522e13a",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "a8e96832",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "aa1a1cd7",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "aa488c28",
+   "name": "STUStatescriptStateImpactEffectOverride",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "aa488c28",
+    "prio": 2,
+    "vtable": "0x15d4390",
+    "size": 368
+   },
+   "reader": "0xf4af00",
+   "writer": "0xf4aed0",
+   "has_update": false,
+   "reader_fn": "stack member (pred only)",
+   "mirrors": [],
+   "local": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "remote": [
+    {
+     "k": "pred",
+     "name": "stack predecessor"
+    }
+   ],
+   "full_differs": false,
+   "local_min_bits": 1,
+   "remote_min_bits": 1,
+   "local_fixed": false,
+   "remote_fixed": false,
+   "writer_matches_reader": true,
+   "notes": [
+    "reads the predecessor and re-links the state in the stack registry"
+   ]
+  },
+  {
+   "hash": "ac2d7abe",
+   "name": "STUStatescriptStateAIFacing",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "b331c9d7",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "b553da1c",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "bc3a55c5",
+   "name": "STUStatescriptStateWeaponAccuracy",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "bc3a55c5",
+    "prio": 1,
+    "vtable": "0x1617460",
+    "size": 240
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "bed0b494",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "bee9571d",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "c3410547",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "d3f788be",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "dff7e7a8",
+   "name": "STUStatescriptStateAimBase",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e217de17",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "e217de17",
+    "prio": 2,
+    "vtable": "0x15cd9a0",
+    "size": 1008
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e22c4db2",
+   "name": "STUStatescriptStateLaunchVelocity",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "e22c4db2",
+    "prio": 1,
+    "vtable": "0x16192f8",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e2557fe7",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "e8b60f5a",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "ec5e5b8e",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "ed329693",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "ed329693",
+    "prio": 1,
+    "vtable": "0x1619ee0",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f16bff1b",
+   "name": "STUStatescriptStateAutoInput",
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "f16bff1b",
+    "prio": 2,
+    "vtable": "0x15e5c28",
+    "size": 336
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f1c8d756",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  },
+  {
+   "hash": "f778ea2f",
+   "name": null,
+   "uses_resident": 0,
+   "class": {
+    "impl_type": "a7213568",
+    "prio": 0,
+    "vtable": "0x15ca730",
+    "size": 184
+   },
+   "reader": null,
+   "writer": null,
+   "has_update": false,
+   "reader_fn": null,
+   "mirrors": [],
+   "local": [],
+   "remote": [],
+   "full_differs": false,
+   "local_min_bits": 0,
+   "remote_min_bits": 0,
+   "local_fixed": true,
+   "remote_fixed": true,
+   "writer_matches_reader": true,
+   "notes": []
+  }
+ ]
+}

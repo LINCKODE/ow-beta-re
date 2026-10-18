@@ -1,0 +1,100 @@
+// Reconstructed from Overwatch beta 0.8 (build 24919)
+// Source: bgs/low/pb/client/challenge_service.proto
+
+syntax = "proto2";
+
+package bgs.protocol.challenge.v1;
+
+import "bgs/low/pb/client/attribute_types.proto";
+import "bgs/low/pb/client/entity_types.proto";
+import "bgs/low/pb/client/rpc_types.proto";
+
+message Challenge {
+  required fixed32 type = 1;
+  optional string info = 2;
+  optional string answer = 3;
+  optional uint32 retries = 4;
+}
+
+message ChallengePickedRequest {
+  required fixed32 challenge = 1;
+  optional uint32 id = 2;
+  optional bool new_challenge_protocol = 3 [default = false];
+}
+
+message ChallengePickedResponse {
+  optional bytes data = 1;
+}
+
+message ChallengeAnsweredRequest {
+  required string answer = 1;
+  optional bytes data = 2;
+  optional uint32 id = 3;
+}
+
+message ChallengeAnsweredResponse {
+  optional bytes data = 1;
+  optional bool do_retry = 2;
+  optional bool record_not_found = 3;
+}
+
+message ChallengeCancelledRequest {
+  optional uint32 id = 1;
+}
+
+message SendChallengeToUserRequest {
+  optional .bgs.protocol.ProcessId peer_id = 1;
+  optional .bgs.protocol.EntityId game_account_id = 2;
+  repeated .bgs.protocol.challenge.v1.Challenge challenges = 3;
+  required fixed32 context = 4;
+  optional uint64 timeout = 5;
+  repeated .bgs.protocol.Attribute attributes = 6;
+  optional .bgs.protocol.ProcessId host = 7;
+  optional .bgs.protocol.EntityId account_id = 8;
+}
+
+message SendChallengeToUserResponse {
+  optional uint32 id = 1;
+}
+
+message ChallengeUserRequest {
+  repeated .bgs.protocol.challenge.v1.Challenge challenges = 1;
+  required fixed32 context = 2;
+  optional uint32 id = 3;
+  optional uint64 deadline = 4;
+  repeated .bgs.protocol.Attribute attributes = 5;
+  optional .bgs.protocol.EntityId game_account_id = 6;
+}
+
+message ChallengeResultRequest {
+  optional uint32 id = 1;
+  optional fixed32 type = 2;
+  optional uint32 error_id = 3;
+  optional bytes answer = 4;
+}
+
+message ChallengeExternalRequest {
+  optional string request_token = 1;
+  optional string payload_type = 2;
+  optional bytes payload = 3;
+}
+
+message ChallengeExternalResult {
+  optional string request_token = 1;
+  optional bool passed = 2 [default = true];
+}
+
+service ChallengeService {
+  rpc ChallengePicked (.bgs.protocol.challenge.v1.ChallengePickedRequest) returns (.bgs.protocol.challenge.v1.ChallengePickedResponse);
+  rpc ChallengeAnswered (.bgs.protocol.challenge.v1.ChallengeAnsweredRequest) returns (.bgs.protocol.challenge.v1.ChallengeAnsweredResponse);
+  rpc ChallengeCancelled (.bgs.protocol.challenge.v1.ChallengeCancelledRequest) returns (.bgs.protocol.NoData);
+  rpc SendChallengeToUser (.bgs.protocol.challenge.v1.SendChallengeToUserRequest) returns (.bgs.protocol.challenge.v1.SendChallengeToUserResponse);
+}
+
+service ChallengeListener {
+  rpc OnChallengeUser (.bgs.protocol.challenge.v1.ChallengeUserRequest) returns (.bgs.protocol.NO_RESPONSE);
+  rpc OnChallengeResult (.bgs.protocol.challenge.v1.ChallengeResultRequest) returns (.bgs.protocol.NO_RESPONSE);
+  rpc OnExternalChallenge (.bgs.protocol.challenge.v1.ChallengeExternalRequest) returns (.bgs.protocol.NO_RESPONSE);
+  rpc OnExternalChallengeResult (.bgs.protocol.challenge.v1.ChallengeExternalResult) returns (.bgs.protocol.NO_RESPONSE);
+}
+

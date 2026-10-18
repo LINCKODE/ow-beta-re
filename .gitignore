@@ -1,0 +1,55 @@
+# Game client and anything copied out of it: never commit (bring your own legally obtained beta 0.8 client)
+/game/
+*.exe
+*.dll
+*.pdb
+*.casc
+*.stud
+hashlibrary.json*
+
+# Client recordings and dumps: game data, not distributed (regenerate locally, see README "Tests" and
+# systems/data/README.md). Our own research catalogues in systems/data/ are tracked.
+systems/*/fixtures/
+systems/ecs/manifest/*.json
+systems/data/live_*/
+systems/data/lobby_scripts/*.tsv
+systems/data/lobby_scripts/graphs/
+systems/data/heroes/heroes.json
+systems/data/maps/maps.json
+systems/data/maps/resident/
+systems/data/movement/*.json
+systems/data/dataflow/*.tsv
+systems/data/client_stu_registry.json
+
+# Build output
+build/
+build-*/
+output/
+bin/
+.bin/
+*.o
+*.a
+*.so
+.cache/
+__pycache__/
+node_modules/
+explorer/owexplorer
+explorer/frontend/.nuxt/
+explorer/frontend/.output/
+explorer/frontend/dist/
+
+# Toolchain download
+prometheus-prerequisites/llvm-mingw-*/
+
+# Local server state and logs
+server/log*
+server/lobby-identity.json
+server/lobby-cosmetics.json
+server/game-server.json
+*.log
+
+# Editors
+.idea/
+.vscode/
+.claude/
+.mcp.json

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "owexplorer",
+  "outputfilename": "owexplorer",
+  "frontend:dir": "frontend",
+  "frontend:install": "pnpm install",
+  "frontend:build": "pnpm generate",
+  "frontend:dev:watcher": "pnpm dev",
+  "frontend:dev:serverUrl": "http://localhost:3000",
+  "wailsjsdir": "frontend",
+  "author": { "name": "overwatch new-stuff" }
+}

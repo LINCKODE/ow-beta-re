@@ -1,0 +1,9 @@
+// Reconstructed from Overwatch beta 0.8 (build 24919)
+// Source: bgs/low/pb/client/global_extensions/method_options.proto
+
+syntax = "proto2";
+
+package bgs.protocol;
+
+import "google/protobuf/descriptor.proto";
+

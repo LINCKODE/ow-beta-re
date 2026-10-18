@@ -1,0 +1,113 @@
+ActivatableVM 0x7ff65157b110 vt0-3: 0x7ff650a9afa0 0x7ff650a9afb0 0x7ff650a9afe0 0x7ff650a54490 refs: 0x7ff650a9e20b 0x7ff650aa21ab
+ButtonBindingVM 0x7ff651579f70 vt0-3: 0x7ff650a9cd50 0x7ff650a9cd60 0x7ff650a9cd90 0x7ff650a54490 refs: 0x7ff650ab2d73 0x7ff650ab7e96
+ChatAutoCompleteItemVM 0x7ff65157a420 vt0-3: 0x7ff650a9c5d0 0x7ff650a9c5e0 0x7ff650a9c610 0x7ff650a54490 refs: 0x7ff650ab22c3 0x7ff650ab71e6
+ChatItemVM 0x7ff65157a3f0 vt0-3: 0x7ff650a9c580 0x7ff650a9c590 0x7ff650a9c5c0 0x7ff650a54490 refs: 0x7ff650aa1ffe
+ChatPlayerNameTokenVM 0x7ff65157a3c0 vt0-3: 0x7ff650a9c530 0x7ff650a9c540 0x7ff650a9c570 0x7ff650a54490 refs: 0x7ff650aa1e10
+ChatTokenVM 0x7ff65157a390 vt0-3: 0x7ff650a9c4e0 0x7ff650a9c4f0 0x7ff650a9c520 0x7ff650a54490 refs: 0x7ff650aa1dde 0x7ff650aa8cf3 0x7ff650aaf966
+ChatVM 0x7ff65157a450 vt0-3: 0x7ff650a9c620 0x7ff650a9c630 0x7ff650a9c660 0x7ff650a54490 refs: 0x7ff650aa21c5
+ConsoleVM 0x7ff65157adb0 vt0-3: 0x7ff650a9b400 0x7ff650a9b410 0x7ff650a9b440 0x7ff650a54490 refs: 0x7ff650a9e225
+CustomGameCreateScreenVM 0x7ff65157a840 vt0-3: 0x7ff650a9bc70 0x7ff650a9bc80 0x7ff650a9bcb0 0x7ff650a54490 refs: 0x7ff650aa03d5
+CustomGameFinalizedSettingsVM 0x7ff65157aa50 vt0-3: 0x7ff650a9b900 0x7ff650a9b910 0x7ff650a9b940 0x7ff650a54490 refs: 0x7ff650ab1323 0x7ff650ab5f86
+CustomGameInvitePlayerVM 0x7ff65157aa20 vt0-3: 0x7ff650a9bc20 0x7ff650a9bc30 0x7ff650a9bc60 0x7ff650a54490 refs: 0x7ff650aa02de
+CustomGameMapInfoVM 0x7ff65157a9f0 vt0-3: 0x7ff650a9bbd0 0x7ff650a9bbe0 0x7ff650a9bc10 0x7ff650a54490 refs: 0x7ff650aabb5a
+CustomGameParticipantSlotVM 0x7ff65157ac00 vt0-3: 0x7ff650a9b810 0x7ff650a9b820 0x7ff650a9b850 0x7ff650a54490 refs: 0x7ff650a9fb0e
+CustomGamePlayerSlotVM 0x7ff65157ac30 vt0-3: 0x7ff650a9b860 0x7ff650a9b870 0x7ff650a9b8a0 0x7ff650a54490 refs: 0x7ff650aaaae6
+CustomGameRuleCategoryVM 0x7ff65157a990 vt0-3: 0x7ff650a9bb30 0x7ff650a9bb40 0x7ff650a9bb70 0x7ff650a54490 refs: 0x7ff650ab11b3 0x7ff650ab5dd6
+CustomGameRuleChoiceVM 0x7ff65157aa80 vt0-3: 0x7ff650a9b950 0x7ff650a9b960 0x7ff650a9b990 0x7ff650a54490 refs: 0x7ff650a9fe0e 0x7ff650a9feee 0x7ff650aa8733 0x7ff650aaf2a6
+CustomGameRule_EnabledHeroVM 0x7ff65157aae0 vt0-3: 0x7ff650a9b9f0 0x7ff650a9ba00 0x7ff650a9ba30 0x7ff650a54490 refs: 0x7ff650a9ff29
+CustomGameRule_EnabledMapVM 0x7ff65157aab0 vt0-3: 0x7ff650a9b9a0 0x7ff650a9b9b0 0x7ff650a9b9e0 0x7ff650a54490 refs: 0x7ff650a9fe49
+CustomGameRulesVM 0x7ff65157ab10 vt0-3: 0x7ff650a9ba40 0x7ff650a9ba50 0x7ff650a9ba80 0x7ff650a54490 refs: 0x7ff650aa88c3 0x7ff650aab206 0x7ff650aab3e6 0x7ff650aab993 0x7ff650aaf476
+CustomGameRules_EnabledMapsVM 0x7ff65157ab40 vt0-3: 0x7ff650a9ba90 0x7ff650a9baa0 0x7ff650a9bad0 0x7ff650a54490 refs: 0x7ff650aab249
+CustomGameRules_HeroVM 0x7ff65157a960 vt0-3: 0x7ff650a9bae0 0x7ff650a9baf0 0x7ff650a9bb20 0x7ff650a54490 refs: 0x7ff650aab429
+CustomGameSettingsListVM 0x7ff65157a9c0 vt0-3: 0x7ff650a9bb80 0x7ff650a9bb90 0x7ff650a9bbc0 0x7ff650a54490 refs: 0x7ff650aaba8a
+CustomGameSpectatorSlotVM 0x7ff65157ac60 vt0-3: 0x7ff650a9b8b0 0x7ff650a9b8c0 0x7ff650a9b8f0 0x7ff650a54490 refs: 0x7ff650aaac86
+DBIDVM 0x7ff65157b0e0 vt0-3: 0x7ff650a9af50 0x7ff650a9af60 0x7ff650a9af90 0x7ff650a54490 refs: 0x7ff650aaa99a
+DialogVM 0x7ff65157a090 vt0-3: 0x7ff650a9cc10 0x7ff650a9cc20 0x7ff650a9cc50 0x7ff650a54490 refs: 0x7ff650aa6935
+EndOfMatchStatsVM 0x7ff65157a150 vt0-3: 0x7ff650a9ca80 0x7ff650a9ca90 0x7ff650a9cac0 0x7ff650a54490 refs: 0x7ff650d13142
+FriendBaseVM 0x7ff65157ae40 vt0-3: 0x7ff650a9b4f0 0x7ff650a9b500 0x7ff650a9b530 0x7ff650a54490 refs: 0x7ff650a9ecc3 0x7ff650aa6036 0x7ff650aa6532
+FriendPresenceVM 0x7ff65157ae10 vt0-3: 0x7ff650a9b4a0 0x7ff650a9b4b0 0x7ff650a9b4e0 0x7ff650a54490 refs: 0x7ff650a9e682
+FriendRequestVM 0x7ff651579fd0 vt0-3: 0x7ff650a9cad0 0x7ff650a9cae0 0x7ff650a9cb10 0x7ff650a54490 refs: 0x7ff650aa6054
+FriendVM 0x7ff65157ac90 vt0-3: 0x7ff650a9b540 0x7ff650a9b550 0x7ff650a9b580 0x7ff650a54490 refs: 0x7ff650a9ece1
+GamePadSettingsVM 0x7ff65157a2d0 vt0-3: 0x7ff650a9c760 0x7ff650a9c770 0x7ff650a9c7a0 0x7ff650a54490 refs: 0x7ff650aa267c
+GammaScreenVM 0x7ff65157a1e0 vt0-3: 0x7ff650a9c8a0 0x7ff650a9c8b0 0x7ff650a9c8e0 0x7ff650a54490 refs: 0x7ff650aa322c
+GlobalBindingsVM 0x7ff651579d90 vt0-3: 0x7ff650a9cdf0 0x7ff650a9ce00 0x7ff650a9ce30 0x7ff650a54490 refs: 0x7ff650ab2ef3 0x7ff650ab8056
+GraphicsDisplayVM 0x7ff65157a1b0 vt0-3: 0x7ff650a9c850 0x7ff650a9c860 0x7ff650a9c890 0x7ff650a54490 refs: 0x7ff650aa2f62
+GraphicsResolutionVM 0x7ff65157a330 vt0-3: 0x7ff650a9c800 0x7ff650a9c810 0x7ff650a9c840 0x7ff650a54490 refs: 0x7ff650aa288f
+GraphicsSettingsVM 0x7ff65157a210 vt0-3: 0x7ff650a9c8f0 0x7ff650a9c900 0x7ff650a9c930 0x7ff650a54490 refs: 0x7ff650aa336d
+HealthCardVM 0x7ff65157ade0 vt0-3: 0x7ff650a9b450 0x7ff650a9b460 0x7ff650a9b490 0x7ff650a54490 refs: 0x7ff650a9e33d
+HeroCustomizeLockedItemVM 0x7ff65157b020 vt0-3: 0x7ff650a9b1d0 0x7ff650a9b1e0 0x7ff650a9b210 0x7ff650a54490 refs: 0x7ff650a9dc6e
+HeroCustomizePOTGAnimVM 0x7ff65157ae70 vt0-3: 0x7ff650a9b220 0x7ff650a9b230 0x7ff650a9b260 0x7ff650a54490 refs: 0x7ff650ab0903 0x7ff650ab5386
+HeroCustomizePreviewItemVM 0x7ff65157af30 vt0-3: 0x7ff650a9b360 0x7ff650a9b370 0x7ff650a9b3a0 0x7ff650a54490 refs: 0x7ff650aaa381
+HeroCustomizeSkinThemeVM 0x7ff65157aea0 vt0-3: 0x7ff650a9b270 0x7ff650a9b280 0x7ff650a9b2b0 0x7ff650a54490 refs: 0x7ff650ab079b 0x7ff650ab51de
+HeroCustomizeSkinVM 0x7ff65157aed0 vt0-3: 0x7ff650a9b2c0 0x7ff650a9b2d0 0x7ff650a9b300 0x7ff650a54490 refs: 0x7ff650ab0653 0x7ff650ab5046
+HeroCustomizeSprayItemVM 0x7ff65157af00 vt0-3: 0x7ff650a9b310 0x7ff650a9b320 0x7ff650a9b350 0x7ff650a54490 refs: 0x7ff650ab0503 0x7ff650ab4ea6
+HeroCustomizeVM 0x7ff65157af60 vt0-3: 0x7ff650a9b3b0 0x7ff650a9b3c0 0x7ff650a9b3f0 0x7ff650a54490 refs: 0x7ff650a9df35
+HeroSelectHeroRoleVM 0x7ff65157b0b0 vt0-3: 0x7ff650a9b090 0x7ff650a9b0a0 0x7ff650a9b0d0 0x7ff650a54490 refs: 0x7ff650ab00f3 0x7ff650ab49c6
+HeroSelectHeroVM 0x7ff65157af90 vt0-3: 0x7ff650a9b0e0 0x7ff650a9b0f0 0x7ff650a9b120 0x7ff650a54490 refs: 0x7ff650a9d6ae
+HeroSelectTeamMemberVM 0x7ff65157afc0 vt0-3: 0x7ff650a9b130 0x7ff650a9b140 0x7ff650a9b170 0x7ff650a54490 refs: 0x7ff650a9d7bd
+InWorldVM 0x7ff65157b050 vt0-3: 0x7ff650a9aff0 0x7ff650a9b000 0x7ff650a9b030 0x7ff650a54490 refs: 0x7ff650a9d531
+KeyBindingsVM 0x7ff651579fa0 vt0-3: 0x7ff650a9cda0 0x7ff650a9cdb0 0x7ff650a9cde0 0x7ff650a54490 refs: 0x7ff650aa6d1c
+LoadoutItemVM 0x7ff651579dc0 vt0-3: 0x7ff650a9ce40 0x7ff650a9ce50 0x7ff650a9ce80 0x7ff650a54490 refs: 0x7ff650aa6fee
+LoadoutVM 0x7ff651579e20 vt0-3: 0x7ff650a9cee0 0x7ff650a9cef0 0x7ff650a9cf20 0x7ff650a54490 refs: 0x7ff650aa7145
+LobbyAllHeroesHeroVM 0x7ff65157a780 vt0-3: 0x7ff650a9be50 0x7ff650a9be60 0x7ff650a9be90 0x7ff650a54490 refs: 0x7ff650ab1b93 0x7ff650ab6976
+LobbyAllHeroesVM 0x7ff65157a7b0 vt0-3: 0x7ff650a9bea0 0x7ff650a9beb0 0x7ff650a9bee0 0x7ff650a54490 refs: 0x7ff650aa0cc5
+LobbyCreateBotMatchDifficultyVM 0x7ff65157ad20 vt0-3: 0x7ff650a9b630 0x7ff650a9b640 0x7ff650a9b670 0x7ff650a54490 refs: 0x7ff650ab0d23 0x7ff650ab5876
+LobbyCreateBotMatchMapVM 0x7ff65157acf0 vt0-3: 0x7ff650a9b5e0 0x7ff650a9b5f0 0x7ff650a9b620 0x7ff650a54490 refs: 0x7ff650ab0ba3 0x7ff650ab56b6
+LobbyCreateBotMatchVM 0x7ff65157ad50 vt0-3: 0x7ff650a9b680 0x7ff650a9b690 0x7ff650a9b6c0 0x7ff650a54490 refs: 0x7ff650a9f765
+LobbyCustomGameVM 0x7ff65157ad80 vt0-3: 0x7ff650a9b6d0 0x7ff650a9b6e0 0x7ff650a9b710 0x7ff650a54490 refs: 0x7ff650aa8453 0x7ff650aaef46 0x7ff650ab0ea3 0x7ff650ab5a36
+LobbyCustomServerVM 0x7ff65157ab70 vt0-3: 0x7ff650a9b720 0x7ff650a9b730 0x7ff650a9b760 0x7ff650a54490 refs: 0x7ff650ab0ee5 0x7ff650ab5a78
+LobbyHeroSheetOwnedAchievementVM 0x7ff65157a6f0 vt0-3: 0x7ff650a9bfe0 0x7ff650a9bff0 0x7ff650a9c020 0x7ff650a54490 refs: 0x7ff650ab1eb3 0x7ff650ab6d16
+LobbyHeroSheetOwnedStatVM 0x7ff65157a6c0 vt0-3: 0x7ff650a9bf90 0x7ff650a9bfa0 0x7ff650a9bfd0 0x7ff650a54490 refs: 0x7ff650ab1d33 0x7ff650ab6b56
+LobbyHeroSheetOwnedVM 0x7ff65157a720 vt0-3: 0x7ff650a9c030 0x7ff650a9c040 0x7ff650a9c070 0x7ff650a54490 refs: 0x7ff650aa0fc5
+LobbyLoginAuthenticatorVM 0x7ff65157a600 vt0-3: 0x7ff650a9c170 0x7ff650a9c180 0x7ff650a9c1b0 0x7ff650a54490 refs: 0x7ff650aa13f2
+LobbyLoginCaptchaVM 0x7ff65157a5d0 vt0-3: 0x7ff650a9c120 0x7ff650a9c130 0x7ff650a9c160 0x7ff650a54490 refs: 0x7ff650aa12f2
+LobbyLoginConnectingVM 0x7ff65157a750 vt0-3: 0x7ff650a9c080 0x7ff650a9c090 0x7ff650a9c0c0 0x7ff650a54490 refs: 0x7ff650d95745
+LobbyLoginErrorVM 0x7ff65157a690 vt0-3: 0x7ff650a9c260 0x7ff650a9c270 0x7ff650a9c2a0 0x7ff650a54490 refs: 0x7ff650d95ba5
+LobbyLoginLegalVM 0x7ff65157a630 vt0-3: 0x7ff650a9c1c0 0x7ff650a9c1d0 0x7ff650a9c200 0x7ff650a54490 refs: 0x7ff650aa1512
+LobbyLoginVM 0x7ff65157a5a0 vt0-3: 0x7ff650a9c0d0 0x7ff650a9c0e0 0x7ff650a9c110 0x7ff650a54490 refs: 0x7ff650aa11b2
+LobbyLoginWaitingVM 0x7ff65157a660 vt0-3: 0x7ff650a9c210 0x7ff650a9c220 0x7ff650a9c250 0x7ff650a54490 refs: 0x7ff650d95ab5
+LobbyMainMenuVM 0x7ff65157acc0 vt0-3: 0x7ff650a9b590 0x7ff650a9b5a0 0x7ff650a9b5d0 0x7ff650a54490 refs: 0x7ff650a9f555
+LobbyMyHeroesHeroVM 0x7ff65157a810 vt0-3: 0x7ff650a9bf40 0x7ff650a9bf50 0x7ff650a9bf80 0x7ff650a54490 refs: 0x7ff650aa0e3e
+LobbyPartyMemberMeVM 0x7ff65157a4b0 vt0-3: 0x7ff650a9c300 0x7ff650a9c310 0x7ff650a9c340 0x7ff650a54490 refs: 0x7ff650aac376
+LobbyPartyVM 0x7ff65157a4e0 vt0-3: 0x7ff650a9c350 0x7ff650a9c360 0x7ff650a9c390 0x7ff650a54490 refs: 0x7ff650aa1895
+LobbyProfileAvatarVM 0x7ff65157a900 vt0-3: 0x7ff650a9bdb0 0x7ff650a9bdc0 0x7ff650a9bdf0 0x7ff650a54490 refs: 0x7ff650aa091e
+LobbyProfileHeroVM 0x7ff65157a8d0 vt0-3: 0x7ff650a9bd60 0x7ff650a9bd70 0x7ff650a9bda0 0x7ff650a54490 refs: 0x7ff650aa082e
+LobbyProfileMapStatsVM 0x7ff65157a8a0 vt0-3: 0x7ff650a9bd10 0x7ff650a9bd20 0x7ff650a9bd50 0x7ff650a54490 refs: 0x7ff650ab1763 0x7ff650ab6486
+LobbyProfileStatVM 0x7ff65157a870 vt0-3: 0x7ff650a9bcc0 0x7ff650a9bcd0 0x7ff650a9bd00 0x7ff650a54490 refs: 0x7ff650ab15e3 0x7ff650ab62c6
+LobbyProfileVM 0x7ff65157a930 vt0-3: 0x7ff650a9be00 0x7ff650a9be10 0x7ff650a9be40 0x7ff650a54490 refs: 0x7ff650aa0a25
+LobbyPurchaseVM 0x7ff65157a7e0 vt0-3: 0x7ff650a9bef0 0x7ff650a9bf00 0x7ff650a9bf30 0x7ff650a54490 refs: 0x7ff650aa0d85
+LobbyShowModeEnterNameVM 0x7ff65157a540 vt0-3: 0x7ff650a9c3f0 0x7ff650a9c400 0x7ff650a9c430 0x7ff650a54490 refs: 0x7ff650aa1ac5
+LobbyShowModeSplashVM 0x7ff65157a510 vt0-3: 0x7ff650a9c3a0 0x7ff650a9c3b0 0x7ff650a9c3e0 0x7ff650a54490 refs: 0x7ff650aa19b5
+MatchmakingVM 0x7ff65157a240 vt0-3: 0x7ff650a9c670 0x7ff650a9c680 0x7ff650a9c6b0 0x7ff650a54490 refs: 0x7ff650aa2425
+MenuVM 0x7ff65157a270 vt0-3: 0x7ff650a9c6c0 0x7ff650a9c6d0 0x7ff650a9c700 0x7ff650a54490 refs: 0x7ff650aa2575 0x7ff650aa2665 0x7ff650aa2765 0x7ff650aa3215 0x7ff650aa3356 0x7ff650aa6d05
+MouseSettingsVM 0x7ff65157a2a0 vt0-3: 0x7ff650a9c710 0x7ff650a9c720 0x7ff650a9c750 0x7ff650a54490 refs: 0x7ff650aa258c
+POTGCamVM 0x7ff651579f10 vt0-3: 0x7ff650a9ccb0 0x7ff650a9ccc0 0x7ff650a9ccf0 0x7ff650a54490 refs: 0x7ff650aa6b05
+PartyInviterVM 0x7ff65157a000 vt0-3: 0x7ff650a9cb20 0x7ff650a9cb30 0x7ff650a9cb60 0x7ff650a54490 refs: 0x7ff650aa6550
+PhysicalButtonVM 0x7ff651579f40 vt0-3: 0x7ff650a9cd00 0x7ff650a9cd10 0x7ff650a9cd40 0x7ff650a54490 refs: 0x7ff650aa6bbe
+ProgressionEntryExpBarHeroVM 0x7ff651579c40 vt0-3: 0x7ff650a9d2f0 0x7ff650a9d300 0x7ff650a9d330 0x7ff650a54490 refs: 0x7ff650aa7847
+ProgressionEntryExpBarVM 0x7ff651579eb0 vt0-3: 0x7ff650a9cfd0 0x7ff650a9cfe0 0x7ff650a9d010 0x7ff650a54490 refs: 0x7ff650aa77fd
+ProgressionEntryUnlockAvatarPortraitVM 0x7ff651579be0 vt0-3: 0x7ff650a9d250 0x7ff650a9d260 0x7ff650a9d290 0x7ff650a54490 refs: 0x7ff650aae544
+ProgressionEntryUnlockHeroTrophyVM 0x7ff651579bb0 vt0-3: 0x7ff650a9d200 0x7ff650a9d210 0x7ff650a9d240 0x7ff650a54490 refs: 0x7ff650aae384
+ProgressionEntryUnlockListVM 0x7ff651579c10 vt0-3: 0x7ff650a9d2a0 0x7ff650a9d2b0 0x7ff650a9d2e0 0x7ff650a54490 refs: 0x7ff650ab3313 0x7ff650ab8536
+ProgressionEntryUnlockMasterWeaponVM 0x7ff651579b80 vt0-3: 0x7ff650a9d1b0 0x7ff650a9d1c0 0x7ff650a9d1f0 0x7ff650a54490 refs: 0x7ff650aae1c4
+ProgressionEntryUnlockPOTGVM 0x7ff651579d30 vt0-3: 0x7ff650a9d110 0x7ff650a9d120 0x7ff650a9d150 0x7ff650a54490 refs: 0x7ff650aade34
+ProgressionEntryUnlockPortraitFrameVM 0x7ff651579d60 vt0-3: 0x7ff650a9d160 0x7ff650a9d170 0x7ff650a9d1a0 0x7ff650a54490 refs: 0x7ff650aadff4
+ProgressionEntryUnlockSkinThemeVM 0x7ff651579d00 vt0-3: 0x7ff650a9d0c0 0x7ff650a9d0d0 0x7ff650a9d100 0x7ff650a54490 refs: 0x7ff650aadc5c
+ProgressionEntryUnlockSprayVM 0x7ff651579cd0 vt0-3: 0x7ff650a9d070 0x7ff650a9d080 0x7ff650a9d0b0 0x7ff650a54490 refs: 0x7ff650aadaa4
+ProgressionEntryUnlockVM 0x7ff651579ca0 vt0-3: 0x7ff650a9d020 0x7ff650a9d030 0x7ff650a9d060 0x7ff650a54490 refs: 0x7ff650aa8fc3 0x7ff650aada76 0x7ff650aadc2e 0x7ff650aade06 0x7ff650aadfc6 0x7ff650aae196 0x7ff650aae356 0x7ff650aae516 0x7ff650aafcb6
+ProgressionPageHeroVM 0x7ff651579b20 vt0-3: 0x7ff650a9d3e0 0x7ff650a9d3f0 0x7ff650a9d420 0x7ff650a54490 refs: 0x7ff650aa7f85
+ProgressionPageSummaryVM 0x7ff651579af0 vt0-3: 0x7ff650a9d390 0x7ff650a9d3a0 0x7ff650a9d3d0 0x7ff650a54490 refs: 0x7ff650aa7c74
+ProgressionPageVM 0x7ff651579c70 vt0-3: 0x7ff650a9d340 0x7ff650a9d350 0x7ff650a9d380 0x7ff650a54490 refs: 0x7ff650aa7c5d 0x7ff650aa7f6e 0x7ff650aa9143 0x7ff650aafe76
+RadialMenuItemVM 0x7ff651579e50 vt0-3: 0x7ff650a9cf30 0x7ff650a9cf40 0x7ff650a9cf70 0x7ff650a54490 refs: 0x7ff650aa739e
+RadialMenuVM 0x7ff651579e80 vt0-3: 0x7ff650a9cf80 0x7ff650a9cf90 0x7ff650a9cfc0 0x7ff650a54490 refs: 0x7ff650d131e2
+ScoreboardPlayerVM 0x7ff65157a0c0 vt0-3: 0x7ff650a9c990 0x7ff650a9c9a0 0x7ff650a9c9d0 0x7ff650a54490 refs: 0x7ff650aa57ad
+ScoreboardStatCardVM 0x7ff65157a120 vt0-3: 0x7ff650a9ca30 0x7ff650a9ca40 0x7ff650a9ca70 0x7ff650a54490 refs: 0x7ff650aa5bbd
+ScoreboardStatVM 0x7ff65157a180 vt0-3: 0x7ff650a9c940 0x7ff650a9c950 0x7ff650a9c980 0x7ff650a54490 refs: 0x7ff650aa563e
+SocialTabVM 0x7ff65157a030 vt0-3: 0x7ff650a9cb70 0x7ff650a9cb80 0x7ff650a9cbb0 0x7ff650a54490 refs: 0x7ff650aad201
+SocialVM 0x7ff65157a060 vt0-3: 0x7ff650a9cbc0 0x7ff650a9cbd0 0x7ff650a9cc00 0x7ff650a54490 refs: 0x7ff650aa6675
+SoundSettingsVM 0x7ff65157a300 vt0-3: 0x7ff650a9c7b0 0x7ff650a9c7c0 0x7ff650a9c7f0 0x7ff650a54490 refs: 0x7ff650aa277c
+StatescriptHeroSelectScreenVM 0x7ff65157aff0 vt0-3: 0x7ff650a9b180 0x7ff650a9b190 0x7ff650a9b1c0 0x7ff650a54490 refs: 0x7ff650a9db15
+StatescriptProgressionScreenVM 0x7ff651579b50 vt0-3: 0x7ff650a9d430 0x7ff650a9d440 0x7ff650a9d470 0x7ff650a54490 refs: 0x7ff650aa8084
+StatescriptScreenVM 0x7ff65157b080 vt0-3: 0x7ff650a9b040 0x7ff650a9b050 0x7ff650a9b080 0x7ff650a54490 refs: 0x7ff650a9daf1 0x7ff650a9df11 0x7ff650a9ec9f 0x7ff650a9f531 0x7ff650a9f741 0x7ff650a9f9a1 0x7ff650aa03b1 0x7ff650aa0a01 0x7ff650aa0ca1 0x7ff650aa0d61 0x7ff650aa0fa1 0x7ff650aa118e 0x7ff650aa12ce 0x7ff650aa13ce 0x7ff650aa14ee 0x7ff650aa1871 0x7ff650aa1991 0x7ff650aa1aa1 0x7ff650aa1cc1 0x7ff650aa2401 0x7ff650aa2551 0x7ff650aa2641 0x7ff650aa2741 0x7ff650aa31f1 0x7ff650aa3332 0x7ff650aa6012 0x7ff650aa650e 0x7ff650aa6651 0x7ff650aa6911 0x7ff650aa69e1 0x7ff650aa6ae1 0x7ff650aa6ce1 0x7ff650aa7121 0x7ff650aa8060 0x7ff650d12eb2 0x7ff650d12f71 0x7ff650d95721 0x7ff650d95a91 0x7ff650d95b81
+VoiceChatMemberVM 0x7ff65157a570 vt0-3: 0x7ff650a9c440 0x7ff650a9c450 0x7ff650a9c480 0x7ff650a54490 refs: 0x7ff650aa1b7e
+WeaponLoadoutItemVM 0x7ff651579df0 vt0-3: 0x7ff650a9ce90 0x7ff650a9cea0 0x7ff650a9ced0 0x7ff650a54490 refs: 0x7ff650aad566

@@ -1,0 +1,28 @@
+// Reconstructed from Overwatch beta 0.8 (build 24919)
+// Source: bgs/low/pb/client/entity_types.proto
+
+syntax = "proto2";
+
+package bgs.protocol;
+
+import "bgs/low/pb/client/global_extensions/field_options.proto";
+
+message EntityId {
+  required fixed64 high = 1;
+  required fixed64 low = 2;
+}
+
+message Identity {
+  optional .bgs.protocol.EntityId account_id = 1;
+  optional .bgs.protocol.EntityId game_account_id = 2;
+}
+
+message AccountInfo {
+  optional bool account_paid = 1 [default = false];
+  optional fixed32 country_id = 2 [default = 0];
+  optional string battle_tag = 3;
+  optional bool manual_review = 4 [default = false];
+  optional .bgs.protocol.Identity identity = 5;
+  optional bool account_muted = 6 [default = false];
+}
+

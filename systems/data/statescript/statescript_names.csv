@@ -1,0 +1,428 @@
+hash,name,kind,confidence,method,applied,instances,graphs,source,evidence
+047f99e4,STUStatescriptActionNoOp,Action,exact,owlib-table,yes,15,12,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+04cc5359,STUStatescriptActionTrackStat,Action,medium,crc-brute,yes,83,64,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+0cdc2e1a,STUStatescriptActionArrayAdd,Action,high,crc-2w,yes,82,30,T019 CRC search: kind prefix + 2 words,"fields m_out_Array m_index m_key m_value; siblings ArrayRemove, ArrayClear"
+0d5a6dd2,STUStatescriptActionHack,Action,exact,owlib-table,yes,19,15,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+0e3689f3,STUStatescriptActionCreateEntity,Action,exact,owlib-table,yes,11,4,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+17c9f80b,STUStatescriptActionCycleIndex,Action,high,crc-2w,yes,3,1,T019 CRC search: kind prefix + 2 words,fields m_count m_condition m_out_Index
+1bb99c36,STUStatescriptActionSpawnPet,Action,medium,crc-brute,yes,8,6,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+1bd4fa79,STUStatescriptActionSpectateTeam,Action,medium,crc-brute,yes,3,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+1e0f81b5,STUStatescriptActionFindNewPath,Action,medium,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,fields m_success m_failure
+2501a4db,STUStatescriptActionPickTip,Action,medium,crc-2w,yes,4,4,T019 CRC search: kind prefix + 2 words,fields m_buckets m_out_Text
+2ecefc8b,STUStatescriptAction,Action,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+321be080,STUStatescriptActionSwitch,Action,exact,owlib-table,yes,4,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+394a4156,STUStatescriptActionSetVars,Action,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+3fccf8cb,STUStatescriptActionUXPrepPurchase,Action,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"m_guid; family UX{Prep,Confirm,Cancel}Purchase"
+4559d3c8,STUStatescriptActionSetPetScore,Action,low,crc-3w,no,16,14,T019 CRC search: kind prefix + 3 words,four fields incl. m_targets
+4698e4b6,STUStatescriptActionSetVar,Action,exact,owlib-table,yes,1813,215,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+47db120f,STUStatescriptActionBroadcastChat,Action,medium,crc-2w,yes,44,6,T019 CRC search: kind prefix + 2 words,field m_text
+4e83bc01,STUStatescriptActionCriteria,Action,exact,owlib-table,yes,377,119,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+4f14c91b,STUStatescriptActionRespawnPlayer,Action,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,one field
+4f67103d,STUStatescriptActionBeamEffect,Action,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+4fbcd9de,STUStatescriptActionUXToast,Action,medium,crc-brute,yes,29,10,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+5179b279,STUStatescriptActionArrayClear,Action,medium,crc-brute,yes,46,32,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+58419082,STUStatescriptActionUXAcknowledgePing,Action,low,crc-2w,no,1,1,T019 CRC search: kind prefix + 2 words,one field
+5c46d801,STUStatescriptActionDestroyEntity,Action,exact,owlib-table,yes,47,34,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+65f5405f,STUStatescriptActionGainedScore,Action,low,crc-3w,no,11,11,T019 CRC search: kind prefix + 3 words,fields m_amount m_objectiveScore
+66b5f581,STUStatescriptActionGlobalSound,Action,medium,crc-brute,yes,51,9,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+69b029cd,STUStatescriptActionUXCancelPurchase,Action,high,crc-2w,yes,2,1,T019 CRC search: kind prefix + 2 words,"m_guid; family UX{Prep,Confirm,Cancel}Purchase"
+757a8a94,STUStatescriptActionSingleRaycast,Action,medium,crc-brute,yes,6,6,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+78184003,STUStatescriptActionRemoveTargetTags,Action,high,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,field m_targetTags; family Apply/Add/RemoveTargetTags
+7b628f60,STUStatescriptActionUnhideEntity,Action,high,crc-2w,yes,0,0,T019 CRC search: kind prefix + 2 words,field m_entity; sibling STUStatescriptActionHideEntity
+7b838dd2,STUStatescriptActionUXConfirmPurchase,Action,high,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"m_guid; family UX{Prep,Confirm,Cancel}Purchase + StateUXPurchaseScreen"
+7d36e679,STUStatescriptActionHideEntity,Action,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+8194c261,STUStatescriptActionResetTips,Action,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+8b6a3312,STUStatescriptActionSendGameMessage,Action,exact,owlib-table,yes,164,80,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+916290ad,STUStatescriptActionMovementMod,Action,exact,owlib-table,yes,16,12,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+a257245a,STUStatescriptActionSetTeamIndex,Action,high,crc-3w,yes,3,2,T019 CRC search: kind prefix + 3 words,fields m_targets m_teamIndex
+a47f6505,STUStatescriptActionSpectateSelf,Action,high,crc-2w,yes,4,1,T019 CRC search: kind prefix + 2 words,siblings SpectateNext/Previous/Team
+a8880f27,STUStatescriptActionBlink,Action,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+a88eb9de,STUStatescriptActionArrayRemove,Action,high,crc-2w,yes,20,11,T019 CRC search: kind prefix + 2 words,"fields m_out_Array m_index m_key m_value; siblings ArrayAdd, ArrayClear"
+ac88de21,STUStatescriptActionStopPathing,Action,medium,crc-2w,yes,0,0,T019 CRC search: kind prefix + 2 words,pair StateAIPathing
+b5741c58,STUStatescriptActionSetCollisionPriority,Action,high,crc-3w,yes,7,3,T019 CRC search: kind prefix + 3 words,fields m_targets m_priority
+b6853829,STUStatescriptActionStopAbility,Action,medium,crc-brute,yes,63,45,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+bd6a3dff,STUStatescriptActionAddTargetTags,Action,high,crc-3w,yes,2,1,T019 CRC search: kind prefix + 3 words,field m_targetTags; family Apply/Add/RemoveTargetTags
+c370abc0,STUStatescriptActionPauseAnim,Action,exact,owlib-table,yes,3,3,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+c43f6a1b,STUStatescriptActionUXSendHeroSelection,Action,medium,crc-3w,yes,4,1,T019 CRC search: kind prefix + 3 words,fields m_hero m_skin
+d285a1bb,STUStatescriptActionFindEntities,Action,medium,crc-brute,yes,5,4,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+d462de65,STUStatescriptActionSpectatePrevious,Action,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+db1b4c5a,STUStatescriptActionSpectateNext,Action,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+de4f0f88,STUStatescriptActionTeleportTo,Action,medium,crc-brute,yes,4,4,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+dea4f9bc,STUStatescriptActionUXDisconnect,Action,high,crc-2w,yes,7,4,T019 CRC search: kind prefix + 2 words,fields m_fromInstance m_fromLobby
+def847d3,STUStatescriptActionResurrect,Action,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e26e3861,STUStatescriptActionUXFriendRequest,Action,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"UX action, one field"
+e4d667e6,STUStatescriptActionDebugText,Action,medium,crc-brute,yes,157,56,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+eaee2743,STUStatescriptActionInstanceEvent,Action,medium,crc-brute,yes,58,48,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+eb923a6a,STUStatescriptActionEffect,Action,exact,owlib-table,yes,296,116,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+ece45723,STUStatescriptActionBroadcastGameMessage,Action,medium,crc-3w,yes,13,5,T019 CRC search: kind prefix + 3 words,child of f9f1e339 like STUStatescriptActionSendGameMessage
+f1201eda,STUStatescriptActionEndMatch,Action,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+f5a51858,STUStatescriptActionRepeat,Action,exact,owlib-table,yes,3,3,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f8ec9531,STUStatescriptActionRestartAnim,Action,exact,owlib-table,yes,2,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f90c6c08,STUStatescriptActionGameFinished,Action,medium,crc-brute,yes,2,2,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+f9ef59a6,STUStatescriptActionPlayScript,Action,exact,owlib-table,yes,52,34,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+fad70581,STUStatescriptActionEjectCosmeticEntity,Action,exact,owlib-table,yes,6,4,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+138ccab0,STUStatescriptAndGate,Base,medium,crc-2w,yes,5,4,T019 CRC search: kind prefix + 2 words,STUStatescriptBase child (not Action/State): m_inPlug m_outPlug + i32 list c77035be
+a97578e7,STUStatescriptBase,Base,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+07722a23,STUStatescriptCondition_Timeout,Condition,high,crc-1w,yes,12,11,T019 CRC search: kind prefix + 1 word,one float field (c4630712); underscore family; casing Timeout vs TimeOut undecidable
+4768e4a3,STUStatescriptCondition_LogicalButton,Condition,high,crc-2w,yes,4,4,T019 CRC search: kind prefix + 2 words,field m_logicalButton; underscore family
+5720b660,STUStatescriptCondition_ArrayContains,Condition,high,crc-2w,yes,35,11,T019 CRC search: kind prefix + 2 words,fields edfb51d3 (array) m_key m_value; sibling STUConfigVarArrayContains
+6f10080f,STUStatescriptCondition,Condition,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+b1032daf,STUStatescriptCondition_Bool,Condition,high,crc-1w,yes,940,198,T019 CRC search: kind prefix + 1 word,only field m_condition; underscore convention shared by all 4 condition types
+023e430a,STUConfigVarGetEntityLeftVector,ConfigVar,exact,owlib-table,yes,16,11,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+04e83493,STUConfigVarStatescriptGraph,ConfigVar,medium,crc-brute,yes,134,57,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+054bc7e8,STUConfigVarEnum,ConfigVar,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+062d774c,STUConfigVarGetWorldSpacePosition,ConfigVar,medium,crc-3w,yes,15,4,T019 CRC search: kind prefix + 3 words,"VecBase, fields m_entity m_offset"
+098c01a7,STUConfigVarSkin,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+09e7eb88,STUConfigVarInCustomGame,ConfigVar,high,crc-3w,yes,7,3,T019 CRC search: kind prefix + 3 words,BoolBase; sibling STUConfigVarInMatchmaking
+0badb906,STUConfigVarGetEntityYaw,ConfigVar,exact,owlib-table,yes,71,42,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+0d1c206a,STUConfigVarUXEnum,ConfigVar,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+0eef80e2,STUConfigVarIsModeReplay,ConfigVar,medium,crc-2w,yes,3,3,T019 CRC search: kind prefix + 2 words,"BoolBase, no inputs; pair IsModeLobby"
+13ba10f6,STUConfigVarArray,ConfigVar,exact,owlib-table,yes,33,14,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+13d7f101,STUConfigVarGetHeroLoadoutIcon,ConfigVar,high,crc-3w,yes,14,13,T019 CRC search: kind prefix + 3 words,child of GetHeroLoadoutBase
+153a4773,STUConfigVarGetHeroPreview,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+16403206,STUConfigVarGetSelectedSpray,ConfigVar,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+16c264e9,STUConfigVarFloatBase,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+17e77fd2,STUConfigVarBoolBase,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+18f4c87c,STUConfigVarGetLocalPlayerHero,ConfigVar,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"Resource, no inputs; sibling GetLocalPlayer"
+1942ab16,STUConfigVarIsModeLobby,ConfigVar,medium,crc-2w,yes,0,0,T019 CRC search: kind prefix + 2 words,"BoolBase, no inputs; pair IsModeReplay"
+1b6632cd,STUConfigVarGetEntityExists,ConfigVar,exact,owlib-table,yes,44,26,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+1eff9521,STUConfigVarGetPrimaryPossessorEntity,ConfigVar,high,crc-3w,yes,53,10,T019 CRC search: kind prefix + 3 words,"EntityID, m_entity; pair with GetPrimaryPossessedEntity"
+221f6fb0,STUConfigVarShowMode,ConfigVar,medium,crc-brute,yes,11,9,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+25e74461,STUConfigVarGetLocalPlayerHeroLevel,ConfigVar,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"Numeric, field m_hero"
+261676f0,STUConfigVarGetOwner,ConfigVar,exact,owlib-table,yes,3042,238,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+266ca3bc,STUConfigVarAnimationBase,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+2860a6dc,STUConfigVarGetHeroLoadoutName,ConfigVar,high,crc-3w,yes,6,2,T019 CRC search: kind prefix + 3 words,child of GetHeroLoadoutBase
+2adc2e14,STUConfigVarStackPriority,ConfigVar,medium,crc-brute,yes,442,138,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+2b46bc10,STUConfigVarDBID,ConfigVar,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+2b8efd68,STUConfigVarGetFireScore,ConfigVar,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+2f48315d,STUConfigVarGetAIDestination,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+31011e9b,STUConfigVarTexture,ConfigVar,exact,owlib-table,yes,133,96,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+31c142e1,STUConfigVarGetEntityUpVector,ConfigVar,exact,owlib-table,yes,6,5,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+3439f27f,STUConfigVarUXDisplayText,ConfigVar,exact,owlib-table,yes,185,37,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+3661ea61,STUConfigVarUXGetPing,ConfigVar,high,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,String child; family UXGetRTT / UXGetInterpolationDelay
+36e0dbe6,STUConfigVarGetEntityViewTarget,ConfigVar,medium,crc-2w,yes,3,1,T019 CRC search: kind prefix + 2 words,"EntityID, m_entity"
+381d5387,STUConfigVarGetEntityCombinedHealth,ConfigVar,medium,crc-2w,yes,12,11,T019 CRC search: kind prefix + 2 words,"Numeric, m_entity; sibling GetEntityHealth"
+38671ef6,STUConfigVarGetSelectedSprayEffect,ConfigVar,medium,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,"Resource, m_entity; sibling GetSelectedSpray"
+38901d1b,STUConfigVarModelLook,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+38f63436,STUConfigVarGetNextMap,ConfigVar,medium,crc-brute,yes,2,2,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+3ae7427e,STUConfigVarInt,ConfigVar,exact,owlib-table,yes,4291,255,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+3c9fb6d7,STUConfigVarGetEntityHeadPos,ConfigVar,exact,owlib-table,yes,76,39,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+3d2488d2,STUConfigVarGetGravity,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+3df41d8f,STUConfigVarRaycastType,ConfigVar,medium,crc-brute,yes,82,36,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+3eb3d6ce,STUConfigVarBone,ConfigVar,exact,owlib-table,yes,70,28,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+407abbba,STUConfigVarGetMapAnnouncerWelcome,ConfigVar,low,crc-3w,no,1,1,T019 CRC search: kind prefix + 3 words,"Resource, m_map"
+436c434b,STUConfigVarBoolRandom,ConfigVar,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+47173b0d,STUConfigVarIsPlatformMac,ConfigVar,high,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"BoolBase, no inputs; pair IsPlatformWindows"
+4c31363c,STUConfigVarArrayContains,ConfigVar,medium,crc-brute,yes,85,52,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+4c35245d,STUConfigVarEntityDefinitionBase,ConfigVar,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+4d35f2bd,STUConfigVarInMatchmaking,ConfigVar,medium,crc-brute,yes,6,2,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+4f205faf,STUConfigVarGetGlobalEntity,ConfigVar,medium,crc-brute,yes,25,18,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+4ff6e110,STUConfigVarStringBase,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+518af43a,STUConfigVarGetEntityBasePosition,ConfigVar,exact,owlib-table,yes,3,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+53b7d44e,STUConfigVarHasEscortPos,ConfigVar,medium,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,BoolBase; sibling GetEscortPos
+5529c204,STUConfigVarGetMapName,ConfigVar,medium,crc-brute,yes,5,4,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+566f2c74,STUConfigVarIsHeroPlayable,ConfigVar,medium,crc-2w,yes,2,1,T019 CRC search: kind prefix + 2 words,"BoolBase, field m_hero"
+5678a808,STUConfigVarColorBase,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+56a0d806,STUConfigVarGetEntityForwardVector,ConfigVar,exact,owlib-table,yes,41,18,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+56ad73f3,STUConfigVarGetRichTextString,ConfigVar,medium,crc-3w,yes,60,20,T019 CRC search: kind prefix + 3 words,"StringBase child, field m_foregroundColor"
+5852c346,STUConfigVarGetMapTease,ConfigVar,exact,owlib-table,yes,2,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+5a3b073f,STUConfigVarHero,ConfigVar,exact,owlib-table,yes,2,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+5c73d1df,STUConfigVarIsInParty,ConfigVar,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"BoolBase, no inputs; pair IsPartyLeader"
+5c7964ff,STUConfigVarLogicalButton,ConfigVar,exact,owlib-table,yes,421,117,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+5dd4ed21,STUConfigVarGetLocalPlayer,ConfigVar,medium,crc-brute,yes,69,25,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+5e745f2b,STUConfigVarBool,ConfigVar,exact,owlib-table,yes,2813,243,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+62659035,STUConfigVarGetEntityPitch,ConfigVar,exact,owlib-table,yes,36,27,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+6324dd9f,STUConfigVarIdentifier,ConfigVar,exact,owlib-table,yes,829,177,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+65f4c9d9,STUConfigVarResource,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+66665893,STUConfigVarGetEntityCollisionRadius,ConfigVar,exact,owlib-table,yes,2,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+6723776e,STUConfigVarGetEntityHealth,ConfigVar,exact,owlib-table,yes,28,12,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+6774a48a,STUConfigVarIntRandom,ConfigVar,medium,crc-brute,yes,5,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+6bdad1c6,STUConfigVarGetEntityHeroName,ConfigVar,high,crc-2w,yes,23,2,T019 CRC search: kind prefix + 2 words,"StringBase child, m_entity; sibling GetHeroName"
+6c40a6e3,STUConfigVarUXGetRTT,ConfigVar,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+6c916b7e,STUConfigVarLightingLayer,ConfigVar,medium,crc-brute,yes,3,3,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+6f53d515,STUConfigVarGetEntityIsSpectator,ConfigVar,medium,crc-2w,yes,2,2,T019 CRC search: kind prefix + 2 words,"BoolBase, m_entity"
+70429452,STUConfigVarGetEntityHardPointPosition,ConfigVar,exact,owlib-table,yes,19,14,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+722ea2e4,STUConfigVarIsInTutorialMode,ConfigVar,low,crc-3w,no,30,17,T019 CRC search: kind prefix + 3 words,"BoolBase, no inputs"
+732623c4,STUConfigVarGetEscortPos,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+73fe9b53,STUConfigVarContactSet,ConfigVar,exact,owlib-table,yes,18,11,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7415827c,STUConfigVarGetEntityPetName,ConfigVar,low,crc-2w,no,0,0,T019 CRC search: kind prefix + 2 words,"Resource, m_entity"
+74bcf7ab,STUConfigVarGetEntityHero,ConfigVar,exact,owlib-table,yes,6,3,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7705e5e6,STUConfigVarGetOvertimeRemaining,ConfigVar,high,crc-2w,yes,6,3,T019 CRC search: kind prefix + 2 words,"Numeric, no inputs; pair with GetMaxOvertimeLength"
+79771a3a,STUConfigVarGamePadVibration,ConfigVar,exact,owlib-table,yes,18,7,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7a1040f7,STUConfigVarGetPlayerResponsible,ConfigVar,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+7b13a0d4,STUConfigVarFloat,ConfigVar,exact,owlib-table,yes,2011,195,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7b44c3c9,STUConfigVarTargetTag,ConfigVar,exact,owlib-table,yes,152,46,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7b51e72b,STUConfigVarGetEntityName,ConfigVar,exact,owlib-table,yes,98,24,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7c39e5e6,STUConfigVarGetMap,ConfigVar,exact,owlib-table,yes,9,5,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7ead98e5,STUConfigVarFilter,ConfigVar,exact,owlib-table,yes,484,134,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8193e95a,STUConfigVarGetCosmeticEntity,ConfigVar,medium,crc-brute,yes,21,4,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+824213f0,STUConfigVarDataFlow,ConfigVar,exact,owlib-table,yes,283,87,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+827387ee,STUConfigVarGetEntityVisualHardPointPosition,ConfigVar,high,crc-3w,yes,58,21,T019 CRC search: kind prefix + 3 words,"VecBase, fields m_entity m_hardPoint; sibling GetEntityHardPointPosition; family GetEntityVisual*"
+82dd21b8,STUConfigVarStringTexture,ConfigVar,medium,crc-brute,yes,2,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+86503ec0,STUConfigVarAnimation,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+86b5ecea,STUConfigVarBacklitColor,ConfigVar,low,crc-2w,no,18,2,T019 CRC search: kind prefix + 2 words,ColorBase child; single cue
+86f201aa,STUConfigVarGetHeroIcon,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8761967f,STUConfigVarUXAuthorityGrey,ConfigVar,medium,crc-brute,yes,27,23,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+897cb94a,STUConfigVarGetEntitySlot,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8b31201d,STUConfigVarGetPrimaryPossessedEntity,ConfigVar,high,crc-3w,yes,125,21,T019 CRC search: kind prefix + 3 words,"EntityID, m_entity; pair with GetPrimaryPossessorEntity"
+8cb6be1c,STUConfigVarIterable,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8d19741a,STUConfigVarAIDefinition,ConfigVar,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+8d4869d1,STUConfigVarGetEntityBoundsDimensions,ConfigVar,exact,owlib-table,yes,6,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8d591677,STUConfigVarVec3Comp,ConfigVar,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"VecBase, fields m_valueX m_valueY m_valueZ"
+8e85bff5,STUConfigVarGetLocalPlayerPrimaryPossessable,ConfigVar,medium,crc-2w,yes,31,14,T019 CRC search: kind prefix + 2 words,"EntityID, no inputs; possess family"
+8fe4a55c,STUConfigVarHardPoint,ConfigVar,exact,owlib-table,yes,567,108,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+90e9e721,STUConfigVarHandle,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+91c4af3f,STUConfigVarGetEntityFacingVector,ConfigVar,exact,owlib-table,yes,85,40,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+98dadbbf,STUConfigVarGetSkinName,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+9d90350e,STUConfigVarGetMapObjectiveIcon,ConfigVar,medium,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,"Resource, fields m_map m_team"
+9ec82686,STUConfigVarGetEntityVisualPosition,ConfigVar,high,crc-2w,yes,37,20,T019 CRC search: kind prefix + 2 words,"VecBase child, m_entity; family GetEntityVisual*"
+9f16f09a,STUConfigVarGetProjectileOwner,ConfigVar,medium,crc-brute,yes,13,5,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+9f97c6bb,STUConfigVarGetEntityVisualFacingVector,ConfigVar,high,crc-3w,yes,13,9,T019 CRC search: kind prefix + 3 words,"VecBase, m_entity; sibling GetEntityFacingVector; family GetEntityVisual*"
+9fd77551,STUConfigVarString,ConfigVar,exact,owlib-table,yes,148,89,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+9ffbfbb7,STUConfigVarIsPlatformWindows,ConfigVar,high,crc-2w,yes,3,2,T019 CRC search: kind prefix + 2 words,"BoolBase, no inputs; pair IsPlatformMac"
+a07b181c,STUConfigVarGetEntityProjectedPosition,ConfigVar,high,crc-2w,yes,0,0,T019 CRC search: kind prefix + 2 words,"VecBase, fields m_entity m_initialVelocity m_isCrouching"
+a08d3c3b,STUConfigVarGetEntityVelocityVector,ConfigVar,exact,owlib-table,yes,6,5,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+a44338c8,STUConfigVarGetGPUTemp,ConfigVar,low,crc-2w,no,1,1,T019 CRC search: kind prefix + 2 words,"String, no inputs"
+a45d936b,STUConfigVarGetReticleRadius,ConfigVar,medium,crc-brute,yes,4,4,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+a9bd7ad3,STUConfigVarIsPartyLeader,ConfigVar,medium,crc-2w,yes,7,1,T019 CRC search: kind prefix + 2 words,"BoolBase, no inputs; pair IsInParty"
+aa995333,STUConfigVarEntityNameplateVisible,ConfigVar,low,crc-3w,no,1,1,T019 CRC search: kind prefix + 3 words,"BoolBase, m_entity"
+aaa8450c,STUConfigVarEntityReference,ConfigVar,exact,owlib-table,yes,2,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+acfe29ca,STUConfigVarVec2,ConfigVar,exact,owlib-table,yes,13,4,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+adc6d1a0,STUConfigVarIsHUDEnabled,ConfigVar,low,crc-3w,no,12,8,T019 CRC search: kind prefix + 3 words,"BoolBase, no inputs"
+ae45e451,STUConfigVarIsPointInArea,ConfigVar,medium,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,"BoolBase, fields fb524c40 m_entity"
+aeef26c4,STUConfigVarGetSurfaceEntity,ConfigVar,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+b09ae0a8,STUConfigVarHeroColor,ConfigVar,medium,crc-brute,yes,3,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+b0bbdf5a,STUConfigVarGetEntityPosition,ConfigVar,exact,owlib-table,yes,153,48,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+b0e8443b,STUConfigVarGetAITarget,ConfigVar,exact,owlib-table,yes,20,5,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+b164e7c6,STUConfigVarGetEntityMaxHealth,ConfigVar,high,crc-2w,yes,13,4,T019 CRC search: kind prefix + 2 words,"Numeric child, m_entity; sibling GetEntityHealth"
+b40fa21b,STUConfigVarGetHeroRole,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+b5e9c66e,STUConfigVarIsHeroSelectActive,ConfigVar,exact,owlib-table,yes,14,14,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+b6f726bb,STUConfigVarGetHeroLoadoutBase,ConfigVar,high,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,parent of 13d7f101 and 2860a6dc; fields m_logicalButton m_entity
+b709560a,STUConfigVarEffect,ConfigVar,exact,owlib-table,yes,681,172,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+b90a34a2,STUConfigVarGetIndexInArray,ConfigVar,high,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,"IntBase, fields edfb51d3 (the array field of Condition_ArrayContains) + 81b41f3f"
+babc78ad,STUConfigVarGetFPS,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+bac93091,STUConfigVarEntityID,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+bced5f1e,STUConfigVarGetNumPets,ConfigVar,low,crc-2w,no,3,3,T019 CRC search: kind prefix + 2 words,"Numeric, two fields"
+bd1b3274,STUConfigVarMap,ConfigVar,exact,owlib-table,yes,6,3,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+bd2cbd1f,STUConfigVarUXGetInterpolationDelay,ConfigVar,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,String child; family UXGetRTT / UXGetPing
+bd455677,STUConfigVarGetHeroName,ConfigVar,exact,owlib-table,yes,3,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+bfd9aadd,STUConfigVar,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+c6e89b8f,STUConfigVarVecBase,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+c6f01de9,STUConfigVarGetEntityPassesFilter,ConfigVar,high,source,yes,173,70,prometheus/Prometheus-Core/entity_admin.h (comment),Prometheus-Core/entity_admin.h comment names it; fields m_entity + m_filter:CVFilter; returns bool
+cbd4f4f2,STUConfigVarGetThrottle,ConfigVar,exact,owlib-table,yes,6,4,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+cc28a9d6,STUConfigVarAnimCategory,ConfigVar,exact,owlib-table,yes,126,49,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+cc3a08f4,STUConfigVarExpression,ConfigVar,exact,owlib-table,yes,253,81,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+cd35ad96,STUConfigVarVoiceStimulus,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+ce9fd8e1,STUConfigVarGetUsingGamepad,ConfigVar,medium,crc-2w,yes,21,9,T019 CRC search: kind prefix + 2 words,"BoolBase, no inputs"
+cf15cfa6,STUConfigVarTeam,ConfigVar,exact,owlib-table,yes,50,13,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d0677667,STUConfigVarModelLOD,ConfigVar,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+d07ca4ab,STUConfigVarGetStringLength,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d1211491,STUConfigVarEntityUnlocked,ConfigVar,low,crc-2w,no,1,1,T019 CRC search: kind prefix + 2 words,"BoolBase, one field"
+d1d51f19,STUConfigVarGetTeam,ConfigVar,exact,owlib-table,yes,198,56,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d3d12aec,STUConfigVarUXIDLink,ConfigVar,medium,crc-brute,yes,250,116,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+d4239a46,STUConfigVarSkinTheme,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d466d90f,STUConfigVarGetEntityController,ConfigVar,exact,owlib-table,yes,38,24,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d4e0b6a8,STUConfigVarColor,ConfigVar,exact,owlib-table,yes,86,32,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d5384f53,STUConfigVarGetPvPEntity,ConfigVar,high,crc-2w,yes,66,28,T019 CRC search: kind prefix + 2 words,measured: returns the newest entity with a PvP-game component (docs/MatchLogic.md)
+d7aa244a,STUConfigVarGetEntityBoundsCenter,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d824c72b,STUConfigVarGetUIScreenPos,ConfigVar,low,crc-3w,no,2,1,T019 CRC search: kind prefix + 3 words,"VecBase, field m_id"
+dbf9195c,STUConfigVarVec3,ConfigVar,exact,owlib-table,yes,127,48,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+dc0a8d4e,STUConfigVarGetMaxOvertimeLength,ConfigVar,high,crc-3w,yes,2,2,T019 CRC search: kind prefix + 3 words,"Numeric, no inputs; pair with GetOvertimeRemaining"
+dcadc6c2,STUConfigVarAura,ConfigVar,exact,owlib-table,yes,41,30,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+dcdf6679,STUConfigVarGetLocalPlayerPossessedView,ConfigVar,medium,crc-2w,yes,224,65,T019 CRC search: kind prefix + 2 words,"EntityID, no inputs; possess family (StatePossessView, GetPrimaryPossessed*)"
+decb4aff,STUConfigVarFindEntity,ConfigVar,medium,crc-brute,yes,16,9,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e0d68734,STUConfigVarStringTime,ConfigVar,medium,crc-brute,yes,8,6,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e1254f43,STUConfigVarGet2DDistance,ConfigVar,low,crc-2w,no,0,0,T019 CRC search: kind prefix + 2 words,fields m_posA m_posB but parent is VecBase (a distance would be Numeric)
+e32c898e,STUConfigVarGroundPitch,ConfigVar,medium,crc-brute,yes,2,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e4302ab4,STUConfigVarAbilityStatus,ConfigVar,medium,crc-brute,yes,9,5,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e4be1517,STUConfigVarGetHeroResponsible,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+e4d3b333,STUConfigVarGetEntitySurfaceVelocityVector,ConfigVar,medium,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,"VecBase, m_entity; sibling GetEntityVelocityVector"
+e53c2921,STUConfigVarEntityDefinition,ConfigVar,medium,crc-brute,yes,253,90,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e5e40e59,STUConfigVarGetAIFacingVector,ConfigVar,exact,owlib-table,yes,12,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+e778cb36,STUConfigVarHealthType,ConfigVar,medium,crc-brute,yes,142,22,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e7ea9321,STUConfigVarGetColorCodeString,ConfigVar,medium,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,"StringBase child, field m_color"
+e9fe238d,STUConfigVarUXScreen,ConfigVar,exact,owlib-table,yes,162,90,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+ec502a81,STUConfigVarExpressionTyped,ConfigVar,medium,crc-2w,yes,3226,254,T019 CRC search: kind prefix + 2 words,"child of STUConfigVarExpression, no own fields"
+ee046439,STUConfigVarFormatString,ConfigVar,medium,crc-brute,yes,117,28,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+ee7800e7,STUConfigVarAnimAlias,ConfigVar,exact,owlib-table,yes,267,108,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+ef79ccf9,STUConfigVarIntBase,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f062ba36,STUConfigVarGetPetMaster,ConfigVar,exact,owlib-table,yes,87,22,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f0a4904d,STUConfigVarGetEntityDefinition,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f36d34bb,STUConfigVoiceDefinition,ConfigVar,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f4c68fa2,STUConfigVarNumeric,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f5bb64ba,STUConfigVarFloatRandom,ConfigVar,medium,crc-brute,yes,31,6,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+f6340f00,STUConfigVarGetClosestAITarget,ConfigVar,low,crc-3w,no,0,0,T019 CRC search: kind prefix + 3 words,"EntityID, two unnamed fields"
+f77dddf0,STUConfigVarArrayEquals,ConfigVar,medium,crc-2w,yes,0,0,T019 CRC search: kind prefix + 2 words,"BoolBase, two operands"
+f821d822,STUConfigVarGetCommandTargets,ConfigVar,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+f8cc195d,STUConfigVarDynamic,ConfigVar,exact,owlib-table,yes,11708,278,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f97d9973,STUConfigVarGetRoundWinningTeam,ConfigVar,medium,crc-3w,yes,8,5,T019 CRC search: kind prefix + 3 words,"IntBase, no inputs"
+ff20da09,STUConfigVarSkinBase,ConfigVar,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+ff7876f9,STUConfigVarGameMessage,ConfigVar,exact,owlib-table,yes,725,206,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+2f937ae3,STUStatescriptEntry,Entry,exact,owlib-table,yes,549,253,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+46c48944,STUStatescriptEntryPlayScript,Entry,exact,owlib-table,yes,28,27,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+be49a4c2,STUStatescriptEntryGameMessage,Entry,exact,owlib-table,yes,488,173,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+0119c536,STUStatescriptStateCapturePointEvents,State,medium,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,six unnamed fields
+012a1554,STUStatescriptStatePathConstraint,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+01419d1c,STUStatescriptStateUXFade,State,exact,owlib-table,yes,6,5,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+01d127ec,STUStatescriptStateCounter,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+01d6952a,STUStatescriptStateLimitAim,State,exact,owlib-table,yes,34,26,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+029bf346,STUStatescriptStateHistoryBuilder,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+02e4a0ab,STUStatescriptStateMovementMod,State,exact,owlib-table,yes,86,58,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+0459c53d,STUStatescriptStateUIInWorld,State,exact,owlib-table,yes,53,33,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+06bcf0df,STUStatescriptStateSubScriptBase,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+06fcca5d,STUStatescriptStateSuppressMovementPrediction,State,exact,owlib-table,yes,3,3,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+07167219,STUStatescriptStateSetLightingLayer,State,medium,crc-3w,yes,3,3,T019 CRC search: kind prefix + 3 words,one field; sibling STUConfigVarLightingLayer
+071c1efc,STUStatescriptStateUXHeroHelp,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+091d24f8,STUStatescriptStateTrackInput,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+0de81a01,STUStatescriptStateUXMenuGraphicSettings,State,high,crc-fam,yes,1,1,T019 CRC search: family pattern (sibling name) + 1 word,UXBase; same fields as UXMenuSoundSettings
+0e25f8e4,STUStatescriptStateAIFaceVector,State,medium,crc-fam,yes,0,0,T019 CRC search: family pattern (sibling name) + 1 word,child of STUStatescriptStateAIFacing
+0e78be20,STUStatescriptStateUXLobby,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+0f9dbb6a,STUStatescriptStateAIAccuracyMod,State,low,crc-3w,no,0,0,T019 CRC search: kind prefix + 3 words,m_targetEntity + 4 unnamed
+10fc71ba,STUStatescriptStateCameraChase,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+12aa4f0f,STUStatescriptStateValidateWidth,State,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,fields m_position m_direction; pair ValidatePlacement
+12db64da,STUStatescriptStateOverrideVoiceDef,State,low,crc-3w,no,6,3,T019 CRC search: kind prefix + 3 words,field m_target
+13daa15b,STUStatescriptStateOverlayMap,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+160c4f1d,STUStatescriptStateValidatePlacement,State,medium,crc-2w,yes,7,5,T019 CRC search: kind prefix + 2 words,field m_ignoreEntities; pair ValidateWidth
+174842b0,STUStatescriptStateUXWinningTeam,State,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,"UXBase, fields m_arrangement m_out_Skins m_out_Offsets m_out_Yaws (victory line-up)"
+1787a82d,STUStatescriptStateSprayEffect,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+1a81cfb7,STUStatescriptStateAnimatedCamera,State,exact,owlib-table,yes,3,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+1ab3b4d7,STUStatescriptStateApplyTargetTags,State,high,crc-3w,yes,5,5,T019 CRC search: kind prefix + 3 words,field m_targetTags; family Apply/Add/RemoveTargetTags
+1cc48157,STUStatescriptStateProjectedMovement,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+1ffbc4df,STUStatescriptStateAutoFacing,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+20569e48,STUStatescriptStateForceAimDir,State,high,crc-3w,yes,3,2,T019 CRC search: kind prefix + 3 words,fields m_forWeapon m_dir m_onEntity
+225ae956,STUStatescriptStateSoundImportanceThreat,State,low,crc-3w,no,15,14,T019 CRC search: kind prefix + 3 words,"fields m_threatPerSecond m_fixedThreat fit ""Threat"", ""SoundImportance"" unexplained"
+22fe9543,STUStatescriptStateRayCast,State,exact,owlib-table,yes,3,3,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+23a384f3,STUStatescriptStateUXMatchmaking,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+241069ef,STUStatescriptStateOrbitCamera,State,low,crc-3w,no,1,1,T019 CRC search: kind prefix + 3 words,m_targetEntity + camera-like unnamed fields
+245a6b2a,STUStatescriptStateUXHeroCustomizeScreen,State,medium,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,"UXBase, field m_hero"
+26367267,STUStatescriptStateSwitch,State,exact,owlib-table,yes,35,24,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+26cb90c0,STUStatescriptStateExtender,State,exact,owlib-table,yes,2,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+27984fc9,STUStatescriptStateTimeInArray,State,medium,crc-3w,yes,3,2,T019 CRC search: kind prefix + 3 words,fields edfb51d3 (array) m_value m_out_Time m_defaultTime
+28d0a23b,STUStatescriptStateCamera3P,State,exact,owlib-table,yes,13,11,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+2a0fb7e6,STUStatescriptStateInvincible,State,exact,owlib-table,yes,12,10,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+323aabcf,STUStatescriptStateTrackRay,State,exact,owlib-table,yes,17,6,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+37d27802,STUStatescriptStateAimLead,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+3a846155,STUStatescriptStatePossessView,State,exact,owlib-table,yes,3,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+3db862c4,STUStatescriptStateSubScript,State,exact,owlib-table,yes,77,21,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+3f27886c,STUStatescriptStateWorldFade,State,medium,crc-brute,yes,5,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+40313ff3,STUStatescriptStateUXToastQueue,State,medium,crc-brute,yes,2,2,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+41bd3f6f,STUStatescriptStateCriteria,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+429991a7,STUStatescriptStateBlinkEffect,State,exact,owlib-table,yes,2,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+44e7f474,STUStatescriptStateGamePadVibration,State,exact,owlib-table,yes,18,7,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+46b63a82,STUStatescriptStateUXChatControl,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+498b421a,STUStatescriptStateTrackTargets,State,exact,owlib-table,yes,109,57,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+49da8988,STUStatescriptStateAimRotate,State,medium,crc-2w,yes,3,3,T019 CRC search: kind prefix + 2 words,child of STUStatescriptStateAimBase
+4cced352,STUStatescriptStatePet,State,exact,owlib-table,yes,7,7,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+4e86ba5b,STUStatescriptStatePathEval,State,low,crc-2w,no,0,0,T019 CRC search: kind prefix + 2 words,parent of f778ea2f
+4f95ce09,STUStatescriptStateUXVoiceChatScreen,State,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,UXScreen child
+56aef215,STUStatescriptStateUXProfileScreen,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+57f3b2c4,STUStatescriptStateRespawnPolicy,State,low,crc-2w,no,0,0,T019 CRC search: kind prefix + 2 words,one field; parent of 6c4f68a0
+59e5e3cc,STUStatescriptStateTrackArea,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+5b2bb8b6,STUStatescriptStateUXPurchaseScreen,State,medium,crc-2w,yes,4,1,T019 CRC search: kind prefix + 2 words,"UXBase, m_guid; family *Purchase"
+5c3a5c93,STUStatescriptStateUXMenuMouseSettings,State,high,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,UXBase; family UXMenu*Settings
+5c6337eb,STUStatescriptStateUXMatchStats,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+5d6c48de,STUStatescriptStateDrawDebugLine,State,high,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,fields m_start m_end m_color; pair DrawDebugSphere
+5e494675,STUStatescriptStateUXCustomPlayScreen,State,low,crc-3w,no,1,1,T019 CRC search: kind prefix + 3 words,UXScreen child
+619d9e95,STUStatescriptStateModifyHealth,State,exact,owlib-table,yes,81,52,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+62a0012f,STUStatescriptStateAIBehavior,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+648f62a7,STUStatescriptStatePlacedCamera,State,medium,crc-brute,yes,2,2,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+65f158da,STUStatescriptStateWait,State,exact,owlib-table,yes,708,189,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+67471c66,STUStatescriptStateDeflectProjectiles,State,exact,owlib-table,yes,4,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+68cb1df9,STUStatescriptStateCombatModFilter,State,exact,owlib-table,yes,7,7,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+6bfa64af,STUStatescriptStateUXReticleOverride,State,exact,owlib-table,yes,30,23,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+6c2502e0,STUStatescriptStateUpdatePayload,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+6dcadbf1,STUStatescriptStateUXAllHeroesScreen,State,medium,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,UXBase child
+6e3b8ce5,STUStatescriptStateVoiceStimulus,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+6e81f6d4,STUStatescriptStateCosmeticEntity,State,exact,owlib-table,yes,140,66,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+71c68397,STUStatescriptStateUXToast,State,exact,owlib-table,yes,5,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7211cf70,STUStatescriptStateHistoryRewinder,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+72509d3b,STUStatescriptStateFindGround,State,exact,owlib-table,yes,6,3,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7331cb24,STUStatescriptStateInvisible,State,exact,owlib-table,yes,20,14,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+74cb0002,STUStatescriptStatePossessControl,State,exact,owlib-table,yes,3,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+76391dd3,STUStatescriptStateTrackSlamming,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+76b28b97,STUStatescriptStateContactSet,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+795e2668,STUStatescriptStateEffectEmitBulk,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+7ab92812,STUStatescriptStateUXMenuGamepadSettings,State,high,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,UXBase; family UXMenu*Settings
+7b3ed271,STUStatescriptStateCameraLookAt,State,exact,owlib-table,yes,19,8,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+7bf31629,STUStatescriptStateScaleTime,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+7f336b68,STUStatescriptStateUXPartyScreen,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+7fb4bf64,STUStatescriptStateAnim,State,exact,owlib-table,yes,259,108,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+81f33242,STUStatescriptStateHideCosmeticEntity,State,medium,crc-3w,yes,2,1,T019 CRC search: kind prefix + 3 words,one field; sibling StateCosmeticEntity
+85c28a9a,STUStatescriptStateDataFlowMapping,State,exact,owlib-table,yes,240,84,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+85d43f96,STUStatescriptStateWeaponAim,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+86049103,STUStatescriptStateUXDialogBox,State,medium,crc-brute,yes,2,2,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+860ee5fc,STUStatescriptStateWeaponVolley,State,exact,owlib-table,yes,65,41,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+87a2edd1,STUStatescriptStateSequencer,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8ba08edd,STUStatescriptStateUXBase,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8d50485a,STUStatescriptStateShockwave,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8de7e50f,STUStatescriptStateTrackMovement,State,exact,owlib-table,yes,12,12,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+8f23fa30,STUStatescriptStateUXHeroSelectScreen,State,high,source,yes,1,1,prometheus/Prometheus-Core/STU.h (STU_NAME),Prometheus-Core/STU.h STU_NAME; UXBase child
+92f7915f,STUStatescriptStatePreserveButtonState,State,medium,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,field m_logicalButtons
+9608418a,STUStatescriptStatePlayReel,State,medium,crc-2w,yes,2,1,T019 CRC search: kind prefix + 2 words,shares fields 53e84aef d32654db with StateReelReady; m_onAbortPlug m_onFinishedPlug
+970ec198,STUStatescriptStateChaseVar,State,exact,owlib-table,yes,263,96,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+971645fe,STUStatescriptStateAttach,State,exact,owlib-table,yes,11,10,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+97315c42,STUStatescriptStatePvPGame,State,low,crc-2w,no,3,3,T019 CRC search: kind prefix + 2 words,seven unnamed fields
+975e8048,STUStatescriptStateAIPathing,State,medium,crc-2w,yes,0,0,T019 CRC search: kind prefix + 2 words,pair ActionStopPathing
+984cab99,STUStatescriptStateUXScoreboardScreen,State,medium,crc-2w,yes,2,1,T019 CRC search: kind prefix + 2 words,UXBase child
+985bcc76,STUStatescriptStateDeflectProjectilesEffects,State,exact,owlib-table,yes,2,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+985d49fe,STUStatescriptStateTargetFilterBase,State,high,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,"parent of c7409708, f2163ed4, dda31b5c; field c97f2482"
+9c27cbce,STUStatescriptStateSuppressCapture,State,medium,crc-brute,yes,4,4,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+9f74c07c,STUStatescriptStateClientonlyController,State,medium,crc-brute,yes,58,35,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+a5f89e3f,STUStatescriptStateCameraTransform,State,exact,owlib-table,yes,20,14,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+a66e33f7,STUStatescriptStateUXNextMap,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+a7213568,STUStatescriptState,State,exact,owlib-table,yes,124,77,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+a7ca1073,STUStatescriptStateTrackStatTime,State,high,crc-3w,yes,22,12,T019 CRC search: kind prefix + 3 words,fields m_stat m_targets; sibling STUStatescriptActionTrackStat
+a97b875f,STUStatescriptStatePopulateTips,State,high,crc-2w,yes,44,27,T019 CRC search: kind prefix + 2 words,field m_tips:STUTip[]
+a9d1db82,STUStatescriptStateUXHeroSheetScreen,State,medium,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,"UXBase, field m_heroGUID"
+aa488c28,STUStatescriptStateImpactEffectOverride,State,medium,crc-3w,yes,0,0,T019 CRC search: kind prefix + 3 words,field m_effectGUID
+ac2d7abe,STUStatescriptStateAIFacing,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+af1de228,STUStatescriptStateReelReady,State,medium,crc-2w,yes,2,1,T019 CRC search: kind prefix + 2 words,shares fields with StatePlayReel
+b0054407,STUStatescriptStateSceneBlur,State,low,crc-2w,no,8,8,T019 CRC search: kind prefix + 2 words,three unnamed fields
+b1001dcf,STUStatescriptStatePhaseOut,State,exact,owlib-table,yes,13,12,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+bc3a55c5,STUStatescriptStateWeaponAccuracy,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+bcaffa62,STUStatescriptStateDrawDebugSphere,State,high,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,fields m_radius m_color; pair DrawDebugLine
+bf733a32,STUStatescriptStateTimeScaleAnimation,State,high,crc-3w,yes,2,2,T019 CRC search: kind prefix + 3 words,field m_timeScale
+c0a88bb0,STUStatescriptStateBeamEffect,State,exact,owlib-table,yes,29,15,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+c1035274,STUStatescriptStateMoveTo,State,exact,owlib-table,yes,10,9,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+c17b255d,STUStatescriptStateHealthPool,State,exact,owlib-table,yes,20,17,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+c2a01675,STUStatescriptStateUXViewModel,State,medium,crc-brute,yes,158,108,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+c2eeee16,STUStatescriptStateSteer,State,exact,owlib-table,yes,2,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+c5dcbfa1,STUStatescriptStateFilterArray,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+c739baac,STUStatescriptStateUXScreen,State,exact,owlib-table,yes,50,37,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+c7409708,STUStatescriptStateAlliesTargetFilter,State,high,crc-fam,yes,3,3,T019 CRC search: family pattern (sibling name) + 1 word,child of StateTargetFilterBase
+cd396790,STUStatescriptStateWaitForServer,State,low,crc-3w,no,29,16,T019 CRC search: kind prefix + 3 words,m_onAbortPlug m_onFinishedPlug + 3 dynamic outs
+d43bf558,STUStatescriptStateSetWind,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+d689c470,STUStatescriptStateLogicalButtonClientOnly,State,high,crc-3w,yes,11,3,T019 CRC search: kind prefix + 3 words,"same fields as STUStatescriptStateLogicalButton (m_logicalButton, m_onGoingDownPlug, m_onComingUpPlug)"
+d78490d1,STUStatescriptStateApplyAura,State,exact,owlib-table,yes,34,25,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d7ca9c01,STUStatescriptStateTargetEffect,State,exact,owlib-table,yes,16,9,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+d7f0e8e2,STUStatescriptStateUXMenuSoundSettings,State,high,crc-3w,yes,1,1,T019 CRC search: kind prefix + 3 words,"UXBase, fields m_out_Error ...; family UXMenu*Settings (same fields as 0de81a01, ed25e9f2)"
+ded0a3a1,STUStatescriptStateUXPOTGCam,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+dff7e7a8,STUStatescriptStateAimBase,State,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+e0309618,STUStatescriptStateUXProgression,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+e22c4db2,STUStatescriptStateLaunchVelocity,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e39c9d83,STUStatescriptStateOverrideModelLook,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+e452cc91,STUStatescriptStateLobbyWorld,State,medium,crc-brute,yes,1,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+e4e43d57,STUStatescriptStateUXRadialMenu,State,medium,crc-2w,yes,2,1,T019 CRC search: kind prefix + 2 words,UXBase child
+e67578c0,STUStatescriptStateWatch,State,exact,owlib-table,yes,38,32,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+e7c6aaf6,STUStatescriptStateCreateEntity,State,exact,owlib-table,yes,3,3,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+e811ecbb,STUStatescriptStateBooleanSwitch,State,exact,owlib-table,yes,782,190,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+e831bef1,STUStatescriptStateAssist,State,exact,owlib-table,yes,6,5,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+eac1d3ca,STUStatescriptStateUXKillCam,State,medium,crc-2w,yes,1,1,T019 CRC search: kind prefix + 2 words,UXBase child
+ed25e9f2,STUStatescriptStateUXMenuGammaScreen,State,medium,crc-fam,yes,1,1,T019 CRC search: family pattern (sibling name) + 1 word,UXBase; same fields as UXMenuSoundSettings
+ed329693,STUStatescriptStateRestrictLocation,State,low,crc-2w,no,0,0,T019 CRC search: kind prefix + 2 words,child of f1c8d756
+ed81c7fb,STUStatescriptStateAimSpeed,State,exact,owlib-table,yes,2,2,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f16bff1b,STUStatescriptStateAutoInput,State,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+f45a1956,STUStatescriptStateWallMove,State,exact,owlib-table,yes,4,4,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f533c587,STUStatescriptStateGlobalSound,State,medium,crc-brute,yes,2,1,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+f536a60f,STUStatescriptStateOverrideFallDamage,State,low,crc-3w,no,1,1,T019 CRC search: kind prefix + 3 words,child of f1c8d756
+f53c5da8,STUStatescriptStateAbility,State,exact,owlib-table,yes,63,59,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+f6e1e486,STUStatescriptStateLedgeClimb,State,medium,crc-brute,yes,5,5,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+f778ea2f,STUStatescriptStatePathGoal,State,low,crc-2w,no,0,0,T019 CRC search: kind prefix + 2 words,child of 4e86ba5b
+f7d6498c,STUStatescriptStateStack,State,exact,owlib-table,yes,823,182,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+fa0fec4f,STUStatescriptStateUnkillable,State,exact,owlib-table,yes,2,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+fea1e74b,STUStatescriptStateAccelerate,State,exact,owlib-table,yes,1,1,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+ff77458c,STUStatescriptStateLogicalButton,State,exact,owlib-table,yes,175,72,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+ffbfa88d,STUStatescriptStateEffect,State,exact,owlib-table,yes,207,106,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+15b44727,STUStatescriptActionTerminator,Terminator,exact,owlib-table,yes,0,0,systems/stu/names/KnownTypes.csv (OWLib TankLibHelper/DataPreHashChange),
+85d2552d,STUStatescriptActionStopScript,Terminator,medium,crc-brute,yes,31,24,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019
+dc0f60f6,STUStatescriptActionResetScript,Terminator,medium,crc-brute,yes,0,0,T014 brute.py (kind prefix + 1-2 tokens from OWLib names),not re-reviewed in T019

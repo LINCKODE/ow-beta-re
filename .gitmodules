@@ -1,0 +1,6 @@
+[submodule "prometheus/external/vcpkg"]
+	path = prometheus/external/vcpkg
+	url = https://github.com/microsoft/vcpkg
+[submodule "prometheus/external/imnodes"]
+	path = prometheus/external/imnodes
+	url = https://github.com/BreakingBread0/imnodes

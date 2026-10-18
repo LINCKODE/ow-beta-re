@@ -1,0 +1,13 @@
+version: v2
+modules:
+  - path: proto
+lint:
+  use:
+    - MINIMAL
+  except:
+    # The protos are reconstructed from the 0.8 client and keep Blizzard's own names;
+    # don't rename things just to satisfy style rules.
+    - PACKAGE_NO_IMPORT_CYCLE
+breaking:
+  use:
+    - FILE
